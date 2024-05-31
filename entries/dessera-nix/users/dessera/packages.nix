@@ -19,7 +19,6 @@
 
   home.packages = with pkgs; [
     brave
-    steamPackages.steam-fhsenv
     # steam
     qq
     drawio

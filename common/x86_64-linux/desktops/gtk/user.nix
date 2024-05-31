@@ -4,7 +4,11 @@
   gtk = {
     enable = true;
     theme = {
-      package = pkgs.numix-gtk-theme;
+      name = "Fluent-orange-Dark";
+      package = pkgs.fluent-gtk-theme.override {
+        themeVariants = [ "orange" ];
+        tweaks = [ ];
+      };
     };
   };
 }

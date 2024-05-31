@@ -23,9 +23,12 @@ in
       {
         package = appindicator;
       }
-      {
-        package = hide-top-bar;
-      }
+      # {
+      #   package = hide-top-bar;
+      # }
+      # {
+      #   package = blur-my-shell;
+      # }
     ];
   };
 
