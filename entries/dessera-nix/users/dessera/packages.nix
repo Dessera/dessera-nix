@@ -18,7 +18,7 @@
   ];
 
   home.packages = with pkgs; [
-    google-chrome
+    brave
     steamPackages.steam-fhsenv
     # steam
     qq

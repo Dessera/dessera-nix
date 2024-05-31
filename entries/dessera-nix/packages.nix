@@ -20,7 +20,5 @@
     direnv
     glxinfo
     tree
-
-    brave
   ];
 }
