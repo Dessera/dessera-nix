@@ -12,15 +12,18 @@
     # Fstab
     ./fstab.nix
 
-    # All users
-    ./private/users.nix
-    ./users
-
     # All services
     ./services.nix
 
     # All packages
     ./packages.nix
+
+    # All users
+    # ./private/users.nix
+    ./users
+
+    # Private
+    ./private
 
     # Locale & Fonts
     ../../common/x86_64-linux/localization/zh_CN.nix

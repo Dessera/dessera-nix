@@ -1,3 +1,3 @@
-# Dessera Nix Configurations
+# Dessera NixOS Configuration
 
-TODO: Private config directory format
+Note: There are crypted private directories in this configuration, which are related to my personal private data. Please be sure to exclude or override them when using.
