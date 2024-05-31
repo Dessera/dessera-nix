@@ -24,6 +24,6 @@
     marktext
     motrix
     yesplaymusic
-    osdlyrics
+    # osdlyrics
   ];
 }
