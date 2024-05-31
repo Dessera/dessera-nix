@@ -19,11 +19,10 @@
 
   home.packages = with pkgs; [
     brave
-    # steam
     qq
     drawio
     marktext
-    # nur.repos.SuperKenVery.feishu
-    # nur.repos.linyinfeng.wemeet
+    motrix
+    yesplaymusic
   ];
 }

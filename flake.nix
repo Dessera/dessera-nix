@@ -59,6 +59,13 @@
         formatter = pkgs.nixpkgs-fmt;
         devshells.default = {
           packages = with pkgs; [ nil nixpkgs-fmt ];
+          commands = [
+            {
+              help = "Build the NixOS configuration";
+              command = "nixos-rebuild switch --flake .";
+              name = "switch-os";
+            }
+          ];
         };
       };
     };
