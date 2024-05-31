@@ -2,9 +2,6 @@
 
 {
   imports = [
-
-    ./private/jlud
-
     # Bluetooth services
     ../../common/x86_64-linux/services/bluetooth.nix
 
