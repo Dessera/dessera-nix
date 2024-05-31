@@ -1,0 +1,6 @@
+{ ... }:
+
+
+{
+  fonts.fontconfig.enable = true;
+}
