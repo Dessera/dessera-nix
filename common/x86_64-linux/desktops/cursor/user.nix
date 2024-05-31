@@ -14,7 +14,7 @@ in
   };
 
   gtk = {
-    enable = true;
+    # enable = true;
     inherit cursorTheme;
   };
 }
