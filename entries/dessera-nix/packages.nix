@@ -22,4 +22,6 @@
     glxinfo
     tree
   ];
+
+  programs.nix-ld.enable = true;
 }
