@@ -8,7 +8,6 @@
 
     users = {
       dessera = import ./dessera;
-      # gdm = import ./gdm;
     };
   };
 }

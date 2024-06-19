@@ -1,12 +1,30 @@
 { pkgs, ... }:
 
 {
-  imports = [
-    ../../common/x86_64-linux/packages/clash-verge-rev.nix
-    ../../common/x86_64-linux/packages/gnupg/system.nix
-    ../../common/x86_64-linux/packages/fish/system.nix
-    ../../common/x86_64-linux/packages/steam/system.nix
-  ];
+  programs.clash-verge = {
+    enable = true;
+    tunMode = true;
+    package = pkgs.clash-verge-rev;
+  };
+
+  programs.gnupg = {
+    agent.enable = true;
+  };
+
+  programs.fish.enable = true;
+
+  programs.steam = {
+    enable = true;
+    fontPackages = with pkgs; [
+      source-han-sans
+    ];
+  };
+
+  programs.git = {
+    enable = true;
+  };
+
+  programs.nix-ld.enable = true;
 
   environment.systemPackages = with pkgs; [
     helix
@@ -14,7 +32,6 @@
 
     wget
 
-    git
     git-crypt
 
     neofetch
@@ -23,5 +40,4 @@
     tree
   ];
 
-  programs.nix-ld.enable = true;
 }

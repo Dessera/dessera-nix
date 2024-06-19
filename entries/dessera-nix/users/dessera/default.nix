@@ -2,13 +2,18 @@
 
 {
   imports = [
-    ./packages.nix
-    ../../../../common/x86_64-linux/desktops/fonts/user.nix
-    ../../../../common/x86_64-linux/desktops/cursor/user.nix
-    ../../../../common/x86_64-linux/desktops/gnome/user.nix
-    ../../../../common/x86_64-linux/desktops/gtk/user.nix
 
-    ../../../../common/x86_64-linux/services/fcitx5/user.nix
+    ./packages.nix
+
+    ./theme.nix
+
+    ./i18n.nix
+    # ../../../../common/x86_64-linux/desktops/fonts/user.nix
+    # ../../../../common/x86_64-linux/desktops/cursor/user.nix
+    # ../../../../common/x86_64-linux/desktops/gnome/user.nix
+    # ../../../../common/x86_64-linux/desktops/gtk/user.nix
+
+    # ../../../../common/x86_64-linux/services/fcitx5/user.nix
   ];
 
   home = {

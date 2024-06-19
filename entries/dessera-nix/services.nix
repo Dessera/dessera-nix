@@ -61,21 +61,14 @@
           dns_enabled = true;
         };
       };
-      
-      extraPackages = with pkgs; [
-        podman-compose
-        dive
-        shadow
-      ];
     };
   };
 
-  # environment.systemPackages = with pkgs; [
-  #   podman-tui
-  #   podman-compose
-  #   dive
-  #   shadow
-  # ];
+  environment.systemPackages = with pkgs; [
+    podman-compose
+    dive
+    shadow
+  ];
 
   services.openssh = {
     enable = true;

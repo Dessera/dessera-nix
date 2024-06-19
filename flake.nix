@@ -61,22 +61,22 @@
       };
 
       # Development shell
-      perSystem = { config, pkgs, system, ... }: 
-      let
-        code-run = nix-codium-templates.packages.${system}.code-nix;
-      in
-      {
-        formatter = pkgs.nixpkgs-fmt;
-        devshells.default = {
-          packages = with pkgs; [ nil nixpkgs-fmt code-run ];
-          commands = [
-            {
-              help = "Build the NixOS configuration";
-              command = "nixos-rebuild switch --flake .";
-              name = "switch-os";
-            }
-          ];
+      perSystem = { config, pkgs, system, ... }:
+        let
+          code-run = nix-codium-templates.packages.${system}.code-nix;
+        in
+        {
+          formatter = pkgs.nixpkgs-fmt;
+          devshells.default = {
+            packages = with pkgs; [ nil nixpkgs-fmt code-run ];
+            commands = [
+              {
+                help = "Build the NixOS configuration";
+                command = "nixos-rebuild switch --flake .";
+                name = "switch-os";
+              }
+            ];
+          };
         };
-      };
     };
 }

@@ -1,21 +1,47 @@
 { pkgs, ... }:
 
 {
-  imports = [
-    # Shell
-    ../../../../common/x86_64-linux/packages/fish/user.nix
-    ../../../../common/x86_64-linux/packages/alacritty/user.nix
+  programs.fish = {
+    enable = true;
+    plugins = [
+      {
+        name = "pure";
+        src = pkgs.fetchFromGitHub {
+          owner = "pure-fish";
+          repo = "pure";
+          rev = "v4.11.0";
+          sha256 = "1vlxa9va9j616ajbcw9amqgz43cib2vds6yd56dp3rad9wynlg7k";
+        };
+      }
+    ];
+  };
 
-    # Editors
-    ../../../../common/x86_64-linux/packages/vscode/user.nix
-    ../../../../common/x86_64-linux/packages/helix/user.nix
+  programs.alacritty = {
+    enable = true;
+    settings = {
+      font = {
+        size = 16;
+      };
+    };
+  };
 
-    # Git
-    ../../../../common/x86_64-linux/packages/git/user.nix
+  programs.helix = {
+    enable = true;
+    defaultEditor = true;
+    settings = {
+      theme = "material_palenight";
+    };
+  };
 
-    # Home Manager Self
-    ../../../../common/x86_64-linux/packages/home-manager.nix
-  ];
+  programs.git = {
+    enable = true;
+    userName = "Dessera";
+    userEmail = "1533653159@qq.com";
+  };
+
+  programs.vscode.enable = true;
+
+  programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
     brave
