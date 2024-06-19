@@ -24,6 +24,11 @@
     devshell = {
       url = "github:numtide/devshell";
     };
+
+    # Dev
+    nix-codium-templates = {
+      url = "github:Dessera/nix-codium-templates";
+    };
   };
 
   outputs =
@@ -34,6 +39,7 @@
     , home-manager
     , nixos-hardware
     , nur
+    , nix-codium-templates
     , ...
     }:
     flake-parts.lib.mkFlake { inherit inputs; } {
@@ -55,10 +61,14 @@
       };
 
       # Development shell
-      perSystem = { config, pkgs, ... }: {
+      perSystem = { config, pkgs, system, ... }: 
+      let
+        code-run = nix-codium-templates.packages.${system}.code-nix;
+      in
+      {
         formatter = pkgs.nixpkgs-fmt;
         devshells.default = {
-          packages = with pkgs; [ nil nixpkgs-fmt ];
+          packages = with pkgs; [ nil nixpkgs-fmt code-run ];
           commands = [
             {
               help = "Build the NixOS configuration";

@@ -1,26 +1,31 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 
 {
-  imports = [
-    # Bluetooth services
-    ../../common/x86_64-linux/services/bluetooth.nix
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
 
-    # Pipewire services
-    ../../common/x86_64-linux/services/pipewire.nix
+  # GNOME use PulseAudio by default, must be disabled manually
+  hardware.pulseaudio.enable = false;
 
-    # Desktop & Greeter services
-    ../../common/x86_64-linux/desktops/gnome/system.nix
-    ../../common/x86_64-linux/greeters/gdm.nix
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    pulse.enable = true;
+    jack.enable = true;
+  };
 
-    # Virtualization services
-    ../../common/x86_64-linux/services/podman.nix
-
-    # Security services
-    ../../common/x86_64-linux/services/doas.nix
-
-
-    ../../common/x86_64-linux/services/xserver.nix
-  ];
+  services.xserver = {
+    enable = true;
+    videoDrivers = [ "nvidia" ];
+    desktopManager.gnome = {
+      enable = true;
+    };
+    displayManager.gdm = {
+      enable = true;
+    };
+  };
 
   networking = {
     hostName = "dessera-nix";
@@ -30,6 +35,47 @@
       "199.232.96.133" = [ "raw.githubusercontent.com" ];
     };
   };
+
+  security = {
+    doas = {
+      enable = true;
+      extraRules = [
+        {
+          users = [ "dessera" ];
+          keepEnv = true;
+          persist = true;
+        }
+      ];
+    };
+    sudo.enable = false;
+  };
+
+  virtualisation = {
+    containers.enable = true;
+    podman = {
+      enable = true;
+      dockerCompat = true;
+
+      defaultNetwork = {
+        settings = {
+          dns_enabled = true;
+        };
+      };
+      
+      extraPackages = with pkgs; [
+        podman-compose
+        dive
+        shadow
+      ];
+    };
+  };
+
+  # environment.systemPackages = with pkgs; [
+  #   podman-tui
+  #   podman-compose
+  #   dive
+  #   shadow
+  # ];
 
   services.openssh = {
     enable = true;
