@@ -6,7 +6,7 @@ let
     name = "Bibata-Modern-Ice";
     size = 24;
   };
-  backgroundUrl = ../assets/background.jpg;
+  backgroundUrl = ./assets/background.jpg;
 in
 {
   home.pointerCursor = cursorTheme // {
