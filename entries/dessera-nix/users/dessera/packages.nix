@@ -50,6 +50,6 @@
     marktext
     motrix
     yesplaymusic
-    # osdlyrics
+    wpsoffice-cn
   ];
 }
