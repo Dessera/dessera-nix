@@ -28,7 +28,6 @@
 
   environment.systemPackages = with pkgs; [
     helix
-    onlyoffice-bin
 
     wget
 
