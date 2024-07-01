@@ -54,6 +54,7 @@
             modules = [
               home-manager.nixosModules.home-manager
               nixos-hardware.nixosModules.asus-fx506hm
+              nur.nixosModules.nur
               ./entries/dessera-nix
             ];
           };

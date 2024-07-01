@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
   fonts = {
@@ -12,6 +12,9 @@
       noto-fonts-emoji
       vistafonts-chs
       wqy_zenhei
+
+      # wps fix
+      config.nur.repos.rewine.ttf-wps-fonts
     ];
     fontDir.enable = true;
     fontconfig = {
