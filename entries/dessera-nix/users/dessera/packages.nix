@@ -50,6 +50,7 @@
     marktext
     motrix
     yesplaymusic
-    wpsoffice-cn
+    # wpsoffice-cn
+    (callPackage ../../../../packages/wpsoffice-cn/default.nix {})
   ];
 }
