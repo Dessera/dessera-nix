@@ -51,6 +51,9 @@
     motrix
     yesplaymusic
     # wpsoffice-cn
-    (callPackage ../../../../packages/wpsoffice-cn/default.nix {})
+    (callPackage ../../../../packages/wpsoffice-cn/default.nix {
+      qtbase = qt5.qtbase;
+      useChineseVersion = true;
+    })
   ];
 }
