@@ -50,6 +50,7 @@
     marktext
     motrix
     yesplaymusic
+    obsidian
     # wpsoffice-cn
     (callPackage ../../../../packages/wpsoffice-cn/default.nix {
       qtbase = qt5.qtbase;
