@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 
 {
   home-manager = {
@@ -8,6 +8,10 @@
 
     users = {
       dessera = import ./dessera;
+    };
+
+    extraSpecialArgs = {
+      nur = config.nur;
     };
   };
 }

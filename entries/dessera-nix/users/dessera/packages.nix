@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, nur, ... }:
 
 {
   programs.fish = {
@@ -51,7 +51,7 @@
     motrix
     yesplaymusic
     obsidian
-    # wpsoffice-cn
+    nur.repos.linyinfeng.wemeet
     (callPackage ../../../../packages/wpsoffice-cn/default.nix {
       qtbase = qt5.qtbase;
       useChineseVersion = true;
