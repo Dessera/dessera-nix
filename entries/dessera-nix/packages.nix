@@ -37,8 +37,6 @@
     direnv
     glxinfo
     tree
-
-    freerdp3
   ];
 
 }
