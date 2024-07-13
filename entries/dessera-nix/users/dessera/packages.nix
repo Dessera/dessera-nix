@@ -52,7 +52,6 @@
     yesplaymusic
     obsidian
     nur.repos.linyinfeng.wemeet
-    nur.repos.xddxdd.dingtalk
     (callPackage ../../../../packages/wpsoffice-cn/default.nix {
       qtbase = qt5.qtbase;
       useChineseVersion = true;

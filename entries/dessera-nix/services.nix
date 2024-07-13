@@ -7,14 +7,14 @@
   };
 
   # GNOME use PulseAudio by default, must be disabled manually
-  hardware.pulseaudio.enable = false;
+  # hardware.pulseaudio.enable = false;
 
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    pulse.enable = true;
-    jack.enable = true;
-  };
+  # services.pipewire = {
+  #   enable = true;
+  #   alsa.enable = true;
+  #   pulse.enable = true;
+  #   jack.enable = true;
+  # };
 
   services.xserver = {
     enable = true;
