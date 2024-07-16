@@ -56,5 +56,6 @@
       qtbase = qt5.qtbase;
       useChineseVersion = true;
     })
+    dbgate
   ];
 }
