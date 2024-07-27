@@ -6,16 +6,6 @@
     powerOnBoot = true;
   };
 
-  # GNOME use PulseAudio by default, must be disabled manually
-  # hardware.pulseaudio.enable = false;
-
-  # services.pipewire = {
-  #   enable = true;
-  #   alsa.enable = true;
-  #   pulse.enable = true;
-  #   jack.enable = true;
-  # };
-
   services.xserver = {
     enable = true;
     videoDrivers = [ "nvidia" ];
@@ -82,14 +72,9 @@
   };
 
   services.udev.packages = [
-    (pkgs.writeTextFile {
-      name = "xilinx-dilligent-usb-udev";
-      destination = "/etc/udev/rules.d/52-xilinx-digilent-usb.rules";
-      text = ''
-        ATTR{idVendor}=="1443", MODE:="666"
-        ACTION=="add", ATTR{idVendor}=="0403", ATTR{manufacturer}=="Digilent", MODE:="666"
-      '';
-    })
+    (pkgs.callPackage
+      ../../packages/xilinx/xilinx-dilligent-usb-udev.nix
+      { })
     (pkgs.writeTextFile {
       name = "xilinx-pcusb-udev";
       destination = "/etc/udev/rules.d/52-xilinx-pcusb.rules";

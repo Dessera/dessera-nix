@@ -51,6 +51,9 @@ in
       {
         package = appindicator;
       }
+      {
+        package = kimpanel;
+      }
     ];
   };
 

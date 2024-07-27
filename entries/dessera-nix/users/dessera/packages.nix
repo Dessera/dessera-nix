@@ -16,23 +16,6 @@
     ];
   };
 
-  # programs.alacritty = {
-  #   enable = true;
-  #   settings = {
-  #     font = {
-  #       size = 16;
-  #     };
-  #   };
-  # };
-
-  # programs.helix = {
-  #   enable = true;
-  #   defaultEditor = true;
-  #   settings = {
-  #     theme = "material_palenight";
-  #   };
-  # };
-
   programs.git = {
     enable = true;
     userName = "Dessera";
