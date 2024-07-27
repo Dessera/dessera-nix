@@ -6,8 +6,6 @@
     ./packages.nix
 
     ./theme.nix
-
-    ./i18n.nix
   ];
 
   home = {

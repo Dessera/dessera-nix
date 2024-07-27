@@ -9,13 +9,13 @@
     inputMethod = {
       enabled = "fcitx5";
       fcitx5 = {
-        addons = [
-          pkgs.fcitx5-rime
-          pkgs.fcitx5-mozc
-          pkgs.fcitx5-gtk
-          pkgs.fcitx5-qt
-          pkgs.fcitx5-configtool
-          pkgs.fcitx5-chinese-addons
+        addons = with pkgs; [
+          fcitx5-rime
+          fcitx5-mozc
+          fcitx5-gtk
+          qt6Packages.fcitx5-qt
+          fcitx5-configtool
+          fcitx5-chinese-addons
         ];
         waylandFrontend = true;
       };
