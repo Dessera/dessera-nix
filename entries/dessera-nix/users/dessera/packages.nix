@@ -27,7 +27,9 @@
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
-    brave
+    # brave
+    hmcl
+    (opera.override { proprietaryCodecs = true; })
     qq
     drawio
     marktext
