@@ -13,12 +13,12 @@
 
   programs.fish.enable = true;
 
-  programs.steam = {
-    enable = true;
-    fontPackages = with pkgs; [
-      source-han-sans
-    ];
-  };
+  # programs.steam = {
+  #   enable = true;
+  #   fontPackages = with pkgs; [
+  #     source-han-sans
+  #   ];
+  # };
 
   programs.git = {
     enable = true;
