@@ -28,7 +28,7 @@
 
   home.packages = with pkgs; [
     # brave
-    hmcl
+    # hmcl
     (opera.override { proprietaryCodecs = true; })
     qq
     drawio
