@@ -13,18 +13,9 @@
 
   programs.fish.enable = true;
 
-  # programs.steam = {
-  #   enable = true;
-  #   fontPackages = with pkgs; [
-  #     source-han-sans
-  #   ];
-  # };
-
   programs.git = {
     enable = true;
   };
-
-  programs.nix-ld.enable = true;
 
   environment.systemPackages = with pkgs; [
     wget
