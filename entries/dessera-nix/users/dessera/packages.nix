@@ -22,6 +22,14 @@
     userEmail = "1533653159@qq.com";
   };
 
+  programs.emacs = {
+    enable = true;
+    package = pkgs.emacs;  # replace with pkgs.emacs-gtk, or a version provided by the community overlay if desired.
+    # extraConfig = ''
+    #   (setq standard-indent 2)
+    # '';
+  };
+
   programs.vscode.enable = true;
 
   programs.home-manager.enable = true;
