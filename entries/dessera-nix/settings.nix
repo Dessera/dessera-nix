@@ -1,4 +1,4 @@
-{ ... }:
+{ inputs, ... }:
 
 {
   nix.settings = {
@@ -9,10 +9,15 @@
     ];
   };
 
-  nixpkgs.config = {
-    allowUnfree = true;
-    permittedInsecurePackages = [
-      "openssl-1.1.1w"
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      permittedInsecurePackages = [
+        "openssl-1.1.1w"
+      ];
+    };
+    overlays = [
+      (import inputs.emacs-overlay)
     ];
   };
 

@@ -25,9 +25,8 @@
       url = "github:numtide/devshell";
     };
 
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
+    emacs-overlay = {
+      url = "github:nix-community/emacs-overlay";
     };
   };
 
@@ -39,7 +38,7 @@
     , home-manager
     , nixos-hardware
     , nur
-    , nixvim
+    , emacs-overlay
     , ...
     }:
     flake-parts.lib.mkFlake { inherit inputs; } {
@@ -51,6 +50,7 @@
         nixosConfigurations = {
           dessera-nix = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
+            specialArgs = { inherit inputs; };
             modules = [
               home-manager.nixosModules.home-manager
               nixos-hardware.nixosModules.asus-fx506hm

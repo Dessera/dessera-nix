@@ -26,6 +26,8 @@
     direnv
     glxinfo
     tree
+
+    (callPackage ../../packages/emacs/default.nix { })
   ];
 
 }
