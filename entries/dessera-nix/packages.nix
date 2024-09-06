@@ -27,7 +27,7 @@
     glxinfo
     tree
 
-    (callPackage ../../packages/emacs/default.nix { })
+    # (callPackage ../../packages/emacs/default.nix { })
   ];
 
 }

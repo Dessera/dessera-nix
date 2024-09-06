@@ -1,10 +1,14 @@
-{
-  emacsWithPackagesFromUsePackage,
-  emacsGit
+{ emacsWithPackagesFromUsePackage
+, emacs-git
 }:
 emacsWithPackagesFromUsePackage {
-  package = emacsGit;
+  package = emacs-git;
   config = ./config.el;
+  defaultInitFile = true;
 
-  extraEmacsPackages = epkgs: [];
+  extraEmacsPackages = epkgs: [
+    epkgs.use-package
+    epkgs.doom-themes
+    epkgs.all-the-icons
+  ];
 }
