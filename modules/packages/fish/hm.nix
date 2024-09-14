@@ -12,12 +12,13 @@ in
   config = mkIf cfg.enable {
     programs.fish = {
       enable = true;
-      plugins = [ ];
+      # plugins = [ ];
     };
 
     programs.starship = {
       enable = true;
       enableFishIntegration = true;
+      settings = builtins.fromTOML (builtins.readFile ./starship.toml);
     };
   };
 }
