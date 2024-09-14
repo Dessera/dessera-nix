@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs-master, ... }:
 
 let
   cfg = config.modules.packages.clash;
@@ -13,6 +13,8 @@ in
     programs.clash-verge = {
       enable = true;
       tunMode = true;
+      autoStart = true;
+      package = pkgs-master.clash-verge-rev;
     };
   };
 }

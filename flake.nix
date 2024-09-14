@@ -6,6 +6,9 @@
     nixpkgs = {
       url = "github:nixos/nixpkgs?ref=nixos-unstable";
     };
+    nixpkgs-master = {
+      url = "github:nixos/nixpkgs";
+    };
     nur = {
       url = "github:nix-community/NUR";
     };
@@ -29,14 +32,15 @@
   outputs =
     inputs@{ self
     , nixpkgs
+    , nixpkgs-master
+    , nur
+    , nixos-hardware
     , flake-parts
     , devshell
     , home-manager
-    , nixos-hardware
-    , nur
-    , emacs-overlay
     , ...
     }:
+
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" ];
       imports = [ devshell.flakeModule ];
@@ -46,7 +50,12 @@
         nixosConfigurations = {
           dessera-nix = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
-            specialArgs = { inherit inputs; };
+            specialArgs = {
+              inherit inputs;
+              pkgs-master = import nixpkgs-master {
+                system = "x86_64-linux";
+              };
+            };
             modules = [
               home-manager.nixosModules.home-manager
               nixos-hardware.nixosModules.asus-fx506hm
