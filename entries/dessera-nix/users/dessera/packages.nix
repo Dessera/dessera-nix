@@ -26,12 +26,14 @@
 
   programs.home-manager.enable = true;
 
+  modules.packages = {
+    wpsoffice-cn.enable = true;
+  };
+
   home.packages = with pkgs; [
     firefox
     qq
     drawio
     marktext
-    yesplaymusic
-    # obsidian
   ];
 }
