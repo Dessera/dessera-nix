@@ -17,7 +17,7 @@
       ];
     };
     overlays = [
-      (import inputs.emacs-overlay)
+      inputs.nur.overlay
     ];
   };
 

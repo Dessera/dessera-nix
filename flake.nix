@@ -6,11 +6,11 @@
     nixpkgs = {
       url = "github:nixos/nixpkgs?ref=nixos-unstable";
     };
-    nixos-hardware = {
-      url = "github:NixOS/nixos-hardware/master";
-    };
     nur = {
       url = "github:nix-community/NUR";
+    };
+    nixos-hardware = {
+      url = "github:NixOS/nixos-hardware/master";
     };
 
     # Utils
@@ -23,10 +23,6 @@
     };
     devshell = {
       url = "github:numtide/devshell";
-    };
-
-    emacs-overlay = {
-      url = "github:nix-community/emacs-overlay";
     };
   };
 
@@ -54,7 +50,7 @@
             modules = [
               home-manager.nixosModules.home-manager
               nixos-hardware.nixosModules.asus-fx506hm
-              nur.nixosModules.nur
+              ./modules
               ./entries/dessera-nix
             ];
           };

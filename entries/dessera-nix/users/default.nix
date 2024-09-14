@@ -11,7 +11,7 @@
     };
 
     extraSpecialArgs = {
-      nur = config.nur;
+      # nur = config.nur;
     };
   };
 }

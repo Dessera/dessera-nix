@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 
 {
   fonts = {
@@ -14,7 +14,7 @@
       wqy_zenhei
 
       # wps fix
-      config.nur.repos.rewine.ttf-wps-fonts
+      nur.repos.rewine.ttf-wps-fonts
     ];
     fontDir.enable = true;
     fontconfig = {

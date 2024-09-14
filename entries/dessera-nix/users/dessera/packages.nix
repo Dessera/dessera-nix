@@ -1,4 +1,4 @@
-{ pkgs, nur, ... }:
+{ pkgs, ... }:
 
 {
   programs.fish = {
@@ -27,18 +27,15 @@
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
-    (opera.override { proprietaryCodecs = true; })
+    firefox
     qq
     drawio
     marktext
     yesplaymusic
     obsidian
-    nur.repos.linyinfeng.wemeet
     (callPackage ../../../../packages/wpsoffice-cn/default.nix {
       qtbase = qt5.qtbase;
       useChineseVersion = true;
     })
-
-    spyder
   ];
 }

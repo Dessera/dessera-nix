@@ -1,6 +1,6 @@
 { lib
 , stdenv
-, fetchurl
+  # , fetchurl
 , dpkg
 , autoPatchelfHook
 , alsa-lib
@@ -117,7 +117,7 @@ stdenv.mkDerivation rec {
     done
 
     rm -f $out/opt/kingsoft/wps-office/office6/libfreetype.so.6
-    ln -sf ${freetype.overrideAttrs (e: rec {
+    ln -sf ${freetype.overrideAttrs (e: {
       patches = e.patches ++ [
         ./0000-WPS-compatiblity.patch
         ./0001-Enable-long-PCF-family-names.patch
