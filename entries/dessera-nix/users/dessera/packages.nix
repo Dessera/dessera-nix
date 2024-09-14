@@ -22,6 +22,9 @@
     fish = {
       enable = true;
     };
+    firefox = {
+      enable = true;
+    };
   };
 
   programs = {
@@ -31,9 +34,6 @@
   };
 
   home.packages = with pkgs; [
-    firefox
     qq
-    drawio
-    marktext
   ];
 }
