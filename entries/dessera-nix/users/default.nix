@@ -7,11 +7,13 @@
     backupFileExtension = "backup";
 
     users = {
-      dessera = import ./dessera;
-    };
-
-    extraSpecialArgs = {
-      # nur = config.nur;
+      # dessera = import ./dessera;
+      dessera = { ... }: {
+        imports = [
+          ../../../modules/home-manager.nix
+          ./dessera
+        ];
+      };
     };
   };
 }

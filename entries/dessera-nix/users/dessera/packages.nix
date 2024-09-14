@@ -32,10 +32,6 @@
     drawio
     marktext
     yesplaymusic
-    obsidian
-    (callPackage ../../../../packages/wpsoffice-cn/default.nix {
-      qtbase = qt5.qtbase;
-      useChineseVersion = true;
-    })
+    # obsidian
   ];
 }
