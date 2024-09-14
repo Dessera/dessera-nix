@@ -8,19 +8,27 @@
     git = {
       enable = true;
     };
+    fish = {
+      enable = true;
+    };
+    podman = {
+      enable = true;
+    };
   };
 
-  programs.fish.enable = true;
+  programs = {
+    direnv = {
+      enable = true;
+    };
+    neovim = {
+      enable = true;
+      viAlias = true;
+      vimAlias = true;
+    };
+  };
 
   environment.systemPackages = with pkgs; [
     wget
-
-    neofetch
-    direnv
-    glxinfo
-    tree
-
-    # (callPackage ../../packages/emacs/default.nix { })
+    fastfetch
   ];
-
 }

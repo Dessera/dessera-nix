@@ -40,26 +40,6 @@
     sudo.enable = false;
   };
 
-  virtualisation = {
-    containers.enable = true;
-    podman = {
-      enable = true;
-      dockerCompat = true;
-
-      defaultNetwork = {
-        settings = {
-          dns_enabled = true;
-        };
-      };
-    };
-  };
-
-  environment.systemPackages = with pkgs; [
-    podman-compose
-    dive
-    shadow
-  ];
-
   services.openssh = {
     enable = true;
     ports = [ 39901 ];

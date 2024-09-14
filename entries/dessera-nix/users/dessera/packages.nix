@@ -16,18 +16,23 @@
     ];
   };
 
-  programs.git = {
-    enable = true;
-    userName = "Dessera";
-    userEmail = "1533653159@qq.com";
-  };
+
 
   programs.vscode.enable = true;
 
-  programs.home-manager.enable = true;
-
   modules.packages = {
-    wpsoffice-cn.enable = true;
+    wpsoffice-cn = {
+      enable = true;
+    };
+    git = {
+      enable = true;
+    };
+  };
+
+  programs = {
+    home-manager = {
+      enable = true;
+    };
   };
 
   home.packages = with pkgs; [

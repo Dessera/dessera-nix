@@ -3,7 +3,9 @@
 {
   imports = [
     ./wpsoffice-cn
-    ./clash.nix
     ./git
+
+    ./clash.nix
+    ./podman.nix
   ];
 }
