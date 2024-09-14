@@ -2,6 +2,6 @@
 
 {
   imports = [
-    ./packages/hm.nix
+    ./wpsoffice-cn/hm.nix
   ];
 }

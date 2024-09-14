@@ -10,7 +10,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = [
+    home.packages = [
       (pkgs.callPackage ./__package/default.nix {
         qtbase = pkgs.qt5.qtbase;
         useChineseVersion = true;
