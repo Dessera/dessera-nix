@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 let
   cfg = config.modules.packages.fish;
@@ -12,13 +12,12 @@ in
   config = mkIf cfg.enable {
     programs.fish = {
       enable = true;
-      # plugins = [ ];
-    };
-
-    programs.starship = {
-      enable = true;
-      enableFishIntegration = true;
-      settings = builtins.fromTOML (builtins.readFile ./starship.toml);
+      plugins = [
+        {
+          name = "hydro";
+          src = pkgs.fishPlugins.hydro;
+        }
+      ];
     };
   };
 }
