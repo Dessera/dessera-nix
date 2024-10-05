@@ -15,6 +15,9 @@
     nixos-hardware = {
       url = "github:NixOS/nixos-hardware/master";
     };
+    vscode-server = {
+      url = "github:nix-community/nixos-vscode-server";
+    };
 
     # Utils
     home-manager = {
@@ -30,15 +33,17 @@
   };
 
   outputs =
-    inputs@{ self
-    , nixpkgs
-    , nixpkgs-master
-    , nur
-    , nixos-hardware
-    , flake-parts
-    , devshell
-    , home-manager
-    , ...
+    inputs@{
+      self,
+      nixpkgs,
+      nixpkgs-master,
+      nur,
+      nixos-hardware,
+      vscode-server,
+      flake-parts,
+      devshell,
+      home-manager,
+      ...
     }:
 
     flake-parts.lib.mkFlake { inherit inputs; } {
@@ -57,6 +62,7 @@
               };
             };
             modules = [
+              vscode-server.nixosModules.default
               home-manager.nixosModules.home-manager
               nixos-hardware.nixosModules.asus-fx506hm
               ./modules
@@ -67,11 +73,20 @@
       };
 
       # Development shell
-      perSystem = { config, pkgs, system, ... }:
+      perSystem =
+        {
+          config,
+          pkgs,
+          system,
+          ...
+        }:
         {
           formatter = pkgs.nixpkgs-fmt;
           devshells.default = {
-            packages = with pkgs; [ nil nixpkgs-fmt ];
+            packages = with pkgs; [
+              nil
+              nixfmt-rfc-style
+            ];
             commands = [
               {
                 help = "Build the NixOS configuration";

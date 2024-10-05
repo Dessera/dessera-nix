@@ -38,7 +38,12 @@ in
       name = "Orchis-Orange-Dark";
       package = pkgs.orchis-theme.override {
         border-radius = 5;
-        tweaks = [ "macos" "black" "submenu" "primary" ];
+        tweaks = [
+          "macos"
+          "black"
+          "submenu"
+          "primary"
+        ];
       };
     };
     extensions = with pkgs.gnomeExtensions; [

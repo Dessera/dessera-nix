@@ -1,4 +1,4 @@
-{ ... }:
+{ inputs, ... }:
 
 {
   home-manager = {
@@ -8,12 +8,15 @@
 
     users = {
       # dessera = import ./dessera;
-      dessera = { ... }: {
-        imports = [
-          ../../../modules/home-manager.nix
-          ./dessera
-        ];
-      };
+      dessera =
+        { ... }:
+        {
+          imports = [
+            ../../../modules/home-manager.nix
+            inputs.vscode-server.nixosModules.home
+            ./dessera
+          ];
+        };
     };
   };
 }

@@ -8,8 +8,6 @@
   #   ];
   # };
 
-
-
   programs.vscode.enable = true;
 
   modules.packages = {
@@ -35,5 +33,6 @@
 
   home.packages = with pkgs; [
     qq
+    nur.repos.linyinfeng.wemeet
   ];
 }
