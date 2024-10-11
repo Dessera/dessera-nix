@@ -30,6 +30,11 @@
     devshell = {
       url = "github:numtide/devshell";
     };
+
+    # My modules
+    cygnus-rs = {
+      url = "github:Dessera/cygnus-rs";
+    };
   };
 
   outputs =
@@ -43,6 +48,7 @@
       flake-parts,
       devshell,
       home-manager,
+      cygnus-rs,
       ...
     }:
 
@@ -65,6 +71,7 @@
               vscode-server.nixosModules.default
               home-manager.nixosModules.home-manager
               nixos-hardware.nixosModules.asus-fx506hm
+              cygnus-rs.nixosModules.default
               ./modules
               ./entries/dessera-nix
             ];
