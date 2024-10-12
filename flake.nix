@@ -34,6 +34,7 @@
     # My modules
     cygnus-rs = {
       url = "github:Dessera/cygnus-rs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
