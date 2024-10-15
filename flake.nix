@@ -18,12 +18,17 @@
     vscode-server = {
       url = "github:nix-community/nixos-vscode-server";
     };
-
-    # Utils
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
+    # Utils
+
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
     };
@@ -40,10 +45,8 @@
 
   outputs =
     inputs@{
-      self,
       nixpkgs,
       nixpkgs-master,
-      nur,
       nixos-hardware,
       vscode-server,
       flake-parts,
@@ -82,17 +85,12 @@
 
       # Development shell
       perSystem =
-        {
-          config,
-          pkgs,
-          system,
-          ...
-        }:
+        { pkgs, ... }:
         {
           formatter = pkgs.nixpkgs-fmt;
           devshells.default = {
             packages = with pkgs; [
-              nil
+              nixd
               nixfmt-rfc-style
             ];
             commands = [

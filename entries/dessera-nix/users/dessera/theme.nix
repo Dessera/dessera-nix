@@ -32,40 +32,61 @@ in
     };
   };
 
-  programs.gnome-shell = {
+  # programs.gnome-shell = {
+  #   enable = true;
+  #   theme = {
+  #     name = "Orchis-Orange-Dark";
+  #     package = pkgs.orchis-theme.override {
+  #       border-radius = 5;
+  #       tweaks = [
+  #         "macos"
+  #         "black"
+  #         "submenu"
+  #         "primary"
+  #       ];
+  #     };
+  #   };
+  #   extensions = with pkgs.gnomeExtensions; [
+  #     {
+  #       package = window-title-is-back;
+  #     }
+  #     {
+  #       package = dash-to-dock;
+  #     }
+  #     {
+  #       package = appindicator;
+  #     }
+  #     {
+  #       package = kimpanel;
+  #     }
+  #   ];
+  # };
+
+  # dconf.settings = {
+  #   "org/gnome/desktop/background" = {
+  #     picture-uri = "file://${backgroundUrl}";
+  #     picture-uri-dark = "file://${backgroundUrl}";
+  #   };
+  # };
+
+  programs.plasma = {
     enable = true;
-    theme = {
-      name = "Orchis-Orange-Dark";
-      package = pkgs.orchis-theme.override {
-        border-radius = 5;
-        tweaks = [
-          "macos"
-          "black"
-          "submenu"
-          "primary"
-        ];
+
+    workspace = {
+      wallpaper = backgroundUrl;
+      lookAndFeel = "Catppuccin-Mocha-Flamingo";
+      colorScheme = "CatppuccinMochaFlamingo";
+      cursor = {
+        theme = cursorTheme.name;
+        size = cursorTheme.size;
       };
     };
-    extensions = with pkgs.gnomeExtensions; [
-      {
-        package = window-title-is-back;
-      }
-      {
-        package = dash-to-dock;
-      }
-      {
-        package = appindicator;
-      }
-      {
-        package = kimpanel;
-      }
-    ];
   };
 
-  dconf.settings = {
-    "org/gnome/desktop/background" = {
-      picture-uri = "file://${backgroundUrl}";
-      picture-uri-dark = "file://${backgroundUrl}";
-    };
-  };
+  home.packages = with pkgs; [
+    (catppuccin-kde.override {
+      flavour = [ "mocha" ];
+      accents = [ "flamingo" ];
+    })
+  ];
 }

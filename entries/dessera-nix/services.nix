@@ -9,13 +9,23 @@
   services.xserver = {
     enable = true;
     videoDrivers = [ "nvidia" ];
-    desktopManager.gnome = {
-      enable = true;
-    };
-    displayManager.gdm = {
-      enable = true;
-    };
+    # desktopManager.gnome = {
+    #   enable = true;
+    # };
+    # displayManager.gdm = {
+    #   enable = true;
+    # };
   };
+
+  services.displayManager.sddm = {
+    enable = true;
+  };
+
+  services.desktopManager.plasma6 = {
+    enable = true;
+  };
+
+  # hardware.pulseaudio.enable = true;
 
   networking = {
     hostName = "dessera-nix";

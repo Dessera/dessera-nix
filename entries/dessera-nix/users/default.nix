@@ -6,6 +6,10 @@
     useUserPackages = true;
     backupFileExtension = "backup";
 
+    sharedModules = [
+      inputs.plasma-manager.homeManagerModules.plasma-manager
+    ];
+
     users = {
       # dessera = import ./dessera;
       dessera =
