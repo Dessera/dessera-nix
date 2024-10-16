@@ -18,7 +18,8 @@
           fcitx5-configtool
           fcitx5-chinese-addons
         ];
-        # waylandFrontend = true;
+
+        plasma6Support = true;
       };
     };
   };

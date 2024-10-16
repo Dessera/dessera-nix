@@ -1,22 +1,14 @@
 { pkgs, ... }:
 
-let
-  cursorTheme = {
-    package = pkgs.bibata-cursors;
-    name = "Bibata-Modern-Ice";
-    size = 24;
-  };
-  backgroundUrl = ./assets/background.jpg;
-in
 {
-  home.pointerCursor = cursorTheme // {
-    gtk.enable = true;
-    x11.enable = true;
-  };
+  # home.pointerCursor = cursorTheme // {
+  #   gtk.enable = true;
+  #   x11.enable = true;
+  # };
 
   gtk = {
     enable = true;
-    inherit cursorTheme;
+    # inherit cursorTheme;
     theme = {
       name = "Fluent-orange-Dark";
       package = pkgs.fluent-gtk-theme.override {
@@ -68,25 +60,4 @@ in
   #     picture-uri-dark = "file://${backgroundUrl}";
   #   };
   # };
-
-  programs.plasma = {
-    enable = true;
-
-    workspace = {
-      wallpaper = backgroundUrl;
-      lookAndFeel = "Catppuccin-Mocha-Flamingo";
-      colorScheme = "CatppuccinMochaFlamingo";
-      cursor = {
-        theme = cursorTheme.name;
-        size = cursorTheme.size;
-      };
-    };
-  };
-
-  home.packages = with pkgs; [
-    (catppuccin-kde.override {
-      flavour = [ "mocha" ];
-      accents = [ "flamingo" ];
-    })
-  ];
 }
