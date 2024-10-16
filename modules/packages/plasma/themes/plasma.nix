@@ -3,7 +3,7 @@
 {
   enable = true;
   workspace = {
-    wallpaper = ./background.jpg;
+    wallpaper = ./background.png;
     lookAndFeel = generalTheme.theme.plasma.lookAndFeel;
     colorScheme = generalTheme.theme.plasma.colorScheme;
     cursor = {
@@ -13,7 +13,7 @@
     iconTheme = generalTheme.icon.name;
   };
   kscreenlocker = {
-    appearance.wallpaper = ./background.jpg;
+    appearance.wallpaper = ./background.png;
   };
   panels = [
     (import ./pannels/dock.nix)
