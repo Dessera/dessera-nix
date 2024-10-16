@@ -12,6 +12,9 @@
     };
     iconTheme = generalTheme.icon.name;
   };
+  kscreenlocker = {
+    appearance.wallpaper = ./background.jpg;
+  };
   panels = [
     (import ./pannels/dock.nix)
     (import ./pannels/app-menu.nix)
