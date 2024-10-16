@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   cfg = config.modules.packages.firefox;
@@ -12,7 +17,6 @@ in
   config = mkIf cfg.enable {
     programs.firefox = {
       enable = true;
-      enableGnomeExtensions = true;
 
       profiles.default = {
         bookmarks = [
@@ -25,12 +29,18 @@ in
                 bookmarks = [
                   {
                     name = "NixOS 官方 Wiki";
-                    tags = [ "nix" "wiki" ];
+                    tags = [
+                      "nix"
+                      "wiki"
+                    ];
                     url = "https://wiki.nixos.org";
                   }
                   {
                     name = "NixOS 社区 Wiki";
-                    tags = [ "nix" "wiki" ];
+                    tags = [
+                      "nix"
+                      "wiki"
+                    ];
                     url = "https://nixos.wiki";
                   }
                 ];
@@ -40,22 +50,34 @@ in
                 bookmarks = [
                   {
                     name = "校内OA";
-                    tags = [ "jlu" "oa" ];
+                    tags = [
+                      "jlu"
+                      "oa"
+                    ];
                     url = "https://oa.jlu.edu.cn";
                   }
                   {
                     name = "教学管理系统";
-                    tags = [ "jlu" "iedu" ];
+                    tags = [
+                      "jlu"
+                      "iedu"
+                    ];
                     url = "https://iedu.jlu.edu.cn";
                   }
                   {
                     name = "WebVPN";
-                    tags = [ "jlu" "vpn" ];
+                    tags = [
+                      "jlu"
+                      "vpn"
+                    ];
                     url = "https://vpn.jlu.edu.cn";
                   }
                   {
                     name = "学习通";
-                    tags = [ "jlu" "mooc" ];
+                    tags = [
+                      "jlu"
+                      "mooc"
+                    ];
                     url = "https://i.mooc.chaoxing.com/space/index?t=1726329591465";
                   }
                 ];
@@ -65,7 +87,10 @@ in
                 bookmarks = [
                   {
                     name = "csdiy";
-                    tags = [ "cs" "diy" ];
+                    tags = [
+                      "cs"
+                      "diy"
+                    ];
                     url = "https://csdiy.wiki";
                   }
                 ];
@@ -75,7 +100,10 @@ in
                 bookmarks = [
                   {
                     name = "ORG";
-                    tags = [ "org" "vpn" ];
+                    tags = [
+                      "org"
+                      "vpn"
+                    ];
                     url = "https://orgcloud.cc";
                   }
                 ];
