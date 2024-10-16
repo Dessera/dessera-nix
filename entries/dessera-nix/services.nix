@@ -11,16 +11,6 @@
     videoDrivers = [ "nvidia" ];
   };
 
-  # services.displayManager.sddm = {
-  #   enable = true;
-  # };
-
-  # services.desktopManager.plasma6 = {
-  #   enable = true;
-  # };
-
-  # hardware.pulseaudio.enable = true;
-
   networking = {
     hostName = "dessera-nix";
     useDHCP = lib.mkDefault true;

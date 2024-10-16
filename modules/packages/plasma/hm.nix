@@ -130,6 +130,10 @@ in
       };
     };
 
+    imports = [
+      ./themes/qt.nix
+    ];
+
     home.packages = with pkgs; [
       bibata-cursors
       (catppuccin-kde.override {
