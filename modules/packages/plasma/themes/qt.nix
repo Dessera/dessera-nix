@@ -1,5 +1,5 @@
 { generalTheme, ... }:
 
 {
-  platfotmTheme = generalTheme.theme.qt.platfotmTheme;
+  platformTheme = generalTheme.theme.qt.platformTheme;
 }

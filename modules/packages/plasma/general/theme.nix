@@ -15,6 +15,6 @@ pkgs: {
     };
   };
   qt = {
-    platfotmTheme = "kde";
+    platformTheme = "kde";
   };
 }
