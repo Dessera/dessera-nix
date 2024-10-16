@@ -8,15 +8,13 @@
 let
   cfg = config.modules.packages.plasma;
   inherit (lib) mkEnableOption mkIf;
+
+  generalTheme = import ./general pkgs;
 in
 {
   options.modules.packages.plasma = {
     enable = mkEnableOption "Enable plasma configuration";
   };
-
-  imports = mkIf cfg.enable [
-    ./themes/gtk.nix
-  ];
 
   config = mkIf cfg.enable {
     programs.plasma = {
@@ -49,22 +47,25 @@ in
       };
     };
 
-    gtk = {
-      enable = true;
-      theme = {
-        name = "catppuccin-mocha-flamingo-standard";
-        package = pkgs.catppuccin-gtk.override {
-          accents = [ "flamingo" ];
-          variant = "mocha";
-        };
-      };
-      iconTheme = {
-        name = "Fluent-orange";
-        package = pkgs.fluent-icon-theme.override {
-          colorVariants = [ "orange" ];
-        };
-      };
+    gtk = import ./themes/gtk.nix {
+      inherit generalTheme;
     };
+    # gtk = {
+    #   enable = true;
+    #   theme = {
+    #     name = "catppuccin-mocha-flamingo-standard";
+    #     package = pkgs.catppuccin-gtk.override {
+    #       accents = [ "flamingo" ];
+    #       variant = "mocha";
+    #     };
+    #   };
+    #   iconTheme = {
+    #     name = "Fluent-orange";
+    #     package = pkgs.fluent-icon-theme.override {
+    #       colorVariants = [ "orange" ];
+    #     };
+    #   };
+    # };
 
     home.packages = with pkgs; [
       catppuccin-cursors.mochaDark

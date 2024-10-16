@@ -2,10 +2,7 @@
 
 {
   imports = [
-
     ./packages.nix
-
-    ./theme.nix
   ];
 
   home = {

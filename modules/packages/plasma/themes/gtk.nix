@@ -1,6 +1,10 @@
-{ pkgs, ... }:
+{ generalTheme, ... }:
 
-let
-  generalTheme = import ../general pkgs;
-in
-{ }
+{
+  gtk = {
+    enable = true;
+    cursorTheme = generalTheme.cursor;
+    theme = generalTheme.theme.gtk;
+    iconTheme = generalTheme.icon;
+  };
+}
