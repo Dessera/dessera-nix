@@ -8,6 +8,7 @@
         device = "nodev";
         efiSupport = true;
         useOSProber = true;
+        theme = pkgs.catppuccin-grub.override { flavor = "mocha"; };
       };
       efi = {
         canTouchEfiVariables = true;

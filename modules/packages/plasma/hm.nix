@@ -14,6 +14,10 @@ in
     enable = mkEnableOption "Enable plasma configuration";
   };
 
+  imports = mkIf cfg.enable [
+    ./themes/gtk.nix
+  ];
+
   config = mkIf cfg.enable {
     programs.plasma = {
       enable = true;
@@ -22,9 +26,10 @@ in
         lookAndFeel = "Catppuccin-Mocha-Flamingo";
         colorScheme = "CatppuccinMochaFlamingo";
         cursor = {
-          theme = "Bibata-Modern-Ice";
-          size = 24;
+          theme = "catppuccin-mocha-dark-cursors";
+          size = 30;
         };
+        iconTheme = "Fluent-orange";
       };
       panels = [
         (import ./pannels/dock.nix)
@@ -44,8 +49,25 @@ in
       };
     };
 
+    gtk = {
+      enable = true;
+      theme = {
+        name = "catppuccin-mocha-flamingo-standard";
+        package = pkgs.catppuccin-gtk.override {
+          accents = [ "flamingo" ];
+          variant = "mocha";
+        };
+      };
+      iconTheme = {
+        name = "Fluent-orange";
+        package = pkgs.fluent-icon-theme.override {
+          colorVariants = [ "orange" ];
+        };
+      };
+    };
+
     home.packages = with pkgs; [
-      bibata-cursors
+      catppuccin-cursors.mochaDark
       (catppuccin-kde.override {
         flavour = [ "mocha" ];
         accents = [ "flamingo" ];
