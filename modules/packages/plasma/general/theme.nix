@@ -14,4 +14,7 @@ pkgs: {
       accents = [ "flamingo" ];
     };
   };
+  qt = {
+    platfotmTheme = "kde";
+  };
 }

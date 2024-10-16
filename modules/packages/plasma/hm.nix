@@ -38,6 +38,10 @@ in
       inherit generalTheme;
     };
 
+    qt = import ./themes/qt.nix {
+      inherit generalTheme;
+    };
+
     home.packages = generalTheme.packages;
   };
 }
