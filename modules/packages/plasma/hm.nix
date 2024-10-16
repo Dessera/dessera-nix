@@ -17,7 +17,6 @@ in
   config = mkIf cfg.enable {
     programs.plasma = {
       enable = true;
-
       workspace = {
         wallpaper = ./background.jpg;
         lookAndFeel = "Catppuccin-Mocha-Flamingo";
@@ -27,7 +26,6 @@ in
           size = 24;
         };
       };
-
       panels = [
         {
           location = "left";
@@ -118,6 +116,18 @@ in
           ];
         }
       ];
+    };
+
+    programs.konsole = {
+      enable = true;
+      defaultProfile = "default";
+      profiles = {
+        default = {
+          font = {
+            size = 16;
+          };
+        };
+      };
     };
 
     home.packages = with pkgs; [

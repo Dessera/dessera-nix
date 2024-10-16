@@ -2,18 +2,11 @@
 
 {
   modules.packages = {
-    clash = {
-      enable = true;
-    };
-    git = {
-      enable = true;
-    };
-    fish = {
-      enable = true;
-    };
-    podman = {
-      enable = true;
-    };
+    clash.enable = true;
+    git.enable = true;
+    fish.enable = true;
+    podman.enable = true;
+    plasma.enable = true;
   };
 
   programs = {
@@ -30,5 +23,7 @@
   environment.systemPackages = with pkgs; [
     wget
     fastfetch
+    qemu_full
+    quickemu
   ];
 }
