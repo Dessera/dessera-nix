@@ -6,4 +6,12 @@ pkgs: {
       variant = "mocha";
     };
   };
+  plasma = {
+    lookAndFeel = "Catppuccin-Mocha-Flamingo";
+    colorScheme = "CatppuccinMochaFlamingo";
+    package = pkgs.catppuccin-kde.override {
+      flavour = [ "mocha" ];
+      accents = [ "flamingo" ];
+    };
+  };
 }
