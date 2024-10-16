@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }:
 
@@ -17,11 +18,24 @@ in
     services = {
       displayManager.sddm = {
         enable = true;
+        theme = "catppuccin-mocha";
+        autoNumlock = true;
+        settings = {
+          General = {
+            InputMethod = null;
+          };
+        };
       };
 
       desktopManager.plasma6 = {
         enable = true;
       };
     };
+
+    environment.systemPackages = with pkgs; [
+      (catppuccin-sddm.override {
+        flavor = "mocha";
+      })
+    ];
   };
 }
