@@ -48,7 +48,6 @@
       nixpkgs,
       nixpkgs-master,
       nixos-hardware,
-      vscode-server,
       flake-parts,
       devshell,
       home-manager,
@@ -63,18 +62,17 @@
       # NixOS
       flake = {
         nixosConfigurations = {
-          dessera-nix = nixpkgs.lib.nixosSystem {
+          dessera-nix = nixpkgs.lib.nixosSystem rec {
             system = "x86_64-linux";
             specialArgs = {
               inherit inputs;
               pkgs-master = import nixpkgs-master {
-                system = "x86_64-linux";
+                inherit system;
               };
             };
             modules = [
-              vscode-server.nixosModules.default
-              home-manager.nixosModules.home-manager
               nixos-hardware.nixosModules.asus-fx506hm
+              home-manager.nixosModules.home-manager
               cygnus-rs.nixosModules.default
               ./modules
               ./entries/dessera-nix

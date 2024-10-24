@@ -31,7 +31,12 @@
     ];
     plymouth = {
       enable = true;
-      theme = "breeze";
+      theme = "catppuccin-mocha";
+      themePackages = with pkgs; [
+        (catppuccin-plymouth.override {
+          variant = "mocha";
+        })
+      ];
     };
   };
 }

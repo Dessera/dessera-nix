@@ -51,5 +51,5 @@
     (pkgs.callPackage ../../packages/xilinx/xilinx-ftdi-usb-udev.nix { })
   ];
 
-  services.vscode-server.enable = true;
+  # services.vscode-server.enable = true;
 }

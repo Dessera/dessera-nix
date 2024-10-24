@@ -1,14 +1,8 @@
 { pkgs, ... }:
 
 {
-  # programs.fish = {
-  #   enable = true;
-  #   plugins = [
-
-  #   ];
-  # };
-
   programs.vscode.enable = true;
+  services.vscode-server.enable = true;
 
   modules.packages = {
     wpsoffice-cn.enable = true;

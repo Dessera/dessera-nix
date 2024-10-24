@@ -20,6 +20,7 @@
         ];
 
         plasma6Support = true;
+        waylandFrontend = true;
       };
     };
   };
