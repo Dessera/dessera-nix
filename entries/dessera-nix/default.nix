@@ -25,9 +25,6 @@
     # All users
     ./users
 
-    # Private
-    ./private
-
     # Other
     (modulesPath + "/installer/scan/not-detected.nix")
   ];

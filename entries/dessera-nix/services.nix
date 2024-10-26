@@ -51,5 +51,10 @@
     (pkgs.callPackage ../../packages/xilinx/xilinx-ftdi-usb-udev.nix { })
   ];
 
-  # services.vscode-server.enable = true;
+  modules.services = {
+    cygnus-rs = {
+      enable = true;
+      userFile = "/etc/cygnus.usr";
+    };
+  };
 }
