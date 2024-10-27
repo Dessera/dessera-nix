@@ -21,15 +21,9 @@
   };
 
   security = {
-    doas = {
+    sudo-rs = {
       enable = true;
-      extraRules = [
-        {
-          users = [ "dessera" ];
-          keepEnv = true;
-          persist = true;
-        }
-      ];
+      execWheelOnly = true;
     };
     sudo.enable = false;
   };

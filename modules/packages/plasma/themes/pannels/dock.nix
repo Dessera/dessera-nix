@@ -4,7 +4,7 @@
   lengthMode = "fit";
   hiding = "dodgewindows";
   floating = true;
-  height = 50;
+  height = 55;
   screen = 0;
   widgets = [
     {
@@ -15,6 +15,7 @@
           "applications:clash-verge.desktop"
           "applications:firefox.desktop"
           "applications:code.desktop"
+          "applications:systemsettings.desktop"
         ];
       };
     }

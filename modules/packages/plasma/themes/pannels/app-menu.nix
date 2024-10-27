@@ -1,7 +1,7 @@
 {
   location = "top";
   floating = true;
-  height = 30;
+  height = 35;
   widgets = [
     {
       applicationTitleBar = {
