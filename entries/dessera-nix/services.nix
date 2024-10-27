@@ -50,5 +50,6 @@
       enable = true;
       userFile = "/etc/cygnus.usr";
     };
+    v2ray.enable = true;
   };
 }

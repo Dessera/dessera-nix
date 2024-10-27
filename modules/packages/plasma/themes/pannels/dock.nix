@@ -12,7 +12,6 @@
         launchers = [
           "applications:org.kde.dolphin.desktop"
           "applications:org.kde.konsole.desktop"
-          "applications:clash-verge.desktop"
           "applications:firefox.desktop"
           "applications:code.desktop"
           "applications:systemsettings.desktop"

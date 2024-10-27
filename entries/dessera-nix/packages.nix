@@ -2,7 +2,7 @@
 
 {
   modules.packages = {
-    clash.enable = true;
+    # clash.enable = true;
     git.enable = true;
     fish.enable = true;
     podman.enable = true;
