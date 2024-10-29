@@ -1,10 +1,20 @@
-{ inputs, pkgs, ... }:
+{
+  inputs,
+  pkgs,
+  pkgs-master,
+  ...
+}:
 
 {
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
     backupFileExtension = "backup";
+
+    extraSpecialArgs = {
+      inherit pkgs-master;
+      inherit inputs;
+    };
 
     sharedModules = [
       inputs.plasma-manager.homeManagerModules.plasma-manager

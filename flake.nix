@@ -68,6 +68,9 @@
               inherit inputs;
               pkgs-master = import nixpkgs-master {
                 inherit system;
+                config = {
+                  allowUnfree = true;
+                };
               };
             };
             modules = [

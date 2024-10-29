@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, pkgs-master, ... }:
 
 {
   programs.vscode.enable = true;
@@ -17,7 +17,7 @@
   };
 
   home.packages = with pkgs; [
-    qq
+    pkgs-master.qq
     nur.repos.linyinfeng.wemeet
   ];
 }
