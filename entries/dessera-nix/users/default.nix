@@ -28,7 +28,7 @@
   };
 
   users = {
-    defaultUserShell = pkgs.fish;
+    defaultUserShell = pkgs.zsh;
     users = {
       dessera = {
         isNormalUser = true;

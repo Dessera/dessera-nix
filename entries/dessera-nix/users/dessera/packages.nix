@@ -7,9 +7,9 @@
   modules.packages = {
     wpsoffice-cn.enable = true;
     git.enable = true;
-    fish.enable = true;
+    # fish.enable = true;
+    zsh.enable = true;
     firefox.enable = true;
-    plasma.enable = true;
   };
 
   programs = {

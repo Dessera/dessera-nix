@@ -1,27 +1,28 @@
-{ lib
-, stdenv
-  # , fetchurl
-, dpkg
-, autoPatchelfHook
-, alsa-lib
-, at-spi2-core
-, libtool
-, libxkbcommon
-, nspr
-, mesa
-, libtiff
-, udev
-, gtk3
-, qtbase
-, xorg
-, cups
-, pango
-, runCommandLocal
-, curl
-, coreutils
-, cacert
-, freetype
-, useChineseVersion ? false
+{
+  lib,
+  stdenv,
+  makeBinaryWrapper,
+  dpkg,
+  autoPatchelfHook,
+  alsa-lib,
+  at-spi2-core,
+  libtool,
+  libxkbcommon,
+  nspr,
+  mesa,
+  libtiff,
+  udev,
+  gtk3,
+  qtbase,
+  xorg,
+  cups,
+  pango,
+  runCommandLocal,
+  curl,
+  coreutils,
+  cacert,
+  freetype,
+  useChineseVersion ? false,
 }:
 let
   pkgVersion = "11.1.0.11723";
@@ -42,24 +43,35 @@ stdenv.mkDerivation rec {
   pname = "wpsoffice";
   version = pkgVersion;
 
-  src = runCommandLocal (if useChineseVersion then "wps-office_${version}_amd64.deb" else "wps-office_${version}.XA_amd64.deb")
-    {
-      outputHashMode = "recursive";
-      outputHashAlgo = "sha256";
-      outputHash = hash;
+  src =
+    runCommandLocal
+      (
+        if useChineseVersion then
+          "wps-office_${version}_amd64.deb"
+        else
+          "wps-office_${version}.XA_amd64.deb"
+      )
+      {
+        outputHashMode = "recursive";
+        outputHashAlgo = "sha256";
+        outputHash = hash;
 
-      nativeBuildInputs = [ curl coreutils ];
+        nativeBuildInputs = [
+          curl
+          coreutils
+        ];
 
-      SSL_CERT_FILE = "${cacert}/etc/ssl/certs/ca-bundle.crt";
-    } ''
-    timestamp10=$(date '+%s')
-    md5hash=($(echo -n "${securityKey}${uri}$timestamp10" | md5sum))
+        SSL_CERT_FILE = "${cacert}/etc/ssl/certs/ca-bundle.crt";
+      }
+      ''
+        timestamp10=$(date '+%s')
+        md5hash=($(echo -n "${securityKey}${uri}$timestamp10" | md5sum))
 
-    curl \
-    --retry 3 --retry-delay 3 \
-    "${url}?t=$timestamp10&k=$md5hash" \
-    > $out
-  '';
+        curl \
+        --retry 3 --retry-delay 3 \
+        "${url}?t=$timestamp10&k=$md5hash" \
+        > $out
+      '';
 
   unpackCmd = "dpkg -x $src .";
   sourceRoot = ".";
@@ -67,6 +79,7 @@ stdenv.mkDerivation rec {
   nativeBuildInputs = [
     dpkg
     autoPatchelfHook
+    makeBinaryWrapper
   ];
 
   buildInputs = [
@@ -117,13 +130,19 @@ stdenv.mkDerivation rec {
     done
 
     rm -f $out/opt/kingsoft/wps-office/office6/libfreetype.so.6
-    ln -sf ${freetype.overrideAttrs (e: {
-      patches = e.patches ++ [
-        ./0000-WPS-compatiblity.patch
-        ./0001-Enable-long-PCF-family-names.patch
-       ];
-    })}/lib/libfreetype.so.6 $out/opt/kingsoft/wps-office/office6
+    ln -sf ${
+      freetype.overrideAttrs (e: {
+        patches = e.patches ++ [
+          ./0000-WPS-compatiblity.patch
+          ./0001-Enable-long-PCF-family-names.patch
+        ];
+      })
+    }/lib/libfreetype.so.6 $out/opt/kingsoft/wps-office/office6
     runHook postInstall
+  '';
+
+  postInstall = ''
+    wrapProgram $out/bin/wps --set QT_IM_MODULE fcitx --set XMODIFIERS @im=fcitx --set GTK_IM_MODULE fcitx
   '';
 
   preFixup = ''
@@ -140,6 +159,11 @@ stdenv.mkDerivation rec {
     sourceProvenance = with sourceTypes; [ binaryNativeCode ];
     hydraPlatforms = [ ];
     license = licenses.unfreeRedistributable;
-    maintainers = with maintainers; [ mlatus th0rgal rewine pokon548 ];
+    maintainers = with maintainers; [
+      mlatus
+      th0rgal
+      rewine
+      pokon548
+    ];
   };
 }

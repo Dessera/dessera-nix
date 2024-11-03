@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  meta,
+  ...
+}:
 
 let
   cfg = config.modules.packages.git;
@@ -10,10 +15,10 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs.git = {
+    programs.git = with meta; {
       enable = true;
-      userName = "Dessera";
-      userEmail = "lord.changed@foxmail.com";
+      userName = author.name;
+      userEmail = author.email;
     };
   };
 }

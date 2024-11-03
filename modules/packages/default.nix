@@ -5,10 +5,8 @@
     ./wpsoffice-cn
     ./git
     ./fish
-    ./plasma
-    ./v2ray
+    ./zsh
 
-    ./clash.nix
-    ./podman.nix
+    ./podman
   ];
 }

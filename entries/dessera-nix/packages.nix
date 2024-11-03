@@ -2,16 +2,21 @@
 
 {
   modules.packages = {
-    # clash.enable = true;
     git.enable = true;
-    fish.enable = true;
+    # fish.enable = true;
+    zsh.enable = true;
     podman.enable = true;
+  };
+
+  modules.desktop = {
     plasma.enable = true;
+    sddm.enable = true;
   };
 
   programs = {
     direnv = {
       enable = true;
+      enableZshIntegration = true;
     };
     neovim = {
       enable = true;

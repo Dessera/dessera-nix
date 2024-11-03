@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, lib, ... }:
 
 let
   cfg = config.modules.packages.git;
@@ -14,13 +14,5 @@ in
       enable = true;
       lfs.enable = true;
     };
-
-    programs.gnupg = {
-      agent.enable = true;
-    };
-
-    environment.systemPackages = with pkgs; [
-      git-crypt
-    ];
   };
 }

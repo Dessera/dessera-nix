@@ -1,0 +1,3 @@
+{
+  author = import ./author.nix;
+}
