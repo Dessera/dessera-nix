@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   cfg = config.modules.packages.zsh;
@@ -16,6 +21,10 @@ in
       enableCompletion = true;
       autosuggestions = {
         enable = true;
+        strategy = [
+          "history"
+          "completion"
+        ];
       };
       syntaxHighlighting = {
         enable = true;

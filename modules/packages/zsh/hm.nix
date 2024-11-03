@@ -14,9 +14,6 @@ in
       enable = true;
 
       enableCompletion = true;
-      autosuggestion = {
-        enable = true;
-      };
       syntaxHighlighting = {
         enable = true;
       };
@@ -24,6 +21,7 @@ in
       zplug = {
         enable = true;
         plugins = [
+          { name = "zsh-users/zsh-autosuggestions"; }
           {
             name = "spaceship-prompt/spaceship-prompt";
             tags = [
@@ -31,6 +29,10 @@ in
               "from:github"
               "as:theme"
             ];
+          }
+          {
+            name = "hlissner/zsh-autopair";
+            tags = [ "defer:2" ];
           }
         ];
       };
