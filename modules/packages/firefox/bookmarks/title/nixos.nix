@@ -17,5 +17,13 @@
       ];
       url = "https://nixos.wiki";
     }
+    {
+      name = "Home Manager 选项查询";
+      tags = [
+        "nix"
+        "home-manager"
+      ];
+      url = "https://home-manager-options.extranix.com";
+    }
   ];
 }

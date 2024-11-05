@@ -14,11 +14,11 @@ in
   };
 
   config = mkIf cfg.enable {
-    qt = {
-      enable = true;
-      platformTheme = {
-        name = "kde";
-      };
-    };
+    # qt = {
+    #   enable = true;
+    #   platformTheme = {
+    #     name = "kde";
+    #   };
+    # };
   };
 }

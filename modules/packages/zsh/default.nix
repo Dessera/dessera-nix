@@ -19,8 +19,11 @@ in
       enable = true;
 
       enableCompletion = true;
+      enableBashCompletion = true;
+
       autosuggestions = {
         enable = true;
+        async = true;
         strategy = [
           "history"
           "completion"
@@ -30,5 +33,9 @@ in
         enable = true;
       };
     };
+
+    environment.pathsToLink = [
+      "/share/zsh"
+    ];
   };
 }

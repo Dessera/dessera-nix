@@ -32,7 +32,7 @@ in
           plasma-integration
 
           # privacy
-          ublock-origin
+          # ublock-origin
 
           # look and feel
           tabliss
