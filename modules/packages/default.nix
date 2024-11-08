@@ -6,6 +6,7 @@
     ./git
     ./fish
     ./zsh
+    ./xilinx-dev
 
     ./podman
   ];

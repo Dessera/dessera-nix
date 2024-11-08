@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ lib, ... }:
 
 {
   hardware.bluetooth = {
@@ -38,12 +38,6 @@
       X11Forwarding = true;
     };
   };
-
-  services.udev.packages = [
-    (pkgs.callPackage ../../packages/xilinx/xilinx-dilligent-usb-udev.nix { })
-    (pkgs.callPackage ../../packages/xilinx/xilinx-pcusb-udev.nix { })
-    (pkgs.callPackage ../../packages/xilinx/xilinx-ftdi-usb-udev.nix { })
-  ];
 
   modules.services = {
     cygnus-rs = {

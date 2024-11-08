@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  meta,
   ...
 }:
 
@@ -24,6 +25,13 @@ in
         { inherit (pkgs.fishPlugins.plugin-git) name src; }
         { inherit (pkgs.fishPlugins.sponge) name src; }
       ];
+
+      shellInit = ''
+        # disable fish_greeting
+        set -x fish_greeting
+        # LANG
+        set -x LANG ${meta.locale.language}
+      '';
     };
 
     home.packages = with pkgs; [

@@ -6,6 +6,7 @@
     fish.enable = true;
     zsh.enable = true;
     podman.enable = true;
+    xilinx-dev.enable = true;
   };
 
   modules.desktop = {
