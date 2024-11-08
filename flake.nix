@@ -32,9 +32,6 @@
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
     };
-    devshell = {
-      url = "github:numtide/devshell";
-    };
 
     # My modules
     cygnus-rs = {
@@ -49,7 +46,6 @@
       nixpkgs-master,
       nixos-hardware,
       flake-parts,
-      devshell,
       home-manager,
       cygnus-rs,
       ...
@@ -57,7 +53,6 @@
 
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" ];
-      imports = [ devshell.flakeModule ];
 
       # NixOS
       flake = {
@@ -82,24 +77,19 @@
             ];
           };
         };
+        nixosModules.default = import ./modules;
+        homeManagerModules.default = import ./modules/home-manager.nix;
       };
 
       # Development shell
       perSystem =
         { pkgs, ... }:
         {
-          formatter = pkgs.nixpkgs-fmt;
-          devshells.default = {
+          formatter = pkgs.nixfmt-rfc-style;
+          devShells.default = pkgs.mkShell {
             packages = with pkgs; [
               nixd
               nixfmt-rfc-style
-            ];
-            commands = [
-              {
-                help = "Build the NixOS configuration";
-                command = "nixos-rebuild switch --flake .";
-                name = "switch-os";
-              }
             ];
           };
         };
