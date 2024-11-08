@@ -14,6 +14,6 @@
   modules.desktop = {
     gtk.enable = true;
     plasma.enable = true;
-    qt.enable = true;
+    # qt.enable = true;
   };
 }

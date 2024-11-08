@@ -3,7 +3,7 @@
 {
   modules.packages = {
     git.enable = true;
-    # fish.enable = true;
+    fish.enable = true;
     zsh.enable = true;
     podman.enable = true;
   };
@@ -29,6 +29,5 @@
     wget
     fastfetch
     qemu_full
-    quickemu
   ];
 }

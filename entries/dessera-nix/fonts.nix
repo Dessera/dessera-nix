@@ -28,7 +28,8 @@
         sansSerif = [ "Source Han Sans SC" ];
         serif = [ "Source Han Serif SC" ];
         emoji = [ "Noto Color Emoji" ];
-        monospace = [ "FiraCode Nerd Font Mono" ];
+        # monospace = [ "FiraCode Nerd Font Mono" ];
+        monospace = [ "JetBrainsMono Nerd Font Mono" ];
       };
       cache32Bit = true;
     };

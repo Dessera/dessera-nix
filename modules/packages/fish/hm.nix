@@ -18,7 +18,7 @@ in
     programs.fish = {
       enable = true;
       plugins = [
-        { inherit (pkgs.fishPlugins.pure) name src; }
+        # { inherit (pkgs.fishPlugins.pure) name src; }
         { inherit (pkgs.fishPlugins.grc) name src; }
         { inherit (pkgs.fishPlugins.pisces) name src; }
         { inherit (pkgs.fishPlugins.plugin-git) name src; }
@@ -29,5 +29,12 @@ in
     home.packages = with pkgs; [
       grc
     ];
+
+    programs.starship = {
+      enable = true;
+      enableFishIntegration = true;
+      # read from ./prompt.toml
+      settings = (lib.importTOML ./prompt.toml);
+    };
   };
 }

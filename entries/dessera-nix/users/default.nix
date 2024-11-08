@@ -28,7 +28,7 @@
   };
 
   users = {
-    defaultUserShell = pkgs.zsh;
+    defaultUserShell = pkgs.fish;
     users = {
       dessera = {
         isNormalUser = true;
@@ -38,9 +38,9 @@
           "video"
           "audio"
         ];
-        openssh.authorizedKeys.keys = [
-          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF8++UjeF0KEWZythCejyUI2P2f4I8XpSIE1KOHwYdiH 1533653159@qq.com"
-        ];
+        # openssh.authorizedKeys.keys = [
+        #   "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF8++UjeF0KEWZythCejyUI2P2f4I8XpSIE1KOHwYdiH 1533653159@qq.com"
+        # ];
       };
     };
   };
