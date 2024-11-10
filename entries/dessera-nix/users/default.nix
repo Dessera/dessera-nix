@@ -2,6 +2,7 @@
   inputs,
   pkgs,
   pkgs-master,
+  modulesLib,
   ...
 }:
 
@@ -19,7 +20,7 @@
     sharedModules = [
       inputs.plasma-manager.homeManagerModules.plasma-manager
       inputs.vscode-server.nixosModules.home
-      (import ../../../modules/home-manager.nix)
+      (modulesLib.mkHmModule { })
     ];
 
     users = {

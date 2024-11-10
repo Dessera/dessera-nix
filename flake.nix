@@ -55,7 +55,7 @@
       systems = [ "x86_64-linux" ];
 
       # NixOS
-      flake = {
+      flake = rec {
         nixosConfigurations = {
           dessera-nix = nixpkgs.lib.nixosSystem rec {
             system = "x86_64-linux";
@@ -67,18 +67,18 @@
                   allowUnfree = true;
                 };
               };
+              modulesLib = lib;
             };
             modules = [
               nixos-hardware.nixosModules.asus-fx506hm
               home-manager.nixosModules.home-manager
               cygnus-rs.nixosModules.default
-              ./modules
+              (lib.mkNixosModule { })
               ./entries/dessera-nix
             ];
           };
         };
-        nixosModules.default = import ./modules;
-        homeManagerModules.default = import ./modules/home-manager.nix;
+        lib = import ./lib;
       };
 
       # Development shell
