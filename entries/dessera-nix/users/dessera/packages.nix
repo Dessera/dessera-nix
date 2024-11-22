@@ -18,6 +18,7 @@
 
   home.packages = with pkgs; [
     pkgs-master.qq
+    wechat-uos
     nur.repos.linyinfeng.wemeet
     emacs
   ];
