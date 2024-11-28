@@ -90,6 +90,7 @@
             packages = with pkgs; [
               nixd
               nixfmt-rfc-style
+              (callPackage ./scripts/build-os.nix { })
             ];
           };
         };
