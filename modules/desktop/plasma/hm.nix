@@ -2,11 +2,13 @@
   config,
   lib,
   pkgs,
+  meta,
   ...
 }:
 
 let
   cfg = config.modules.desktop.plasma;
+  qtCfg = config.modules.desktop.qt;
   inherit (lib) mkEnableOption mkIf;
 in
 {
@@ -31,7 +33,8 @@ in
     programs.plasma = {
       enable = true;
       workspace = {
-        wallpaper = ./background.png;
+        # wallpaper = ./background.png;
+        wallpaper = meta.appearance.background;
         colorScheme = "CatppuccinMochaLavender";
         lookAndFeel = "Catppuccin-Mocha-Lavender";
         cursor = {
@@ -41,15 +44,15 @@ in
         iconTheme = "Papirus-Dark";
       };
       kscreenlocker = {
-        appearance.wallpaper = ./background.png;
+        # appearance.wallpaper = ./background.png;
+        appearance.wallpaper = meta.appearance.background;
       };
       panels = [
         (import ./pannels/dock.nix)
         (import ./pannels/app-menu.nix)
       ];
 
-      # TODO: Should only be enabled if qt module is enabled
-      configFile = {
+      configFile = mkIf qtCfg.enable {
         kdeglobals.KDE.widgetsStyle = {
           value = "kvantum-dark";
         };

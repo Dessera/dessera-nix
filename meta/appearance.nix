@@ -1,0 +1,3 @@
+{
+  background = ./assets/background.png;
+}
