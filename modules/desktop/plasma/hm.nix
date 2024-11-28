@@ -35,8 +35,8 @@ in
         colorScheme = "CatppuccinMochaLavender";
         lookAndFeel = "Catppuccin-Mocha-Lavender";
         cursor = {
-          theme = "catppuccin-mocha-lavender-cursors";
-          size = 20;
+          theme = "Bibata_Ghost";
+          size = 25;
         };
         iconTheme = "Papirus-Dark";
       };
@@ -47,6 +47,13 @@ in
         (import ./pannels/dock.nix)
         (import ./pannels/app-menu.nix)
       ];
+
+      # TODO: Should only be enabled if qt module is enabled
+      configFile = {
+        kdeglobals.KDE.widgetsStyle = {
+          value = "kvantum-dark";
+        };
+      };
     };
 
     home.packages = with pkgs; [
@@ -54,8 +61,9 @@ in
         flavour = [ "mocha" ];
         accents = [ "lavender" ];
       })
+
       papirus-icon-theme
-      catppuccin-cursors.mochaLavender
+      bibata-cursors-translucent
     ];
   };
 }

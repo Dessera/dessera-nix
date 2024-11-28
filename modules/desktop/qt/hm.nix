@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }:
 
@@ -14,11 +15,26 @@ in
   };
 
   config = mkIf cfg.enable {
-    # qt = {
-    #   enable = true;
-    #   platformTheme = {
-    #     name = "kde";
-    #   };
-    # };
+    home.sessionVariables = {
+      QT_STYLE_OVERRIDE = "kvantum";
+    };
+
+    home.packages = with pkgs; [
+      qt6Packages.qtstyleplugin-kvantum
+    ];
+
+    xdg.configFile = {
+      "Kvantum/kvantum.kvconfig".text = ''
+        [General]
+        theme=catppuccin-mocha-lavender
+      '';
+
+      "Kvantum/catppuccin-mocha-lavender".source = "${
+        pkgs.catppuccin-kvantum.override {
+          accent = "lavender";
+          variant = "mocha";
+        }
+      }/share/Kvantum/catppuccin-mocha-lavender";
+    };
   };
 }

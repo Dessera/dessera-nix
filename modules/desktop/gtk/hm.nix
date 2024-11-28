@@ -19,9 +19,9 @@ in
     gtk = {
       enable = true;
       cursorTheme = {
-        name = "catppuccin-mocha-lavender-cursors";
-        package = pkgs.catppuccin-cursors.mochaLavender;
-        size = 20;
+        name = "Bibata_Ghost";
+        package = pkgs.bibata-cursors-translucent;
+        size = 25;
       };
       theme = {
         name = "catppuccin-mocha-lavender-standard";

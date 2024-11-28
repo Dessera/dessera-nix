@@ -78,7 +78,7 @@
             ];
           };
         };
-        lib = import ./lib;
+        lib = import ./lib { };
       };
 
       # Development shell

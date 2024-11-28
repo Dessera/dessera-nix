@@ -1,10 +1,10 @@
 {
-  location = "left";
+  location = "bottom";
   alignment = "center";
   lengthMode = "fit";
   hiding = "dodgewindows";
   floating = true;
-  height = 50;
+  height = 58;
   screen = 0;
   widgets = [
     {

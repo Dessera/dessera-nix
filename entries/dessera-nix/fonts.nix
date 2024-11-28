@@ -10,8 +10,8 @@
           "JetBrainsMono"
         ];
       })
-      source-han-sans
-      source-han-serif
+      sourceHanSansPackages.simplified-chinese
+      sourceHanSerifPackages.simplified-chinese
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
       noto-fonts-emoji
