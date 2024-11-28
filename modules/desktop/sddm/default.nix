@@ -18,7 +18,7 @@ in
     services = {
       displayManager.sddm = {
         enable = true;
-        theme = "catppuccin-mocha";
+        theme = "where-is-my-sddm-theme";
         autoNumlock = true;
         settings = {
           General = {
@@ -28,9 +28,14 @@ in
       };
     };
 
-    environment.systemPackages = with pkgs; [
-      (catppuccin-sddm.override {
+    environment.systemPackages = [
+      (pkgs.catppuccin-sddm.override {
         flavor = "mocha";
+      })
+      pkgs.sddm-astronaut
+      (pkgs.where-is-my-sddm-theme.override {
+        # from where-is-my-sddm-theme.conf
+        themeConfig = lib.importTOML ./where-is-my-sddm-theme.conf;
       })
     ];
   };
