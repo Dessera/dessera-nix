@@ -4,12 +4,7 @@
   fonts = {
     enableDefaultPackages = true;
     packages = with pkgs; [
-      (nerdfonts.override {
-        fonts = [
-          "FiraCode"
-          "JetBrainsMono"
-        ];
-      })
+      nerd-fonts.jetbrains-mono
       sourceHanSansPackages.simplified-chinese
       sourceHanSerifPackages.simplified-chinese
       noto-fonts-cjk-sans

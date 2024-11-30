@@ -6,9 +6,6 @@
     nixpkgs = {
       url = "github:nixos/nixpkgs?ref=nixos-unstable";
     };
-    nixpkgs-master = {
-      url = "github:nixos/nixpkgs";
-    };
     nur = {
       url = "github:nix-community/NUR";
     };
@@ -27,8 +24,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
-    # Utils
+    catppuccin = {
+      url = "github:catppuccin/nix";
+    };
 
+    # Utils
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
     };
@@ -36,49 +36,49 @@
     # My modules
     cygnus-rs = {
       url = "github:Dessera/cygnus-rs";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
   outputs =
-    inputs@{
-      nixpkgs,
-      nixpkgs-master,
-      nixos-hardware,
+    {
       flake-parts,
+
+      nixpkgs,
+
+      nixos-hardware,
       home-manager,
+      plasma-manager,
+
       cygnus-rs,
       ...
-    }:
+    }@inputs:
 
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" ];
 
       # NixOS
       flake = rec {
+
         nixosConfigurations = {
-          dessera-nix = nixpkgs.lib.nixosSystem rec {
+          dessera-nix = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             specialArgs = {
               inherit inputs;
-              pkgs-master = import nixpkgs-master {
-                inherit system;
-                config = {
-                  allowUnfree = true;
-                };
-              };
-              modulesLib = lib;
+              homeManagerModule = homeManagerModules.default;
             };
             modules = [
               nixos-hardware.nixosModules.asus-fx506hm
               home-manager.nixosModules.home-manager
               cygnus-rs.nixosModules.default
-              (lib.mkNixosModule { })
+              (lib.default.mkNixosModule { })
               ./entries/dessera-nix
             ];
           };
         };
-        lib = import ./lib { };
+
+        lib = import ./nix/lib.nix inputs;
+
+        homeManagerModules = import ./nix/hm-module.nix lib;
       };
 
       # Development shell

@@ -1,8 +1,9 @@
+_:
+{ meta, ... }:
 {
   config,
   lib,
   pkgs,
-  meta,
   ...
 }:
 

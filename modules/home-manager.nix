@@ -1,9 +1,11 @@
+importModule:
+{ ... }:
 { ... }:
 
 {
   imports = [
-    ./packages/hm.nix
-    ./services/hm.nix
-    ./desktop/hm.nix
+    (importModule ./desktop/hm.nix)
+    (importModule ./services/hm.nix)
+    (importModule ./packages/hm.nix)
   ];
 }

@@ -1,8 +1,7 @@
 {
   inputs,
   pkgs,
-  pkgs-master,
-  modulesLib,
+  homeManagerModule,
   ...
 }:
 
@@ -13,14 +12,12 @@
     backupFileExtension = "backup";
 
     extraSpecialArgs = {
-      inherit pkgs-master;
       inherit inputs;
     };
 
     sharedModules = [
-      inputs.plasma-manager.homeManagerModules.plasma-manager
       inputs.vscode-server.nixosModules.home
-      (modulesLib.mkHmModule { })
+      homeManagerModule
     ];
 
     users = {

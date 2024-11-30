@@ -1,4 +1,11 @@
-{ config, pkgs, lib, ... }:
+_:
+{ ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 let
   cfg = config.modules.packages.wpsoffice-cn;

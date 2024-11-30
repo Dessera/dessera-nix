@@ -1,7 +1,8 @@
+_:
+{ meta, ... }:
 {
   config,
   lib,
-  meta,
   ...
 }:
 

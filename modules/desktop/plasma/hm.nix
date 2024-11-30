@@ -1,8 +1,9 @@
+_:
+{ meta, plasma-manager, ... }:
 {
   config,
   lib,
   pkgs,
-  meta,
   ...
 }:
 
@@ -12,6 +13,10 @@ let
   inherit (lib) mkEnableOption mkIf;
 in
 {
+  imports = [
+    plasma-manager.homeManagerModules.plasma-manager
+  ];
+
   options.modules.desktop.plasma = {
     enable = mkEnableOption "Enable plasma configuration";
   };
