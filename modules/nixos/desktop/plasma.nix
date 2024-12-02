@@ -26,5 +26,9 @@ in
       elisa
       kate
     ];
+
+    environment.systemPackages = [
+      pkgs.plasma-browser-integration
+    ];
   };
 }

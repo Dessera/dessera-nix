@@ -33,7 +33,7 @@
       url = "github:hercules-ci/flake-parts";
     };
 
-    # My modules
+    # My modules (related to network)
     cygnus-rs = {
       url = "github:Dessera/cygnus-rs";
     };

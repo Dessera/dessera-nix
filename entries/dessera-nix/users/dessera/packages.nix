@@ -18,7 +18,7 @@
   home.packages = with pkgs; [
     qq
     wechat-uos
-    nur.repos.linyinfeng.wemeet
+    # nur.repos.linyinfeng.wemeet
     emacs
   ];
 }

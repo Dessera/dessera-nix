@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ ... }:
 
 {
   nix.settings = {
@@ -16,9 +16,9 @@
     config = {
       allowUnfree = true;
     };
-    overlays = [
-      inputs.nur.overlay
-    ];
+    # overlays = [
+    # inputs.nur.overlay
+    # ];
   };
 
   hardware.asus.battery = {

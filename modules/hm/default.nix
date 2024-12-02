@@ -1,11 +1,12 @@
 { importModules, ... }:
-{ catppuccin, ... }:
+{ catppuccin, nur, ... }:
 { ... }:
 
 {
   imports =
     [
       catppuccin.homeManagerModules.catppuccin
+      nur.hmModules.nur
     ]
     ++ (importModules [
       ../common/catppuccin.nix

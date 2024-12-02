@@ -14,7 +14,7 @@
       wqy_zenhei
 
       # wps fix
-      nur.repos.rewine.ttf-wps-fonts
+      # nur.repos.rewine.ttf-wps-fonts
     ];
     fontDir.enable = true;
     fontconfig = {

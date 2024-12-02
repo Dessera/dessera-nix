@@ -2,7 +2,6 @@ _: _:
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 
@@ -28,7 +27,7 @@ in
 
         settings = { };
 
-        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+        extensions = with config.nur.repos.rycee.firefox-addons; [
           # plasma
           plasma-integration
 
