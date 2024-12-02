@@ -4,7 +4,6 @@
   modules.packages = {
     git.enable = true;
     fish.enable = true;
-    zsh.enable = true;
     podman.enable = true;
     xilinx-dev.enable = true;
   };
@@ -12,6 +11,8 @@
   modules.desktop = {
     plasma.enable = true;
     sddm.enable = true;
+    plymouth.enable = true;
+    grub.enable = true;
   };
 
   programs = {

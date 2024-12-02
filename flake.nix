@@ -70,7 +70,7 @@
               nixos-hardware.nixosModules.asus-fx506hm
               home-manager.nixosModules.home-manager
               cygnus-rs.nixosModules.default
-              (lib.default.mkNixosModule { })
+              nixosModules.default
               ./entries/dessera-nix
             ];
           };
@@ -79,6 +79,8 @@
         lib = import ./nix/lib.nix inputs;
 
         homeManagerModules = import ./nix/hm-module.nix lib;
+
+        nixosModules = import ./nix/nixos-module.nix lib;
       };
 
       # Development shell

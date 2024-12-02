@@ -8,7 +8,7 @@
         device = "nodev";
         efiSupport = true;
         useOSProber = true;
-        theme = pkgs.catppuccin-grub.override { flavor = "mocha"; };
+        # theme = pkgs.catppuccin-grub.override { flavor = "mocha"; };
       };
       efi = {
         canTouchEfiVariables = true;
@@ -30,15 +30,7 @@
     kernelParams = [
       "nowatchdog"
       "quiet"
+      "nvidia-drm.modeset=1"
     ];
-    plymouth = {
-      enable = true;
-      theme = "catppuccin-mocha";
-      themePackages = with pkgs; [
-        (catppuccin-plymouth.override {
-          variant = "mocha";
-        })
-      ];
-    };
   };
 }

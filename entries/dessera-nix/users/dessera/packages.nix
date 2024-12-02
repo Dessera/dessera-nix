@@ -8,7 +8,6 @@
     wpsoffice-cn.enable = true;
     git.enable = true;
     fish.enable = true;
-    zsh.enable = true;
     firefox.enable = true;
   };
 

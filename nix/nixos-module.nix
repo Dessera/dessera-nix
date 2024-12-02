@@ -1,6 +1,6 @@
 lib:
 let
-  modulePath = ../modules/hm;
+  modulePath = ../modules/nixos;
 in
 {
   default = lib.default.importModule modulePath;

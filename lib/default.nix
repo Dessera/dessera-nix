@@ -1,14 +1,9 @@
-# { meta, plasma-manager, ... }: rec {
-#   mkNixosModule = import ./mkNixosModule.nix;
-#   _importModule = import ./importModule.nix {
-#     defaultArgs = { inherit meta plasma-manager; };
-#   };
-#   importModule = entry: _importModule ((import entry) importModule);
-# }
-
 defaultArgs: userArgs:
-let args = defaultArgs // userArgs;
-in {
-  mkNixosModule = import ./mkNixosModule.nix;
-  importModule = import ./importModule.nix args;
-}
+let
+  args = defaultArgs // userArgs;
+  library = rec {
+    importModule = import ./importModule.nix library args;
+    importModules = list: map importModule list;
+  };
+in
+library
