@@ -2,6 +2,7 @@
   plasma-manager,
   catppuccin,
   nur,
+  kwin-effects-forceblur,
   ...
 }:
 
@@ -12,6 +13,7 @@ let
       plasma-manager
       catppuccin
       nur
+      kwin-effects-forceblur
       meta
       ;
   };

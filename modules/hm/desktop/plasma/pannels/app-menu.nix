@@ -2,6 +2,7 @@
   location = "top";
   floating = true;
   height = 38;
+  screen = 0;
   widgets = [
     {
       applicationTitleBar = {

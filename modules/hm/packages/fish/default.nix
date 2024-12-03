@@ -42,8 +42,8 @@ in
     programs.starship = {
       enable = true;
       enableFishIntegration = true;
-      # read from ./prompt.toml
-      settings = (lib.importTOML ./prompt.toml);
+
+      catppuccin.enable = true;
     };
   };
 }

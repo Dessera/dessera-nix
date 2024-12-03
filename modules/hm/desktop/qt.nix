@@ -22,5 +22,11 @@ in
         };
       };
     };
+
+    programs.plasma.configFile = {
+      kdeglobals.KDE.widgetsStyle = {
+        value = "kvantum-dark";
+      };
+    };
   };
 }

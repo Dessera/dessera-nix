@@ -37,6 +37,10 @@
     cygnus-rs = {
       url = "github:Dessera/cygnus-rs";
     };
+    kwin-effects-forceblur = {
+      url = "github:taj-ny/kwin-effects-forceblur";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -47,7 +51,6 @@
 
       nixos-hardware,
       home-manager,
-      plasma-manager,
 
       cygnus-rs,
       ...
