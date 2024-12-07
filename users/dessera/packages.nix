@@ -19,6 +19,5 @@
     qq
     wechat-uos
     # nur.repos.linyinfeng.wemeet
-    emacs
   ];
 }

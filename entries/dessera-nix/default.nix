@@ -23,7 +23,7 @@
     ./fonts.nix
 
     # All users
-    ./users
+    # ./users
 
     # Other
     (modulesPath + "/installer/scan/not-detected.nix")

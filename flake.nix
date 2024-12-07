@@ -67,7 +67,6 @@
             system = "x86_64-linux";
             specialArgs = {
               inherit inputs;
-              homeManagerModule = homeManagerModules.default;
             };
             modules = [
               nixos-hardware.nixosModules.asus-fx506hm
@@ -75,6 +74,12 @@
               cygnus-rs.nixosModules.default
               nixosModules.default
               ./entries/dessera-nix
+
+              (import ./users {
+                hmModule = homeManagerModules.default;
+                inherit (inputs) vscode-server;
+              })
+              ./users/dessera
             ];
           };
         };

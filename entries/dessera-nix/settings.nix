@@ -16,9 +16,6 @@
     config = {
       allowUnfree = true;
     };
-    # overlays = [
-    # inputs.nur.overlay
-    # ];
   };
 
   hardware.asus.battery = {

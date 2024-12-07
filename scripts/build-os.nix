@@ -1,7 +1,6 @@
 { writeShellScriptBin }:
 writeShellScriptBin "build-os" ''
-  # somehow the .gtkrc-2.0.backup file leads to home-manager not being able to refresh
-  rm -f ~/.gtkrc-2.0.backup
+  rm -f ~/.config/gtk-2.0/.gtkrc.bkp
 
   sudo nixos-rebuild $@
 ''

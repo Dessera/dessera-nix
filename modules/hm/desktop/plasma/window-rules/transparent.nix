@@ -24,6 +24,7 @@ in
       value = buildWindowRegex {
         exclude = [
           "firefox"
+          "okular"
         ];
       };
     };
