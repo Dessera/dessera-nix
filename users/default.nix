@@ -1,5 +1,4 @@
-{ hmModule, vscode-server }:
-_:
+hmModule: _:
 
 {
   home-manager = {
@@ -8,7 +7,6 @@ _:
     backupFileExtension = "bkp";
 
     sharedModules = [
-      vscode-server.nixosModules.home
       hmModule
     ];
   };

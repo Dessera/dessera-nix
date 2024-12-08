@@ -3,7 +3,8 @@ _: _:
 
 let
   cfg = config.modules.desktop.gtk;
-  inherit (lib) mkEnableOption mkIf;
+  cfgGtk2 = config.gtk.gtk2;
+  inherit (lib) mkEnableOption mkIf mkForce;
 in
 {
 
@@ -24,5 +25,9 @@ in
         configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
       };
     };
+
+    # force unset the gtk2 configuration
+    # for unknown reason, the gtk2 configuration will cause the home-manager to fail
+    home.file.${cfgGtk2.configLocation}.enable = mkForce false;
   };
 }

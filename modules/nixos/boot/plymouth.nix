@@ -6,11 +6,11 @@ _: _:
 }:
 
 let
-  cfg = config.modules.desktop.plymouth;
+  cfg = config.modules.boot.plymouth;
   inherit (lib) mkEnableOption mkIf;
 in
 {
-  options.modules.desktop.plymouth = {
+  options.modules.boot.plymouth = {
     enable = mkEnableOption "Enable plymouth package";
   };
 

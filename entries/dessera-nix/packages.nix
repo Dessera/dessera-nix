@@ -5,14 +5,11 @@
     git.enable = true;
     fish.enable = true;
     podman.enable = true;
-    xilinx-dev.enable = true;
   };
 
   modules.desktop = {
     plasma.enable = true;
     sddm.enable = true;
-    plymouth.enable = true;
-    grub.enable = true;
   };
 
   programs = {
@@ -27,9 +24,19 @@
     };
   };
 
+  security = {
+    sudo-rs = {
+      enable = true;
+      execWheelOnly = true;
+    };
+    sudo.enable = false;
+  };
+
   environment.systemPackages = with pkgs; [
     wget
     fastfetch
     qemu_full
+
+    nur.repos.novel2430.wpsoffice-365
   ];
 }

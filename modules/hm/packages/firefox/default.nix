@@ -27,20 +27,20 @@ in
 
         settings = { };
 
-        extensions = with config.nur.repos.rycee.firefox-addons; [
-          # plasma
-          plasma-integration
+        # extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+        #   # plasma
+        #   plasma-integration
 
-          # privacy
-          # ublock-origin
+        #   # privacy
+        #   # ublock-origin
 
-          # look and feel
-          tabliss
-          darkreader
+        #   # look and feel
+        #   tabliss
+        #   darkreader
 
-          # functionality
-          to-deepl
-        ];
+        #   # functionality
+        #   to-deepl
+        # ];
       };
     };
   };

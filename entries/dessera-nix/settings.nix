@@ -18,10 +18,5 @@
     };
   };
 
-  hardware.asus.battery = {
-    chargeUpto = 80;
-    enableChargeUptoScript = true;
-  };
-
   system.stateVersion = "24.05";
 }

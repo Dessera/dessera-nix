@@ -1,7 +1,7 @@
 {
   plasma-manager,
   catppuccin,
-  nur,
+  vscode-server,
   kwin-effects-forceblur,
   ...
 }:
@@ -12,7 +12,7 @@ let
     inherit
       plasma-manager
       catppuccin
-      nur
+      vscode-server
       kwin-effects-forceblur
       meta
       ;

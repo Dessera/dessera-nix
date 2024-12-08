@@ -1,8 +1,10 @@
 { pkgs, ... }:
 
 {
-  time.timeZone = "Asia/Shanghai";
-  time.hardwareClockInLocalTime = true;
+  time = {
+    timeZone = "Asia/Shanghai";
+    hardwareClockInLocalTime = true;
+  };
 
   i18n = {
     defaultLocale = "zh_CN.UTF-8";

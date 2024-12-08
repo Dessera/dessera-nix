@@ -3,7 +3,7 @@ _: _:
 
 {
   imports = importModules [
-    ./plasma.nix
-    ./sddm.nix
+    ./grub.nix
+    ./plymouth.nix
   ];
 }

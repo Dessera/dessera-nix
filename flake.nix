@@ -48,6 +48,7 @@
       flake-parts,
 
       nixpkgs,
+      nur,
 
       nixos-hardware,
       home-manager,
@@ -71,14 +72,12 @@
             modules = [
               nixos-hardware.nixosModules.asus-fx506hm
               home-manager.nixosModules.home-manager
+              nur.modules.nixos.default
               cygnus-rs.nixosModules.default
               nixosModules.default
               ./entries/dessera-nix
 
-              (import ./users {
-                hmModule = homeManagerModules.default;
-                inherit (inputs) vscode-server;
-              })
+              (import ./users homeManagerModules.default nur)
               ./users/dessera
             ];
           };
@@ -100,7 +99,6 @@
             packages = with pkgs; [
               nixd
               nixfmt-rfc-style
-              (callPackage ./scripts/build-os.nix { })
             ];
           };
         };

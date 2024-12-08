@@ -19,9 +19,7 @@ in
       displayManager.sddm = {
         enable = true;
         autoNumlock = true;
-
         wayland.enable = true;
-
         catppuccin.enable = true;
 
         settings = {

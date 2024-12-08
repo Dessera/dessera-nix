@@ -14,7 +14,7 @@
       wqy_zenhei
 
       # wps fix
-      # nur.repos.rewine.ttf-wps-fonts
+      nur.repos.rewine.ttf-wps-fonts
     ];
     fontDir.enable = true;
     fontconfig = {
@@ -23,7 +23,6 @@
         sansSerif = [ "Source Han Sans SC" ];
         serif = [ "Source Han Serif SC" ];
         emoji = [ "Noto Color Emoji" ];
-        # monospace = [ "FiraCode Nerd Font Mono" ];
         monospace = [ "JetBrainsMono Nerd Font Mono" ];
       };
       cache32Bit = true;

@@ -4,9 +4,9 @@ _: _:
 {
   imports = importModules [
     ./git.nix
+    ./fish.nix
+    ./vscode.nix
 
     ./firefox
-    ./fish
-    ./wpsoffice-cn
   ];
 }

@@ -27,9 +27,5 @@ in
       kate
       xwaylandvideobridge
     ];
-
-    environment.systemPackages = [
-      pkgs.plasma-browser-integration
-    ];
   };
 }

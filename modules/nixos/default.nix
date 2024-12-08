@@ -13,5 +13,6 @@ _:
       ./packages
       ./services
       ./desktop
+      ./boot
     ]);
 }

@@ -6,8 +6,11 @@
     # Nix settings
     ./settings.nix
 
+    # Hardware
+    ./hardware.nix
+
     # Bootloader
-    ./bootloader.nix
+    ./boot.nix
 
     # Fstab
     ./fstab.nix
@@ -21,9 +24,6 @@
     # Locale & Fonts
     ./locale.nix
     ./fonts.nix
-
-    # All users
-    # ./users
 
     # Other
     (modulesPath + "/installer/scan/not-detected.nix")
