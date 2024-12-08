@@ -1,7 +1,12 @@
 {
-  description = "DesseraNix system configuration with a desktop environment";
+  description = "A highly integrated NixOS system module and a system configuration based on it. ";
 
   inputs = {
+    # Utils
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+    };
+
     # Sources
     nixpkgs = {
       url = "github:nixos/nixpkgs?ref=nixos-unstable";
@@ -9,6 +14,7 @@
     nur = {
       url = "github:nix-community/NUR";
     };
+
     nixos-hardware = {
       url = "github:NixOS/nixos-hardware/master";
     };
@@ -28,15 +34,11 @@
       url = "github:catppuccin/nix";
     };
 
-    # Utils
-    flake-parts = {
-      url = "github:hercules-ci/flake-parts";
-    };
-
     # My modules (related to network)
     cygnus-rs = {
       url = "github:Dessera/cygnus-rs";
     };
+    # KWin effects
     kwin-effects-forceblur = {
       url = "github:taj-ny/kwin-effects-forceblur";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -60,15 +62,10 @@
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" ];
 
-      # NixOS
       flake = rec {
-
         nixosConfigurations = {
           dessera-nix = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
-            specialArgs = {
-              inherit inputs;
-            };
             modules = [
               nixos-hardware.nixosModules.asus-fx506hm
               home-manager.nixosModules.home-manager
@@ -77,7 +74,7 @@
               nixosModules.default
               ./entries/dessera-nix
 
-              (import ./users homeManagerModules.default nur)
+              (import ./users homeManagerModules.default)
               ./users/dessera
             ];
           };
@@ -86,11 +83,9 @@
         lib = import ./nix/lib.nix inputs;
 
         homeManagerModules = import ./nix/hm-module.nix lib;
-
         nixosModules = import ./nix/nixos-module.nix lib;
       };
 
-      # Development shell
       perSystem =
         { pkgs, ... }:
         {
