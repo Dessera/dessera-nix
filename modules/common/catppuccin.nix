@@ -1,6 +1,7 @@
-_: _: _: {
+_:
+{ meta, ... }:
+_: {
   catppuccin = {
-    flavor = "mocha";
-    accent = "mauve";
+    inherit (meta.appearance) flavor accent;
   };
 }

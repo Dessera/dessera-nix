@@ -13,25 +13,21 @@
 
 let
   cfg = config.modules.desktop.plasma;
-  catppuccinCfg = config.catppuccin;
-  inherit (lib) mkEnableOption mkIf;
+  inherit (lib) mkEnableOption mkIf toUpper;
 
-  catppuccinFlavor = catppuccinCfg.flavor or "mocha";
-  catppuccinAccent = catppuccinCfg.accent or "mauve";
-  catppuccinFlavorUpper = lib.toUpper catppuccinFlavor;
-  catppuccinAccentUpper = lib.toUpper catppuccinAccent;
+  themeCfg = {
+    inherit (meta.appearance) flavor accent;
+  };
 
-  plasmaColorScheme = "Catppuccin${catppuccinFlavorUpper}${catppuccinAccentUpper}";
-  plasmaLookAndFeel = "Catppuccin-${catppuccinFlavor}-${catppuccinAccent}";
+  plasmaColorScheme = "Catppuccin${toUpper themeCfg.flavor}${toUpper themeCfg.accent}";
+  plasmaLookAndFeel = "Catppuccin-${themeCfg.flavor}-${themeCfg.accent}";
 in
 {
   imports =
     [
       plasma-manager.homeManagerModules.plasma-manager
-
     ]
     ++ (importModules [
-      # extra effects
       ./kwin/effects/extra
     ]);
 
@@ -59,6 +55,7 @@ in
 
     programs.plasma = {
       enable = true;
+      overrideConfig = true;
       workspace = {
         wallpaper = meta.appearance.background;
         colorScheme = plasmaColorScheme;
@@ -77,8 +74,8 @@ in
 
     home.packages = with pkgs; [
       (catppuccin-kde.override {
-        flavour = [ catppuccinFlavor ];
-        accents = [ catppuccinAccent ];
+        flavour = [ themeCfg.flavor ];
+        accents = [ themeCfg.accent ];
       })
 
       papirus-icon-theme

@@ -23,6 +23,10 @@
       "nowatchdog"
       "quiet"
     ];
+
+    tmp = {
+      useTmpfs = true;
+    };
   };
 
   modules.boot = {

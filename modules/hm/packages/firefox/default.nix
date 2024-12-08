@@ -1,13 +1,17 @@
-_: _:
+{ wrapNUR, ... }:
+{ nur, ... }:
 {
   config,
   lib,
+  pkgs,
   ...
 }:
 
 let
   cfg = config.modules.packages.firefox;
   inherit (lib) mkEnableOption mkIf;
+
+  nurPkgs = wrapNUR { inherit nur pkgs; };
 in
 {
   options.modules.packages.firefox = {
@@ -27,20 +31,20 @@ in
 
         settings = { };
 
-        # extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-        #   # plasma
-        #   plasma-integration
+        extensions = with nurPkgs.repos.rycee.firefox-addons; [
+          # plasma
+          plasma-integration
 
-        #   # privacy
-        #   # ublock-origin
+          # privacy
+          # ublock-origin
 
-        #   # look and feel
-        #   tabliss
-        #   darkreader
+          # look and feel
+          tabliss
+          darkreader
 
-        #   # functionality
-        #   to-deepl
-        # ];
+          # functionality
+          to-deepl
+        ];
       };
     };
   };

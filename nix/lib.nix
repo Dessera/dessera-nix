@@ -3,6 +3,8 @@
   catppuccin,
   vscode-server,
   kwin-effects-forceblur,
+
+  nur,
   ...
 }:
 
@@ -14,6 +16,7 @@ let
       catppuccin
       vscode-server
       kwin-effects-forceblur
+      nur
       meta
       ;
   };

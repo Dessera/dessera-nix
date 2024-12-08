@@ -12,8 +12,9 @@
         launchers = [
           "applications:org.kde.dolphin.desktop"
           "applications:org.kde.konsole.desktop"
-          "applications:firefox.desktop"
           "applications:code.desktop"
+          "applications:firefox.desktop"
+          "applications:org.kde.spectacle.desktop"
           "applications:systemsettings.desktop"
         ];
       };
