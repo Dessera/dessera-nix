@@ -28,7 +28,7 @@ in
       plasma-manager.homeManagerModules.plasma-manager
     ]
     ++ (importModules [
-      ./kwin/effects/extra
+      ./kwin/extra
     ]);
 
   options.modules.desktop.plasma = {

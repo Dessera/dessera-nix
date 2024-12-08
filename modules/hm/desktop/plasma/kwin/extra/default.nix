@@ -4,5 +4,6 @@ _: _:
 {
   imports = importModules [
     ./blurplus.nix
+    ./im.nix
   ];
 }
