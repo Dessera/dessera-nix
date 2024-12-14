@@ -37,6 +37,8 @@
     # My modules (related to network)
     cygnus-rs = {
       url = "github:Dessera/cygnus-rs";
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     # KWin effects
     kwin-effects-forceblur = {

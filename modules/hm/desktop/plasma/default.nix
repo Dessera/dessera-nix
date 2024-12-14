@@ -55,7 +55,7 @@ in
 
     programs.plasma = {
       enable = true;
-      overrideConfig = true;
+      # overrideConfig = true;
       workspace = {
         wallpaper = meta.appearance.background;
         colorScheme = plasmaColorScheme;
