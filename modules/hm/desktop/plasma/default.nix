@@ -36,26 +36,12 @@ in
   };
 
   config = mkIf cfg.enable {
-
-    programs.konsole = {
-      enable = true;
-      defaultProfile = "default";
-      profiles = {
-        default = {
-          colorScheme = "catppuccin-mocha";
-          font = {
-            size = 16;
-          };
-        };
-      };
+    modules.packages = {
+      alacritty.enable = true;
     };
-
-    # TODO: Should be a package
-    xdg.dataFile."konsole/catppuccin-mocha.colorscheme".source = ./catppuccin-mocha.colorscheme;
 
     programs.plasma = {
       enable = true;
-      # overrideConfig = true;
       workspace = {
         wallpaper = meta.appearance.background;
         colorScheme = plasmaColorScheme;
@@ -66,9 +52,10 @@ in
         appearance.wallpaper = meta.appearance.background;
       };
 
-      panels = import ./pannels;
-      window-rules = import ./window-rules;
+      panels = import ./pannels.nix;
+      hotkeys = import ./hotkeys.nix;
 
+      window-rules = import ./window-rules;
       kwin = import ./kwin;
     };
 

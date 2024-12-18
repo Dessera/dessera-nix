@@ -26,6 +26,7 @@ in
       elisa
       kate
       xwaylandvideobridge
+      konsole
     ];
   };
 }
