@@ -16,11 +16,16 @@ in
       platformTheme.name = "kvantum";
       style = {
         name = "kvantum";
-        catppuccin = {
-          enable = true;
-          apply = true;
-        };
+        # catppuccin = {
+        #   enable = true;
+        #   apply = true;
+        # };
       };
+    };
+
+    catppuccin.kvantum = {
+      enable = true;
+      apply = true;
     };
 
     programs.plasma.configFile = {

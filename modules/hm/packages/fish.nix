@@ -60,8 +60,8 @@ in
     programs.starship = {
       enable = true;
       enableFishIntegration = true;
-
-      catppuccin.enable = true;
     };
+
+    catppuccin.starship.enable = true;
   };
 }

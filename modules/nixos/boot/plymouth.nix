@@ -15,9 +15,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    boot.plymouth = {
-      enable = true;
-      catppuccin.enable = true;
-    };
+    boot.plymouth.enable = true;
+    catppuccin.plymouth.enable = true;
   };
 }

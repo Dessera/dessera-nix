@@ -52,6 +52,37 @@ in
         appearance.wallpaper = meta.appearance.background;
       };
 
+      fonts = {
+        general = {
+          family = "Source Han Sans SC";
+          pointSize = 10;
+        };
+        fixedWidth = {
+          family = "JetBrainsMono Nerd Font Mono";
+          pointSize = 10;
+        };
+        small = {
+          family = "Source Han Sans SC";
+          pointSize = 8;
+        };
+        toolbar = {
+          family = "Source Han Sans SC";
+          pointSize = 10;
+        };
+        menu = {
+          family = "Source Han Sans SC";
+          pointSize = 10;
+        };
+        windowTitle = {
+          family = "Source Han Sans SC";
+          pointSize = 10;
+        };
+      };
+
+      input.keyboard = {
+        numlockOnStartup = "on";
+      };
+
       panels = import ./pannels.nix;
       hotkeys = import ./hotkeys.nix;
 

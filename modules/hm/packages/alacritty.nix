@@ -17,7 +17,6 @@ in
   config = mkIf cfg.enable {
     programs.alacritty = {
       enable = true;
-      catppuccin.enable = true;
 
       settings = {
         window = {
@@ -32,5 +31,7 @@ in
         };
       };
     };
+
+    catppuccin.alacritty.enable = true;
   };
 }

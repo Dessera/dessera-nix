@@ -15,11 +15,6 @@ in
   config = mkIf cfg.enable {
     gtk = {
       enable = true;
-      # ! catppuccin no longer supports the gtk
-      # ! but it is still possible to use the theme
-      catppuccin = {
-        enable = true;
-      };
 
       gtk2 = {
         configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
@@ -31,6 +26,10 @@ in
         };
       };
     };
+
+    # ! catppuccin no longer supports the gtk
+    # ! but it is still possible to use the theme
+    catppuccin.gtk.enable = true;
 
     # force unset the gtk2 configuration
     # for unknown reason, the gtk2 configuration will cause the home-manager to fail

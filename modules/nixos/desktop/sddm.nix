@@ -20,7 +20,6 @@ in
         enable = true;
         autoNumlock = true;
         wayland.enable = true;
-        catppuccin.enable = true;
 
         settings = {
           General = {
@@ -29,5 +28,7 @@ in
         };
       };
     };
+
+    catppuccin.sddm.enable = true;
   };
 }

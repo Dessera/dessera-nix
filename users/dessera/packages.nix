@@ -20,7 +20,7 @@
 
   home.packages = with pkgs; [
     qq
-    wechat-uos
+    # wechat-uos
     bilibili
   ];
 }

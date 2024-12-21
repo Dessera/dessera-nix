@@ -10,6 +10,6 @@
     ./plasma
   ];
 
-  catppuccin.pointerCursor.enable = true;
+  catppuccin.cursors.enable = true;
   home.pointerCursor.size = 25;
 }

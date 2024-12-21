@@ -20,8 +20,9 @@ in
     boot.loader.grub = {
       enable = true;
       device = "nodev";
-      catppuccin.enable = true;
       inherit (cfg) efiSupport useOSProber;
     };
+
+    catppuccin.grub.enable = true;
   };
 }
