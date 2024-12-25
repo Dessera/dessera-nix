@@ -13,14 +13,31 @@
 
 let
   cfg = config.modules.desktop.plasma;
-  inherit (lib) mkEnableOption mkIf toUpper;
+  inherit (lib) mkEnableOption mkIf;
+
+  toUpperInitial =
+    str:
+    let
+      first = lib.substring 0 1 str;
+      rest = lib.substring 1 (lib.stringLength str) str;
+    in
+    lib.concatStringsSep "" [
+      (lib.toUpper first)
+      rest
+    ];
 
   themeCfg = {
     inherit (meta.appearance) flavor accent;
+    flavorUpper = toUpperInitial themeCfg.flavor;
+    accentUpper = toUpperInitial themeCfg.accent;
   };
 
-  plasmaColorScheme = "Catppuccin${toUpper themeCfg.flavor}${toUpper themeCfg.accent}";
-  plasmaLookAndFeel = "Catppuccin-${themeCfg.flavor}-${themeCfg.accent}";
+  plasmaThemeCfg = {
+    colorScheme = "Catppuccin${themeCfg.flavorUpper}${themeCfg.accentUpper}";
+    lookAndFeel = "Catppuccin-${themeCfg.flavor}-${themeCfg.accent}";
+    splashScreen = "Catppuccin-${themeCfg.flavorUpper}-${themeCfg.accentUpper}";
+  };
+
 in
 {
   imports =
@@ -44,8 +61,12 @@ in
       enable = true;
       workspace = {
         wallpaper = meta.appearance.background;
-        colorScheme = plasmaColorScheme;
-        lookAndFeel = plasmaLookAndFeel;
+        splashScreen = {
+          engine = "KSplashQML";
+          theme = plasmaThemeCfg.splashScreen;
+        };
+        colorScheme = plasmaThemeCfg.colorScheme;
+        lookAndFeel = plasmaThemeCfg.lookAndFeel;
         iconTheme = "Papirus-Dark";
       };
       kscreenlocker = {
@@ -58,7 +79,7 @@ in
           pointSize = 10;
         };
         fixedWidth = {
-          family = "JetBrainsMono Nerd Font Mono";
+          family = "MonaspiceNe Nerd Font Mono";
           pointSize = 10;
         };
         small = {

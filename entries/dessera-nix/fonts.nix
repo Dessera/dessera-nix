@@ -5,6 +5,7 @@
     enableDefaultPackages = true;
     packages = with pkgs; [
       nerd-fonts.jetbrains-mono
+      nerd-fonts.monaspace
       sourceHanSansPackages.simplified-chinese
       sourceHanSerifPackages.simplified-chinese
       noto-fonts-cjk-sans
@@ -23,7 +24,10 @@
         sansSerif = [ "Source Han Sans SC" ];
         serif = [ "Source Han Serif SC" ];
         emoji = [ "Noto Color Emoji" ];
-        monospace = [ "JetBrainsMono Nerd Font Mono" ];
+        monospace = [
+          "MonaspiceNe Nerd Font Mono"
+          "JetBrainsMono Nerd Font Mono"
+        ];
       };
       cache32Bit = true;
     };

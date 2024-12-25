@@ -16,19 +16,14 @@ in
     gtk = {
       enable = true;
 
-      gtk2 = {
-        configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
-      };
+      gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
 
-      gtk3 = {
-        extraConfig = {
-          gtk-im-module = "fcitx";
-        };
+      gtk3.extraConfig = {
+        gtk-im-module = "fcitx";
       };
     };
 
-    # ! catppuccin no longer supports the gtk
-    # ! but it is still possible to use the theme
+    # ! catppuccin no longer supports the gtk, but it is still possible to use the theme
     catppuccin.gtk.enable = true;
 
     # force unset the gtk2 configuration

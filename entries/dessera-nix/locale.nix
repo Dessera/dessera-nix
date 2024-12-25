@@ -3,7 +3,6 @@
 {
   time = {
     timeZone = "Asia/Shanghai";
-    hardwareClockInLocalTime = true;
   };
 
   i18n = {
