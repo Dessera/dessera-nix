@@ -40,6 +40,11 @@
       inputs.flake-parts.follows = "flake-parts";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixcode = {
+      url = "github:Dessera/nixcode";
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # KWin effects
     kwin-effects-forceblur = {
       url = "github:taj-ny/kwin-effects-forceblur";

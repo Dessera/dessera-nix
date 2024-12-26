@@ -5,7 +5,12 @@
     git.enable = true;
     fish.enable = true;
     firefox.enable = true;
-    vscode.enable = true;
+    vscode = {
+      enable = true;
+      nixcode = {
+        nix = true;
+      };
+    };
   };
 
   modules.desktop = {
@@ -20,7 +25,8 @@
 
   home.packages = with pkgs; [
     qq
-    # wechat-uos
+    wechat-uos
     bilibili
+    gimp
   ];
 }

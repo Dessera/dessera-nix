@@ -2,6 +2,7 @@
   plasma-manager,
   catppuccin,
   vscode-server,
+  nixcode,
   kwin-effects-forceblur,
 
   nur,
@@ -15,6 +16,7 @@ let
       plasma-manager
       catppuccin
       vscode-server
+      nixcode
       kwin-effects-forceblur
       nur
       meta

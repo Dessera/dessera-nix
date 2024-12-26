@@ -74,7 +74,7 @@
           launchers = [
             "applications:org.kde.dolphin.desktop"
             "applications:Alacritty.desktop"
-            "applications:code.desktop"
+            "applications:nixcode.desktop"
             "applications:firefox.desktop"
             "applications:org.kde.spectacle.desktop"
             "applications:systemsettings.desktop"
