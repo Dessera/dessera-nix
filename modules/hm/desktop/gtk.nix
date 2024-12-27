@@ -1,10 +1,18 @@
-_: _:
-{ config, lib, ... }:
+_:
+{ meta, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   cfg = config.modules.desktop.gtk;
   cfgGtk2 = config.gtk.gtk2;
   inherit (lib) mkEnableOption mkIf mkForce;
+
+  inherit (meta.appearance) flavor accent;
 in
 {
 
@@ -15,6 +23,13 @@ in
   config = mkIf cfg.enable {
     gtk = {
       enable = true;
+      theme = {
+        name = "catppuccin-${flavor}-${accent}-standard";
+        package = pkgs.catppuccin-gtk.override {
+          variant = flavor;
+          accents = [ accent ];
+        };
+      };
 
       gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
 
@@ -22,9 +37,6 @@ in
         gtk-im-module = "fcitx";
       };
     };
-
-    # ! catppuccin no longer supports the gtk, but it is still possible to use the theme
-    # catppuccin.gtk.enable = true;
 
     # force unset the gtk2 configuration
     # for unknown reason, the gtk2 configuration will cause the home-manager to fail

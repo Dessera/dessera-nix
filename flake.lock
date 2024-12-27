@@ -366,11 +366,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1735278432,
-        "narHash": "sha256-wDlFlKwe8aLumU0NbSh2ODgxcQk2moZGh84QI8hTRcE=",
+        "lastModified": 1735282437,
+        "narHash": "sha256-iwqkWjpaLCNsKlXQlJks/VVep8PxK+rxDDJj29eOpR4=",
         "owner": "Dessera",
         "repo": "nixcode",
-        "rev": "e1bc4446c63f4bed3ecc7f3c3dfce4b7c4f1061e",
+        "rev": "18f16d340257b2efabe31e68659261a07d89e50d",
         "type": "github"
       },
       "original": {
