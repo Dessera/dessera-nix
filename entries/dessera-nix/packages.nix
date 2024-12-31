@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs-stable, pkgs, ... }:
 
 {
   modules.packages = {
@@ -35,7 +35,7 @@
   environment.systemPackages = with pkgs; [
     wget
     fastfetch
-    qemu_full
+    pkgs-stable.qemu_full
 
     nur.repos.novel2430.wpsoffice-365
   ];

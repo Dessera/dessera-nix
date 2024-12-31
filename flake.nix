@@ -11,6 +11,11 @@
     nixpkgs = {
       url = "github:nixos/nixpkgs?ref=nixos-unstable";
     };
+
+    nixpkgs-stable = {
+      url = "github:nixos/nixpkgs?ref=nixos-24.11";
+    };
+
     nur = {
       url = "github:nix-community/NUR";
     };
@@ -57,6 +62,7 @@
       flake-parts,
 
       nixpkgs,
+      nixpkgs-stable,
       nur,
 
       nixos-hardware,
@@ -71,8 +77,13 @@
 
       flake = rec {
         nixosConfigurations = {
-          dessera-nix = nixpkgs.lib.nixosSystem {
+          dessera-nix = nixpkgs.lib.nixosSystem rec {
             system = "x86_64-linux";
+            specialArgs = {
+              pkgs-stable = import nixpkgs-stable {
+                inherit system;
+              };
+            };
             modules = [
               nixos-hardware.nixosModules.asus-fx506hm
               home-manager.nixosModules.home-manager
