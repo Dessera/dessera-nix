@@ -1,2 +1,1 @@
-library: args: entry:
-(import entry library args)
+margs: entry: (import entry margs)

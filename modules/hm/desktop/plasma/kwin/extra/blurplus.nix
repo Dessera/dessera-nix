@@ -1,4 +1,3 @@
-_:
 {
   kwin-effects-forceblur,
   ...

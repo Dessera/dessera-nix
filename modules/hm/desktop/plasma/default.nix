@@ -1,7 +1,7 @@
-{ importModules, ... }:
 {
   meta,
   plasma-manager,
+  moduleLib,
   ...
 }:
 {
@@ -44,7 +44,7 @@ in
     [
       plasma-manager.homeManagerModules.plasma-manager
     ]
-    ++ (importModules [
+    ++ (moduleLib.importModules [
       ./kwin/extra
     ]);
 

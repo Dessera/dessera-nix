@@ -1,11 +1,17 @@
 defaultArgs: userArgs:
 let
   args = defaultArgs // userArgs;
-  library = rec {
-    importModule = import ./importModule.nix library args;
-    importModules = list: map importModule list;
+  moduleLib =
+    let
+      margs = args // {
+        inherit moduleLib;
+      };
+    in
+    rec {
+      importModule = import ./importModule.nix margs;
+      importModules = list: map importModule list;
 
-    wrapNUR = import ./wrapNUR.nix;
-  };
+      wrapNUR = import ./wrapNUR.nix;
+    };
 in
-library
+moduleLib

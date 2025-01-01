@@ -25,5 +25,13 @@
       ];
       url = "https://home-manager-options.extranix.com";
     }
+    {
+      name = "Nixpkgs Manual";
+      tags = [
+        "nix"
+        "nixpkgs"
+      ];
+      url = "https://ryantm.github.io/nixpkgs/";
+    }
   ];
 }

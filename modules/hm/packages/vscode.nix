@@ -1,4 +1,3 @@
-_:
 { vscode-server, nixcode, ... }:
 {
   config,
@@ -17,6 +16,7 @@ in
 {
   options.modules.packages.vscode = {
     enable = mkEnableOption "Enable vscode";
+    sshSupport = mkEnableOption "Enable ssh support for vscode";
     nixcode = {
       nix = mkEnableOption "Enable vscode profile for nix language";
     };
@@ -26,9 +26,9 @@ in
     vscode-server.nixosModules.home
   ];
 
-  config = mkIf cfg.enable {
-    programs.vscode.enable = true;
-    services.vscode-server.enable = true;
+  config = {
+    programs.vscode.enable = cfg.enable;
+    services.vscode-server.enable = cfg.sshSupport;
 
     home.packages = mkIf cfg.nixcode.nix [
       nixcodePkgs.nix

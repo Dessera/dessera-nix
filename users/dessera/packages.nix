@@ -5,11 +5,8 @@
     git.enable = true;
     fish.enable = true;
     firefox.enable = true;
-    vscode = {
-      enable = true;
-      nixcode = {
-        nix = true;
-      };
+    vscode.nixcode = {
+      nix = true;
     };
   };
 

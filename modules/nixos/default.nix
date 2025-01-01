@@ -1,5 +1,4 @@
-{ importModules, ... }:
-{ catppuccin, ... }:
+{ catppuccin, moduleLib, ... }:
 _:
 
 {
@@ -7,7 +6,7 @@ _:
     [
       catppuccin.nixosModules.catppuccin
     ]
-    ++ (importModules [
+    ++ (moduleLib.importModules [
       ../common/catppuccin.nix
 
       ./packages
