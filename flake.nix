@@ -122,10 +122,18 @@
                     imports = [
                       nixosModule
                       ./entries/dessera-nix
-
-                      (import ./users hmModule)
                       ./users/dessera
                     ];
+
+                    home-manager = {
+                      useGlobalPkgs = true;
+                      useUserPackages = true;
+                      backupFileExtension = "bkp";
+
+                      sharedModules = [
+                        hmModule
+                      ];
+                    };
                   }
                 )
               ];
