@@ -1,4 +1,4 @@
-{ catppuccin, moduleLib, ... }:
+{ catppuccin, mlib, ... }:
 { ... }:
 
 {
@@ -6,7 +6,7 @@
     [
       catppuccin.homeManagerModules.catppuccin
     ]
-    ++ (moduleLib.importModules [
+    ++ (mlib.importModules [
       ../common/catppuccin.nix
 
       ./desktop

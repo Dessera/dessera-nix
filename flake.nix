@@ -30,11 +30,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    plasma-manager = {
-      url = "github:nix-community/plasma-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-    };
     catppuccin = {
       url = "github:catppuccin/nix";
     };
@@ -50,7 +45,13 @@
       inputs.flake-parts.follows = "flake-parts";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # KWin effects
+
+    # plasma
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
     kwin-effects-forceblur = {
       url = "github:taj-ny/kwin-effects-forceblur";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -72,48 +73,80 @@
       ...
     }@inputs:
 
-    flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = [ "x86_64-linux" ];
+    flake-parts.lib.mkFlake { inherit inputs; } (
+      { self, flake-parts-lib, ... }:
+      let
+        inherit (flake-parts-lib) importApply;
 
-      flake = rec {
-        nixosConfigurations = {
-          dessera-nix = nixpkgs.lib.nixosSystem rec {
-            system = "x86_64-linux";
-            specialArgs = {
-              pkgs-stable = import nixpkgs-stable {
-                inherit system;
+        libArgs = {
+          inherit (inputs)
+            plasma-manager
+            kwin-effects-forceblur
+            catppuccin
+            vscode-server
+            nixcode
+            nur
+            ;
+          meta = import ./meta;
+        };
+      in
+      {
+        systems = [ "x86_64-linux" ];
+
+        imports = [
+          (importApply ./lib libArgs)
+        ];
+
+        flake = {
+          nixosConfigurations = {
+            dessera-nix = nixpkgs.lib.nixosSystem rec {
+              system = "x86_64-linux";
+              specialArgs = {
+                pkgs-stable = import nixpkgs-stable {
+                  inherit system;
+                };
               };
+              modules = [
+                nixos-hardware.nixosModules.asus-fx506hm
+                home-manager.nixosModules.home-manager
+                nur.modules.nixos.default
+                cygnus-rs.nixosModules.default
+                (
+                  { pkgs, ... }:
+                  let
+                    mlib = self.lib.mkLib { inherit pkgs; };
+                    hmModule = mlib.wrapModule self.hmModuleWrapper;
+                    nixosModule = mlib.wrapModule self.nixosModuleWrapper;
+                  in
+                  {
+                    imports = [
+                      nixosModule
+                      ./entries/dessera-nix
+
+                      (import ./users hmModule)
+                      ./users/dessera
+                    ];
+                  }
+                )
+              ];
             };
-            modules = [
-              nixos-hardware.nixosModules.asus-fx506hm
-              home-manager.nixosModules.home-manager
-              nur.modules.nixos.default
-              cygnus-rs.nixosModules.default
-              nixosModules.default
-              ./entries/dessera-nix
-
-              (import ./users homeManagerModules.default)
-              ./users/dessera
-            ];
           };
+
+          hmModuleWrapper = import ./modules/hm;
+          nixosModuleWrapper = import ./modules/nixos;
         };
 
-        lib = import ./nix/lib.nix inputs;
-
-        homeManagerModules = import ./nix/hm-module.nix lib;
-        nixosModules = import ./nix/nixos-module.nix lib;
-      };
-
-      perSystem =
-        { pkgs, ... }:
-        {
-          formatter = pkgs.nixfmt-rfc-style;
-          devShells.default = pkgs.mkShell {
-            packages = with pkgs; [
-              nixd
-              nixfmt-rfc-style
-            ];
+        perSystem =
+          { pkgs, ... }:
+          {
+            formatter = pkgs.nixfmt-rfc-style;
+            devShells.default = pkgs.mkShell {
+              packages = with pkgs; [
+                nixd
+                nixfmt-rfc-style
+              ];
+            };
           };
-        };
-    };
+      }
+    );
 }

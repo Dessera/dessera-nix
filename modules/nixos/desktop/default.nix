@@ -1,8 +1,8 @@
-{ moduleLib, ... }:
+{ mlib, ... }:
 _:
 
 {
-  imports = moduleLib.importModules [
+  imports = mlib.importModules [
     ./plasma.nix
     ./sddm.nix
   ];

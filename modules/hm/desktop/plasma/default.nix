@@ -1,7 +1,7 @@
 {
   meta,
   plasma-manager,
-  moduleLib,
+  mlib,
   ...
 }:
 {
@@ -38,13 +38,14 @@ let
     splashScreen = "Catppuccin-${themeCfg.flavorUpper}-${themeCfg.accentUpper}";
   };
 
+  wallpaperPath = mlib.mkImage meta.appearance.background;
 in
 {
   imports =
     [
       plasma-manager.homeManagerModules.plasma-manager
     ]
-    ++ (moduleLib.importModules [
+    ++ (mlib.importModules [
       ./kwin/extra
     ]);
 
@@ -60,7 +61,7 @@ in
     programs.plasma = {
       enable = true;
       workspace = {
-        wallpaper = meta.appearance.background;
+        wallpaper = wallpaperPath;
         splashScreen = {
           engine = "KSplashQML";
           theme = plasmaThemeCfg.splashScreen;
@@ -70,7 +71,7 @@ in
         iconTheme = "Papirus-Dark";
       };
       kscreenlocker = {
-        appearance.wallpaper = meta.appearance.background;
+        appearance.wallpaper = wallpaperPath;
       };
 
       fonts = {

@@ -1,4 +1,4 @@
-{ nur, moduleLib, ... }:
+{ nur, mlib, ... }:
 {
   config,
   lib,
@@ -10,7 +10,7 @@ let
   cfg = config.modules.packages.firefox;
   inherit (lib) mkEnableOption mkIf;
 
-  nurPkgs = moduleLib.wrapNUR { inherit nur pkgs; };
+  nurPkgs = mlib.wrapNUR { inherit nur pkgs; };
 in
 {
   options.modules.packages.firefox = {

@@ -1,8 +1,8 @@
-{ moduleLib, ... }:
+{ mlib, ... }:
 _:
 
 {
-  imports = moduleLib.importModules [
+  imports = mlib.importModules [
     ./alacritty.nix
     ./git.nix
     ./fish.nix

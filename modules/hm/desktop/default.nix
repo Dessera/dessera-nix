@@ -1,8 +1,8 @@
-{ moduleLib, ... }:
+{ mlib, ... }:
 { ... }:
 
 {
-  imports = moduleLib.importModules [
+  imports = mlib.importModules [
     ./gtk.nix
     ./qt.nix
 
