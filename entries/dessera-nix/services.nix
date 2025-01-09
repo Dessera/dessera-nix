@@ -23,15 +23,15 @@
     xserver = {
       enable = true;
     };
-    openssh = {
-      enable = true;
-      ports = [ 39901 ];
-      settings = {
-        PasswordAuthentication = false;
-        PermitRootLogin = "no";
-        KbdInteractiveAuthentication = false;
-        X11Forwarding = true;
-      };
-    };
+    # openssh = {
+    #   enable = true;
+    #   ports = [ 39901 ];
+    #   settings = {
+    #     PasswordAuthentication = false;
+    #     PermitRootLogin = "no";
+    #     KbdInteractiveAuthentication = false;
+    #     X11Forwarding = true;
+    #   };
+    # };
   };
 }

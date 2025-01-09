@@ -7,6 +7,7 @@
     ./qt.nix
 
     ./plasma
+    ./catppuccin-extra
   ];
 
   catppuccin.cursors.enable = true;

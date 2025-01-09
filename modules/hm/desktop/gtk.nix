@@ -1,8 +1,7 @@
-{ meta, ... }:
+_:
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 
@@ -10,8 +9,6 @@ let
   cfg = config.modules.desktop.gtk;
   cfgGtk2 = config.gtk.gtk2;
   inherit (lib) mkEnableOption mkIf mkForce;
-
-  inherit (meta.appearance) flavor accent;
 in
 {
 
@@ -22,13 +19,7 @@ in
   config = mkIf cfg.enable {
     gtk = {
       enable = true;
-      theme = {
-        name = "catppuccin-${flavor}-${accent}-standard";
-        package = pkgs.catppuccin-gtk.override {
-          variant = flavor;
-          accents = [ accent ];
-        };
-      };
+      catppuccin-extra.enable = true;
 
       gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
 

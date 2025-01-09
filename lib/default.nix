@@ -17,12 +17,13 @@
     lib.mkLib =
       { pkgs, ... }@overrideArgs:
       let
+        nixLib = pkgs.lib;
+
         finalArgs =
           args
           // overrideArgs
           // {
             mlib = ret;
-            moduleLib = ret;
           };
 
         ret = {
@@ -55,6 +56,17 @@
               ) { };
             in
             "${package}/${name}";
+
+          toUpperInitial =
+            str:
+            let
+              first = nixLib.substring 0 1 str;
+              rest = nixLib.substring 1 (nixLib.stringLength str) str;
+            in
+            nixLib.concatStrings [
+              (nixLib.toUpper first)
+              rest
+            ];
         };
       in
       ret;

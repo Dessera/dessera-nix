@@ -7,36 +7,12 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 
 let
   cfg = config.modules.desktop.plasma;
   inherit (lib) mkEnableOption mkIf;
-
-  toUpperInitial =
-    str:
-    let
-      first = lib.substring 0 1 str;
-      rest = lib.substring 1 (lib.stringLength str) str;
-    in
-    lib.concatStringsSep "" [
-      (lib.toUpper first)
-      rest
-    ];
-
-  themeCfg = {
-    inherit (meta.appearance) flavor accent;
-    flavorUpper = toUpperInitial themeCfg.flavor;
-    accentUpper = toUpperInitial themeCfg.accent;
-  };
-
-  plasmaThemeCfg = {
-    colorScheme = "Catppuccin${themeCfg.flavorUpper}${themeCfg.accentUpper}";
-    lookAndFeel = "Catppuccin-${themeCfg.flavor}-${themeCfg.accent}";
-    splashScreen = "Catppuccin-${themeCfg.flavorUpper}-${themeCfg.accentUpper}";
-  };
 
   wallpaperPath = mlib.mkImage meta.appearance.background;
 in
@@ -60,15 +36,10 @@ in
 
     programs.plasma = {
       enable = true;
+      catppuccin-extra.enable = true;
+
       workspace = {
         wallpaper = wallpaperPath;
-        splashScreen = {
-          engine = "KSplashQML";
-          theme = plasmaThemeCfg.splashScreen;
-        };
-        colorScheme = plasmaThemeCfg.colorScheme;
-        lookAndFeel = plasmaThemeCfg.lookAndFeel;
-        iconTheme = "Papirus-Dark";
       };
       kscreenlocker = {
         appearance.wallpaper = wallpaperPath;
@@ -111,14 +82,5 @@ in
       window-rules = import ./window-rules;
       kwin = import ./kwin;
     };
-
-    home.packages = with pkgs; [
-      (catppuccin-kde.override {
-        flavour = [ themeCfg.flavor ];
-        accents = [ themeCfg.accent ];
-      })
-
-      papirus-icon-theme
-    ];
   };
 }
