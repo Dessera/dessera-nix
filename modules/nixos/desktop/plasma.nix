@@ -1,18 +1,23 @@
 _:
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}:
+{ config, lib, ... }:
 
 let
   cfg = config.modules.desktop.plasma;
-  inherit (lib) mkEnableOption mkIf;
+  inherit (lib)
+    mkOption
+    mkEnableOption
+    mkIf
+    types
+    ;
 in
 {
   options.modules.desktop.plasma = {
     enable = mkEnableOption "Enable plasma package";
+    excludePackages = mkOption {
+      type = types.listOf types.package;
+      default = [ ];
+      description = "List of packages to exclude from the plasma package";
+    };
   };
 
   config = mkIf cfg.enable {
@@ -22,11 +27,6 @@ in
       };
     };
 
-    environment.plasma6.excludePackages = with pkgs.kdePackages; [
-      elisa
-      kate
-      xwaylandvideobridge
-      konsole
-    ];
+    environment.plasma6.excludePackages = cfg.excludePackages;
   };
 }

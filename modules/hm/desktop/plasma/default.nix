@@ -12,7 +12,12 @@
 
 let
   cfg = config.modules.desktop.plasma;
-  inherit (lib) mkEnableOption mkIf;
+  inherit (lib)
+    mkOption
+    mkEnableOption
+    mkIf
+    types
+    ;
 
   wallpaperPath = mlib.mkImage meta.appearance.background;
 in
@@ -22,18 +27,29 @@ in
       plasma-manager.homeManagerModules.plasma-manager
     ]
     ++ (mlib.importModules [
-      ./kwin/extra
+      ./extras
     ]);
 
   options.modules.desktop.plasma = {
     enable = mkEnableOption "Enable plasma configuration";
+
+    defaultApplications = {
+      terminal = {
+        application = mkOption {
+          type = types.str;
+          default = "konsole";
+          description = "Default terminal application";
+        };
+        service = mkOption {
+          type = types.str;
+          default = "org.kde.konsole";
+          description = "Default terminal service";
+        };
+      };
+    };
   };
 
   config = mkIf cfg.enable {
-    modules.packages = {
-      alacritty.enable = true;
-    };
-
     programs.plasma = {
       enable = true;
       catppuccin-extra.enable = true;
@@ -80,7 +96,24 @@ in
       hotkeys = import ./hotkeys.nix;
 
       window-rules = import ./window-rules;
-      kwin = import ./kwin;
+      kwin.effects = {
+        shakeCursor.enable = true;
+        dimAdminMode.enable = true;
+
+        windowOpenClose.animation = "fade";
+        minimization.animation = "squash";
+
+        blurplus.enable = true;
+      };
+
+      configFile = {
+        kdeglobals.General = {
+          TerminalApplication = cfg.defaultApplications.terminal.application;
+          TerminalService = cfg.defaultApplications.terminal.service;
+        };
+
+        kwinrc.Wayland.InputMethod = "/run/current-system/sw/share/applications/fcitx5-wayland-launcher.desktop";
+      };
     };
   };
 }
