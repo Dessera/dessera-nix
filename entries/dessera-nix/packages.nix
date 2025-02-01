@@ -4,7 +4,10 @@
   modules.packages = {
     git.enable = true;
     fish.enable = true;
-    podman.enable = true;
+    podman = {
+      enable = true;
+      enableNvidiaSupport = true;
+    };
   };
 
   modules.desktop = {

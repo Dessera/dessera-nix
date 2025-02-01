@@ -13,6 +13,7 @@ in
 {
   options.modules.packages.podman = {
     enable = mkEnableOption "Enable podman and related tools";
+    enableNvidiaSupport = mkEnableOption "Enable nvidia support";
   };
 
   config = mkIf cfg.enable {
@@ -29,6 +30,8 @@ in
         };
       };
     };
+
+    hardware.nvidia-container-toolkit.enable = cfg.enableNvidiaSupport;
 
     environment.systemPackages = with pkgs; [
       podman-compose

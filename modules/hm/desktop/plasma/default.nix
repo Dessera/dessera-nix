@@ -25,6 +25,7 @@ in
   imports =
     [
       plasma-manager.homeManagerModules.plasma-manager
+      (mlib.mkAliasOptionModule [ "modules" "desktop" "plasma" "fonts" ] [ "programs" "plasma" "fonts" ])
     ]
     ++ (mlib.importModules [
       ./extras
@@ -59,33 +60,6 @@ in
       };
       kscreenlocker = {
         appearance.wallpaper = wallpaperPath;
-      };
-
-      fonts = {
-        general = {
-          family = "Source Han Sans SC";
-          pointSize = 10;
-        };
-        fixedWidth = {
-          family = "MonaspiceNe Nerd Font Mono";
-          pointSize = 10;
-        };
-        small = {
-          family = "Source Han Sans SC";
-          pointSize = 8;
-        };
-        toolbar = {
-          family = "Source Han Sans SC";
-          pointSize = 10;
-        };
-        menu = {
-          family = "Source Han Sans SC";
-          pointSize = 10;
-        };
-        windowTitle = {
-          family = "Source Han Sans SC";
-          pointSize = 10;
-        };
       };
 
       input.keyboard = {

@@ -57,6 +57,15 @@
             in
             "${package}/${name}";
 
+          mkAliasOptionModule =
+            from: to:
+            nixLib.doRename {
+              inherit from to;
+              visible = false;
+              warn = false;
+              use = x: x;
+            };
+
           toUpperInitial =
             str:
             let

@@ -1,5 +1,10 @@
 { pkgs, ... }:
 
+let
+  mkFontOpt = family: pointSize: {
+    inherit family pointSize;
+  };
+in
 {
   modules.packages = {
     git.enable = true;
@@ -21,6 +26,14 @@
           service = "Alacritty.desktop";
         };
       };
+      fonts = {
+        general = mkFontOpt "Source Han Sans SC" 12;
+        fixedWidth = mkFontOpt "JetBrainsMono Nerd Font Mono" 10;
+        small = mkFontOpt "Source Han Sans SC" 8;
+        toolbar = mkFontOpt "Source Han Sans SC" 10;
+        menu = mkFontOpt "Source Han Sans SC" 10;
+        windowTitle = mkFontOpt "Source Han Sans SC" 10;
+      };
     };
     qt.enable = true;
   };
@@ -32,7 +45,7 @@
   home.packages = with pkgs; [
     qq
     wechat-uos
-    bilibili
+    # bilibili
     gimp
   ];
 }

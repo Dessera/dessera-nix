@@ -25,8 +25,8 @@
         serif = [ "Source Han Serif SC" ];
         emoji = [ "Noto Color Emoji" ];
         monospace = [
-          "MonaspiceNe Nerd Font Mono"
           "JetBrainsMono Nerd Font Mono"
+          "MonaspiceNe Nerd Font Mono"
         ];
       };
       cache32Bit = true;
