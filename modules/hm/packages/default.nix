@@ -8,6 +8,7 @@ _:
     ./fish.nix
     ./tmux.nix
     ./vscode.nix
+    ./ghostty.nix
 
     ./firefox
   ];

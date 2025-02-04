@@ -8,8 +8,9 @@ in
 {
   modules.packages = {
     git.enable = true;
+    ghostty.enable = true;
     fish.enable = true;
-    alacritty.enable = true;
+    # alacritty.enable = true;
     firefox.enable = true;
     vscode.nixcode = {
       nix = true;
@@ -22,8 +23,8 @@ in
       enable = true;
       defaultApplications = {
         terminal = {
-          application = "alacritty";
-          service = "Alacritty.desktop";
+          application = "ghostty";
+          service = "com.mitchellh.ghostty.desktop";
         };
       };
       fonts = {

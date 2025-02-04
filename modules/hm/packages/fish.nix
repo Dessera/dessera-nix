@@ -9,7 +9,6 @@
 let
   cfg = config.modules.packages.fish;
   inherit (lib) mkEnableOption mkIf;
-  inherit (pkgs) fetchFromGitHub;
 in
 {
   options.modules.packages.fish = {
@@ -17,10 +16,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    modules.packages = {
-      tmux.enable = true;
-    };
-
     programs.fish = {
       enable = true;
       plugins = [
@@ -28,16 +23,11 @@ in
         { inherit (pkgs.fishPlugins.pisces) name src; }
         { inherit (pkgs.fishPlugins.plugin-git) name src; }
         { inherit (pkgs.fishPlugins.sponge) name src; }
-        {
-          name = "tmux.fish";
-          src = fetchFromGitHub {
-            owner = "budimanjojo";
-            repo = "tmux.fish";
-            rev = "v2.0.1";
-            sha256 = "sha256-ynhEhrdXQfE1dcYsSk2M2BFScNXWPh3aws0U7eDFtv4=";
-          };
-        }
       ];
+
+      functions = {
+        gi = "curl -sL https://www.toptal.com/developers/gitignore/api/$argv";
+      };
 
       shellInit = ''
         # disable fish_greeting
@@ -46,10 +36,10 @@ in
         set -x LANG ${meta.locale.language}
       '';
 
-      interactiveShellInit = ''
-        # tmux.fish
-        set fish_tmux_autostart true
-      '';
+      # interactiveShellInit = ''
+      #   # tmux.fish
+      #   set fish_tmux_autostart true
+      # '';
     };
 
     home.packages = with pkgs; [

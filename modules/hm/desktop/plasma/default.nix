@@ -67,7 +67,15 @@ in
       };
 
       panels = import ./pannels.nix;
-      hotkeys = import ./hotkeys.nix;
+      hotkeys = {
+        commands = {
+          terminal = {
+            command = cfg.defaultApplications.terminal.application;
+            comment = "Run terminal";
+            key = "Ctrl+Alt+T";
+          };
+        };
+      };
 
       window-rules = import ./window-rules;
       kwin.effects = {
