@@ -9,8 +9,11 @@ in
   modules.packages = {
     git.enable = true;
     ghostty.enable = true;
+    konsole = {
+      enable = true;
+      font.family = "JetBrainsMono Nerd Font Mono";
+    };
     fish.enable = true;
-    # alacritty.enable = true;
     firefox.enable = true;
     vscode.nixcode = {
       nix = true;
@@ -23,10 +26,18 @@ in
       enable = true;
       defaultApplications = {
         terminal = {
-          application = "ghostty";
-          service = "com.mitchellh.ghostty.desktop";
+          application = "yakuake";
+          service = "org.kde.yakuake.desktop";
         };
       };
+      dockApplications = [
+        "applications:org.kde.dolphin.desktop"
+        "applications:org.kde.yakuake.desktop"
+        "applications:code.desktop"
+        "applications:firefox.desktop"
+        "applications:org.kde.spectacle.desktop"
+        "applications:systemsettings.desktop"
+      ];
       fonts = {
         general = mkFontOpt "Source Han Sans SC" 12;
         fixedWidth = mkFontOpt "JetBrainsMono Nerd Font Mono" 10;
@@ -48,5 +59,6 @@ in
     wechat-uos
     # bilibili
     gimp
+    yakuake
   ];
 }

@@ -9,6 +9,8 @@ _:
     ./tmux.nix
     ./vscode.nix
     ./ghostty.nix
+    ./wezterm.nix
+    ./konsole.nix
 
     ./firefox
   ];

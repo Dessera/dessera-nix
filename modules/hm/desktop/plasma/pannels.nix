@@ -1,4 +1,4 @@
-[
+dockApplications: [
   {
     location = "top";
     floating = true;
@@ -71,14 +71,7 @@
     widgets = [
       {
         iconTasks = {
-          launchers = [
-            "applications:org.kde.dolphin.desktop"
-            "applications:com.mitchellh.ghostty.desktop"
-            "applications:code.desktop"
-            "applications:firefox.desktop"
-            "applications:org.kde.spectacle.desktop"
-            "applications:systemsettings.desktop"
-          ];
+          launchers = dockApplications;
         };
       }
       "org.kde.plasma.marginsseparator"

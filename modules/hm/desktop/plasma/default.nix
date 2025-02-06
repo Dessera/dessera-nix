@@ -48,6 +48,12 @@ in
         };
       };
     };
+
+    dockApplications = mkOption {
+      type = types.listOf types.str;
+      default = [ ];
+      description = "Applications to display in dock";
+    };
   };
 
   config = mkIf cfg.enable {
@@ -55,18 +61,14 @@ in
       enable = true;
       catppuccin-extra.enable = true;
 
-      workspace = {
-        wallpaper = wallpaperPath;
-      };
-      kscreenlocker = {
-        appearance.wallpaper = wallpaperPath;
-      };
+      workspace.wallpaper = wallpaperPath;
+      kscreenlocker.appearance.wallpaper = wallpaperPath;
 
       input.keyboard = {
         numlockOnStartup = "on";
       };
 
-      panels = import ./pannels.nix;
+      panels = import ./pannels.nix cfg.dockApplications;
       hotkeys = {
         commands = {
           terminal = {

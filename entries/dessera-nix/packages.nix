@@ -11,12 +11,7 @@
   };
 
   modules.desktop = {
-    plasma = {
-      enable = true;
-      excludePackages = with pkgs.kdePackages; [
-        konsole
-      ];
-    };
+    plasma.enable = true;
     sddm.enable = true;
   };
 
