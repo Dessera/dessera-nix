@@ -28,7 +28,9 @@ in
       (mlib.mkAliasOptionModule [ "modules" "desktop" "plasma" "fonts" ] [ "programs" "plasma" "fonts" ])
     ]
     ++ (mlib.importModules [
-      ./extras
+      ./panels.nix
+
+      ./extra
     ]);
 
   options.modules.desktop.plasma = {
@@ -68,7 +70,6 @@ in
         numlockOnStartup = "on";
       };
 
-      panels = import ./pannels.nix cfg.dockApplications;
       hotkeys = {
         commands = {
           terminal = {

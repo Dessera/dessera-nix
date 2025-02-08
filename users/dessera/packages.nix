@@ -6,7 +6,6 @@ in
 {
   modules.packages = {
     git.enable = true;
-    ghostty.enable = true;
     konsole = {
       enable = true;
       font.family = fontOpt.defaultFonts.monospace;

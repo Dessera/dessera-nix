@@ -1,4 +1,4 @@
-_:
+{ mlib, ... }:
 {
   config,
   lib,

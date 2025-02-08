@@ -31,7 +31,7 @@ in
     services.vscode-server.enable = cfg.sshSupport;
 
     home.packages = mkIf cfg.nixcode.nix [
-      nixcodePkgs.nix
+      nixcodePkgs.nixcode-nix
     ];
   };
 }
