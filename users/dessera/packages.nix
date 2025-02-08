@@ -26,5 +26,8 @@ in
     wechat-uos
     gimp
     yakuake
+
+    copier
+    cachix
   ];
 }
