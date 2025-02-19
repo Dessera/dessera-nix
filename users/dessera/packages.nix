@@ -11,21 +11,21 @@ in
       font.family = fontOpt.defaultFonts.monospace;
     };
     fish.enable = true;
-    firefox.enable = true;
+    firefox = {
+      enable = true;
+      bookmarks = import ../../common/bookmarks.nix;
+    };
     vscode.nixcode = {
       nix = true;
     };
   };
 
-  programs = {
-    home-manager.enable = true;
-  };
+  programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
     qq
     wechat-uos
     gimp
-    yakuake
 
     copier
     cachix

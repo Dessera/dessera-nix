@@ -2,20 +2,16 @@
   description = "A highly integrated NixOS system module and a system configuration based on it. ";
 
   inputs = {
-    # Utils
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
     };
 
-    # Sources
     nixpkgs = {
       url = "github:nixos/nixpkgs?ref=nixos-unstable";
     };
-
     nixpkgs-stable = {
       url = "github:nixos/nixpkgs?ref=nixos-24.11";
     };
-
     nur = {
       url = "github:nix-community/NUR";
     };
@@ -34,7 +30,6 @@
       url = "github:catppuccin/nix";
     };
 
-    # My modules (related to network)
     cygnus-rs = {
       url = "github:Dessera/cygnus-rs";
       inputs.flake-parts.follows = "flake-parts";
@@ -43,10 +38,11 @@
     nixcode = {
       url = "github:Dessera/nixcode";
       inputs.flake-parts.follows = "flake-parts";
-      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    firefox-nightly = {
+      url = "github:nix-community/flake-firefox-nightly";
     };
 
-    # plasma
     plasma-manager = {
       url = "github:nix-community/plasma-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -56,6 +52,16 @@
       url = "github:taj-ny/kwin-effects-forceblur";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+  };
+
+  nixConfig = {
+    extra-substituters = [
+      "https://nixcode.cachix.org"
+    ];
+
+    extra-trusted-public-keys = [
+      "nixcode.cachix.org-1:6FvhF+vlN7gCzQ10JIKVldbG59VfYVzxhH/+KGHvMhw="
+    ];
   };
 
   outputs =
@@ -70,6 +76,7 @@
       home-manager,
 
       cygnus-rs,
+      firefox-nightly,
       ...
     }@inputs:
 
@@ -85,6 +92,7 @@
             catppuccin
             vscode-server
             nixcode
+            firefox-nightly
             nur
             ;
           meta = import ./meta;
@@ -115,12 +123,10 @@
                   { pkgs, ... }:
                   let
                     mlib = self.lib.mkLib { inherit pkgs; };
-                    hmModule = mlib.wrapModule self.hmModuleWrapper;
-                    nixosModule = mlib.wrapModule self.nixosModuleWrapper;
                   in
                   {
                     imports = [
-                      nixosModule
+                      (mlib.wrapModule self.nixosModuleWrapper)
                       ./entries/dessera-nix
                       ./users/dessera
                     ];
@@ -130,9 +136,7 @@
                       useUserPackages = true;
                       backupFileExtension = "bkp";
 
-                      sharedModules = [
-                        hmModule
-                      ];
+                      sharedModules = [ (mlib.wrapModule self.hmModuleWrapper) ];
                     };
                   }
                 )

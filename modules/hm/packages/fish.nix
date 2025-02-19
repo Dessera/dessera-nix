@@ -9,6 +9,8 @@
 let
   cfg = config.modules.packages.fish;
   inherit (lib) mkEnableOption mkIf;
+
+  useFishPlugin = p: { inherit (p) name src; };
 in
 {
   options.modules.packages.fish = {
@@ -19,10 +21,14 @@ in
     programs.fish = {
       enable = true;
       plugins = [
-        { inherit (pkgs.fishPlugins.grc) name src; }
-        { inherit (pkgs.fishPlugins.pisces) name src; }
-        { inherit (pkgs.fishPlugins.plugin-git) name src; }
-        { inherit (pkgs.fishPlugins.sponge) name src; }
+        (useFishPlugin pkgs.fishPlugins.pisces)
+
+        (useFishPlugin pkgs.fishPlugins.plugin-git)
+        (useFishPlugin pkgs.fishPlugins.z)
+        (useFishPlugin pkgs.fishPlugins.fzf-fish)
+
+        (useFishPlugin pkgs.fishPlugins.sponge)
+        (useFishPlugin pkgs.fishPlugins.grc)
       ];
 
       functions = {
@@ -35,15 +41,13 @@ in
         # LANG
         set -x LANG ${meta.locale.language}
       '';
-
-      # interactiveShellInit = ''
-      #   # tmux.fish
-      #   set fish_tmux_autostart true
-      # '';
     };
 
     home.packages = with pkgs; [
       grc
+      fzf
+      fd
+      bat
     ];
 
     programs.starship = {

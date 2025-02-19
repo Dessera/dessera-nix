@@ -11,7 +11,6 @@ _:
     ./ghostty.nix
     ./wezterm.nix
     ./konsole.nix
-
-    ./firefox
+    ./firefox.nix
   ];
 }

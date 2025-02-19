@@ -9,44 +9,30 @@ in
       enable = true;
       defaultApplications = {
         terminal = {
-          application = "yakuake";
-          service = "org.kde.yakuake.desktop";
+          application = "konsole";
+          service = "org.kde.konsole.desktop";
         };
       };
       dockApplications = [
         "applications:org.kde.dolphin.desktop"
-        "applications:org.kde.yakuake.desktop"
+        "applications:org.kde.konsole.desktop"
         "applications:code.desktop"
         "applications:firefox.desktop"
         "applications:org.kde.spectacle.desktop"
         "applications:systemsettings.desktop"
       ];
-      fonts = {
-        general = {
-          family = fontOpt.defaultFonts.sansSerif;
-          pointSize = 12;
+      fonts =
+        let
+          mkPlasmaFont = family: pointSize: { inherit family pointSize; };
+        in
+        {
+          general = mkPlasmaFont fontOpt.defaultFonts.sansSerif 12;
+          fixedWidth = mkPlasmaFont fontOpt.defaultFonts.monospace 10;
+          small = mkPlasmaFont fontOpt.defaultFonts.sansSerif 8;
+          toolbar = mkPlasmaFont fontOpt.defaultFonts.sansSerif 10;
+          menu = mkPlasmaFont fontOpt.defaultFonts.sansSerif 10;
+          windowTitle = mkPlasmaFont fontOpt.defaultFonts.sansSerif 10;
         };
-        fixedWidth = {
-          family = fontOpt.defaultFonts.monospace;
-          pointSize = 10;
-        };
-        small = {
-          family = fontOpt.defaultFonts.sansSerif;
-          pointSize = 8;
-        };
-        toolbar = {
-          family = fontOpt.defaultFonts.sansSerif;
-          pointSize = 10;
-        };
-        menu = {
-          family = fontOpt.defaultFonts.sansSerif;
-          pointSize = 10;
-        };
-        windowTitle = {
-          family = fontOpt.defaultFonts.sansSerif;
-          pointSize = 10;
-        };
-      };
     };
     qt.enable = true;
   };

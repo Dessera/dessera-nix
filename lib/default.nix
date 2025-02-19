@@ -6,6 +6,7 @@
 
   vscode-server,
   nixcode,
+  firefox-nightly,
 
   nur,
 

@@ -16,7 +16,7 @@
       "usb_storage"
       "sd_mod"
     ];
-    kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = [
       "nowatchdog"
       "quiet"
