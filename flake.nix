@@ -9,9 +9,6 @@
     nixpkgs = {
       url = "github:nixos/nixpkgs?ref=nixos-unstable";
     };
-    nixpkgs-stable = {
-      url = "github:nixos/nixpkgs?ref=nixos-24.11";
-    };
     nur = {
       url = "github:nix-community/NUR";
     };
@@ -65,21 +62,7 @@
   };
 
   outputs =
-    {
-      flake-parts,
-
-      nixpkgs,
-      nixpkgs-stable,
-      nur,
-
-      nixos-hardware,
-      home-manager,
-
-      cygnus-rs,
-      firefox-nightly,
-      ...
-    }@inputs:
-
+    { flake-parts, nixpkgs, ... }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } (
       { self, flake-parts-lib, ... }:
       let
@@ -107,18 +90,16 @@
 
         flake = {
           nixosConfigurations = {
-            dessera-nix = nixpkgs.lib.nixosSystem rec {
+            dessera-nix = nixpkgs.lib.nixosSystem {
               system = "x86_64-linux";
               specialArgs = {
-                pkgs-stable = import nixpkgs-stable {
-                  inherit system;
-                };
+                inherit inputs;
               };
               modules = [
-                nixos-hardware.nixosModules.asus-fx506hm
-                home-manager.nixosModules.home-manager
-                nur.modules.nixos.default
-                cygnus-rs.nixosModules.default
+                inputs.nixos-hardware.nixosModules.asus-fx506hm
+                inputs.home-manager.nixosModules.home-manager
+                inputs.nur.modules.nixos.default
+                inputs.cygnus-rs.nixosModules.default
                 (
                   { pkgs, ... }:
                   let
@@ -136,7 +117,14 @@
                       useUserPackages = true;
                       backupFileExtension = "bkp";
 
-                      sharedModules = [ (mlib.wrapModule self.hmModuleWrapper) ];
+                      sharedModules = [
+                        inputs.nixcode.hmModule
+                        (mlib.wrapModule self.hmModuleWrapper)
+                      ];
+
+                      extraSpecialArgs = {
+                        inherit inputs;
+                      };
                     };
                   }
                 )

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 let
   fontOpt = import ../../common/font.nix pkgs;
@@ -15,8 +15,9 @@ in
       enable = true;
       bookmarks = import ../../common/bookmarks.nix;
     };
-    vscode.nixcode = {
-      nix = true;
+    nixcode = {
+      enable = true;
+      modules = [ inputs.nixcode.nixcodeProfiles.nix ];
     };
   };
 

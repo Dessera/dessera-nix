@@ -325,11 +325,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1738892952,
-        "narHash": "sha256-1mDXsXvUV+PNJHJ51HPtkbGEGwAfZVNmxtWC5OQ64h4=",
+        "lastModified": 1739929767,
+        "narHash": "sha256-4mcftoL28KCeBX+wyD37IdVGeY2MyXxigL8Jj2rzsus=",
         "owner": "nix-community",
         "repo": "nix-vscode-extensions",
-        "rev": "5cbce56ae7ae89025ae7b149f2ee2bc994dd31e9",
+        "rev": "fe953b35b591faf57660800fb6e8b74956eea846",
         "type": "github"
       },
       "original": {
@@ -347,11 +347,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1739024525,
-        "narHash": "sha256-RG0iaqt5/NwsSqZ4VbInGPtM7EG2k1A23r7EO/lY4aE=",
+        "lastModified": 1739954616,
+        "narHash": "sha256-1RGR07o8bAWoVOMXJl1T8dMbrerZJU5ku8ANw66AlV0=",
         "owner": "Dessera",
         "repo": "nixcode",
-        "rev": "d7609c31579a835c3122534c5066dd275a2d843a",
+        "rev": "bc75ab9f7d32c316d9f93fba3d73fe5893feb76f",
         "type": "github"
       },
       "original": {
@@ -419,22 +419,6 @@
         "url": "https://github.com/NixOS/nixpkgs/archive/072a6db25e947df2f31aab9eccd0ab75d5b2da11.tar.gz"
       }
     },
-    "nixpkgs-stable": {
-      "locked": {
-        "lastModified": 1739624908,
-        "narHash": "sha256-f84lBmLl4tkDp1ZU5LBTSFzlxXP4926DVW3KnXrke10=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "a60651b217d2e529729cbc7d989c19f3941b9250",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixos-24.11",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1739736696,
@@ -469,11 +453,11 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1738422722,
-        "narHash": "sha256-Q4vhtbLYWBUnjWD4iQb003Lt+N5PuURDad1BngGKdUs=",
+        "lastModified": 1739863612,
+        "narHash": "sha256-UbtgxplOhFcyjBcNbTVO8+HUHAl/WXFDOb6LvqShiZo=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "102a39bfee444533e6b4e8611d7e92aa39b7bec1",
+        "rev": "632f04521e847173c54fa72973ec6c39a371211c",
         "type": "github"
       },
       "original": {
@@ -583,7 +567,6 @@
         "nixcode": "nixcode",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_5",
-        "nixpkgs-stable": "nixpkgs-stable",
         "nur": "nur",
         "plasma-manager": "plasma-manager",
         "vscode-server": "vscode-server"
