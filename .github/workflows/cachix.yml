@@ -17,4 +17,6 @@ jobs:
       with:
         name: dessera-nix
         authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+        # only upload linux kernel => match string doesn't contain "linux" (regex)
+        pushFilter: '^((?!linux).)*$'
     - run: nix build .#microsoft-surface-common-cache-host
