@@ -1,18 +1,5 @@
-{
-  plasma-manager,
-  kwin-effects-forceblur,
-
-  catppuccin,
-
-  vscode-server,
-  nixcode,
-  firefox-nightly,
-
-  nur,
-
-  meta,
-}@args:
-{ ... }:
+{ nixpkgs, ... }@inputs:
+{ self, ... }:
 {
   flake = {
     lib.mkLib =
@@ -21,7 +8,7 @@
         nixLib = pkgs.lib;
 
         finalArgs =
-          args
+          inputs
           // overrideArgs
           // {
             mlib = ret;
@@ -80,5 +67,48 @@
         };
       in
       ret;
+
+    lib.mkNixOS =
+      {
+        system,
+        modules ? [ ],
+        hmModules ? [ ],
+      }:
+      nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = {
+          inherit inputs;
+        };
+        modules = [
+          inputs.home-manager.nixosModules.home-manager
+          inputs.nur.modules.nixos.default
+          (
+            { pkgs, ... }:
+            let
+              mlib = self.lib.mkLib { inherit pkgs; };
+            in
+            {
+              imports = [
+                (mlib.wrapModule self.nixosModuleWrapper)
+              ] ++ modules;
+
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                backupFileExtension = "bkp";
+
+                sharedModules = [
+                  inputs.nixcode.hmModule
+                  (mlib.wrapModule self.hmModuleWrapper)
+                ] ++ hmModules;
+
+                extraSpecialArgs = {
+                  inherit inputs;
+                };
+              };
+            }
+          )
+        ];
+      };
   };
 }

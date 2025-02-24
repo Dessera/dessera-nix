@@ -4,7 +4,7 @@
   imports = [
 
     # Nix settings
-    ./settings.nix
+    ../../common/nixos/settings.nix
 
     # Hardware
     ./hardware.nix
@@ -23,9 +23,11 @@
 
     # Locale & Fonts
     ./locale.nix
-    ./fonts.nix
+    ../../common/nixos/fonts.nix
 
     # Other
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
+
+  system.stateVersion = "24.05";
 }

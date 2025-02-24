@@ -14,7 +14,10 @@
         "https://mirror.sjtu.edu.cn/nix-channels/store"
       ];
 
-      trusted-users = [ "root" "dessera" ];
+      trusted-users = [
+        "root"
+        "dessera"
+      ];
     };
 
     optimise.automatic = true;
@@ -29,6 +32,4 @@
       ];
     };
   };
-
-  system.stateVersion = "24.05";
 }

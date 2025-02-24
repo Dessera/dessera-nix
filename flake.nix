@@ -62,110 +62,37 @@
   };
 
   outputs =
-    { flake-parts, nixpkgs, ... }@inputs:
+    { flake-parts, ... }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } (
       { self, flake-parts-lib, ... }:
       let
         inherit (flake-parts-lib) importApply;
-
-        libArgs = {
-          inherit (inputs)
-            plasma-manager
-            kwin-effects-forceblur
-            catppuccin
-            vscode-server
-            nixcode
-            firefox-nightly
-            nur
-            ;
-          meta = import ./meta;
-        };
+        meta = import ./meta;
       in
       {
         systems = [ "x86_64-linux" ];
 
         imports = [
-          (importApply ./lib libArgs)
+          (importApply ./lib (inputs // { inherit meta; }))
         ];
 
         flake = {
           nixosConfigurations = {
-            dessera-nix = nixpkgs.lib.nixosSystem {
+            dessera-nix = self.lib.mkNixOS {
               system = "x86_64-linux";
-              specialArgs = {
-                inherit inputs;
-              };
               modules = [
                 inputs.nixos-hardware.nixosModules.asus-fx506hm
-                inputs.home-manager.nixosModules.home-manager
-                inputs.nur.modules.nixos.default
                 inputs.cygnus-rs.nixosModules.default
-                (
-                  { pkgs, ... }:
-                  let
-                    mlib = self.lib.mkLib { inherit pkgs; };
-                  in
-                  {
-                    imports = [
-                      (mlib.wrapModule self.nixosModuleWrapper)
-                      ./entries/dessera-nix
-                      ./users/dessera
-                    ];
-
-                    home-manager = {
-                      useGlobalPkgs = true;
-                      useUserPackages = true;
-                      backupFileExtension = "bkp";
-
-                      sharedModules = [
-                        inputs.nixcode.hmModule
-                        (mlib.wrapModule self.hmModuleWrapper)
-                      ];
-
-                      extraSpecialArgs = {
-                        inherit inputs;
-                      };
-                    };
-                  }
-                )
+                ./entries/dessera-nix
+                ./users/dessera
               ];
             };
 
-            dessera-surface = nixpkgs.lib.nixosSystem {
+            dessera-surface = self.lib.mkNixOS {
               system = "x86_64-linux";
-              specialArgs = {
-                inherit inputs;
-              };
               modules = [
                 inputs.nixos-hardware.nixosModules.microsoft-surface-pro-intel
-                inputs.home-manager.nixosModules.home-manager
-                inputs.nur.modules.nixos.default
-                (
-                  { pkgs, ... }:
-                  let
-                    mlib = self.lib.mkLib { inherit pkgs; };
-                  in
-                  {
-                    imports = [
-                      (mlib.wrapModule self.nixosModuleWrapper)
-                    ];
-
-                    home-manager = {
-                      useGlobalPkgs = true;
-                      useUserPackages = true;
-                      backupFileExtension = "bkp";
-
-                      sharedModules = [
-                        inputs.nixcode.hmModule
-                        (mlib.wrapModule self.hmModuleWrapper)
-                      ];
-
-                      extraSpecialArgs = {
-                        inherit inputs;
-                      };
-                    };
-                  }
-                )
+                ./entries/dessera-surface
               ];
             };
           };
@@ -177,6 +104,24 @@
         perSystem =
           { pkgs, ... }:
           {
+            packages.microsoft-surface-common-cache-host =
+              (pkgs.nixos [
+                inputs.nixos-hardware.nixosModules.microsoft-surface-common
+                (
+                  { config, ... }:
+                  {
+                    nixpkgs.pkgs = pkgs;
+                    boot.loader.systemd-boot.enable = !config.boot.loader.generic-extlinux-compatible.enable;
+                    boot.loader.grub.enable = false;
+                    fileSystems."/" = {
+                      device = "/dev/disk/by-uuid/00000000-0000-0000-0000-000000000000";
+                      fsType = "btrfs";
+                    };
+                    system.stateVersion = "25.05";
+                  }
+                )
+              ]).config.system.build.toplevel;
+
             formatter = pkgs.nixfmt-rfc-style;
             devShells.default = pkgs.mkShell {
               packages = with pkgs; [

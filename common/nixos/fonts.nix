@@ -1,7 +1,7 @@
 { pkgs, lib, ... }:
 
 let
-  fontOpt = import ../../common/font.nix pkgs;
+  fontOpt = import ../font.nix pkgs;
   defaultFonts = lib.mapAttrs (_: v: [ v ]) fontOpt.defaultFonts;
 in
 {

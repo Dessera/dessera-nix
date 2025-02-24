@@ -6,7 +6,6 @@ pkgs: {
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
     noto-fonts-emoji
-    vistafonts-chs
     wqy_zenhei
 
     # wps fix
