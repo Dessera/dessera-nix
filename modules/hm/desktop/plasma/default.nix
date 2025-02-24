@@ -88,7 +88,12 @@ in
         windowOpenClose.animation = "fade";
         minimization.animation = "squash";
 
-        blurplus.enable = true;
+        blurplus = {
+          enable = true;
+          windowClasses = ''
+            wemeetapp
+          '';
+        };
       };
 
       configFile = {

@@ -26,6 +26,8 @@ in
   home.packages = with pkgs; [
     qq
     wechat-uos
+    nur.repos.linyinfeng.wemeet
+
     gimp
 
     copier

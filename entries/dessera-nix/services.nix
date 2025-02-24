@@ -12,10 +12,10 @@
   };
 
   modules.services = {
-    # cygnus-rs = {
-    #   enable = true;
-    #   userFile = "/etc/cygnus.usr";
-    # };
+    cygnus-rs = {
+      enable = true;
+      userFile = "/etc/cygnus.usr";
+    };
     v2ray.enable = true;
   };
 
