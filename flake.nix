@@ -130,6 +130,44 @@
                 )
               ];
             };
+
+            dessera-surface = nixpkgs.lib.nixosSystem {
+              system = "x86_64-linux";
+              specialArgs = {
+                inherit inputs;
+              };
+              modules = [
+                inputs.nixos-hardware.nixosModules.microsoft-surface-pro-intel
+                inputs.home-manager.nixosModules.home-manager
+                inputs.nur.modules.nixos.default
+                (
+                  { pkgs, ... }:
+                  let
+                    mlib = self.lib.mkLib { inherit pkgs; };
+                  in
+                  {
+                    imports = [
+                      (mlib.wrapModule self.nixosModuleWrapper)
+                    ];
+
+                    home-manager = {
+                      useGlobalPkgs = true;
+                      useUserPackages = true;
+                      backupFileExtension = "bkp";
+
+                      sharedModules = [
+                        inputs.nixcode.hmModule
+                        (mlib.wrapModule self.hmModuleWrapper)
+                      ];
+
+                      extraSpecialArgs = {
+                        inherit inputs;
+                      };
+                    };
+                  }
+                )
+              ];
+            };
           };
 
           hmModuleWrapper = import ./modules/hm;
