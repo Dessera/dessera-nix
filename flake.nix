@@ -64,7 +64,12 @@
   outputs =
     { flake-parts, ... }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } (
-      { self, flake-parts-lib, ... }:
+      {
+        self,
+        flake-parts-lib,
+        withSystem,
+        ...
+      }:
       let
         inherit (flake-parts-lib) importApply;
         meta = import ./meta;
@@ -93,6 +98,7 @@
               modules = [
                 inputs.nixos-hardware.nixosModules.microsoft-surface-pro-intel
                 ./entries/dessera-surface
+                ./users/dessera-surface
               ];
             };
           };
@@ -102,7 +108,10 @@
         };
 
         perSystem =
-          { pkgs, ... }:
+          { pkgs, system, ... }:
+          let
+            code = withSystem system ({ inputs', ... }: inputs'.nixcode.packages.nixcode-nix);
+          in
           {
             packages.microsoft-surface-common-cache-host =
               (pkgs.nixos [
@@ -124,10 +133,12 @@
 
             formatter = pkgs.nixfmt-rfc-style;
             devShells.default = pkgs.mkShell {
-              packages = with pkgs; [
-                nixd
-                nixfmt-rfc-style
-              ];
+              packages =
+                (with pkgs; [
+                  nixd
+                  nixfmt-rfc-style
+                ])
+                ++ [ code ];
             };
           };
       }

@@ -6,13 +6,8 @@
     fish.enable = true;
   };
 
-  modules.desktop = {
-    plasma = {
-      enable = true;
-      excludePackages = with pkgs.kdePackages; [ xwaylandvideobridge ];
-    };
-    sddm.enable = true;
-  };
+  services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
 
   programs = {
     direnv = {

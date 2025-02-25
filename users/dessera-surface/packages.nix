@@ -6,10 +6,6 @@ in
 {
   modules.packages = {
     git.enable = true;
-    konsole = {
-      enable = true;
-      font.family = fontOpt.defaultFonts.monospace;
-    };
     fish.enable = true;
     firefox = {
       enable = true;

@@ -1,4 +1,4 @@
-{ modulesPath, pkgs, ... }:
+{ modulesPath, ... }:
 
 {
   imports = [
@@ -28,21 +28,6 @@
     # Other
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
-
-  users.users.dessera = {
-    name = "dessera";
-    description = "Dessera";
-    home = "/home/dessera";
-    isNormalUser = true;
-
-    shell = pkgs.fish;
-    extraGroups = [
-      "wheel"
-      "networkmanager"
-      "video"
-      "audio"
-    ];
-  };
 
   system.stateVersion = "24.05";
 }

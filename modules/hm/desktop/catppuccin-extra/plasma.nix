@@ -12,7 +12,7 @@ let
   cfg = config.programs.plasma.catppuccin-extra;
 
   colorScheme = "Catppuccin${toUpperInitial flavor}${toUpperInitial accent}";
-  lookAndFeel = "Catppuccin-${flavor}-${accent}";
+  lookAndFeel = "Catppuccin-${toUpperInitial flavor}-${toUpperInitial accent}";
 in
 {
   options.programs.plasma.catppuccin-extra = {

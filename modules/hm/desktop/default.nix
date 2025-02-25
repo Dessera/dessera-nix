@@ -7,6 +7,7 @@
     ./qt.nix
 
     ./plasma
+    ./gnome
     ./catppuccin-extra
   ];
 

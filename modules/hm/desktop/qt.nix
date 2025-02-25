@@ -23,7 +23,7 @@ in
     };
 
     programs.plasma.configFile = {
-      kdeglobals.KDE.widgetsStyle = {
+      kdeglobals.KDE.widgetStyle = {
         value = "kvantum-dark";
       };
     };
