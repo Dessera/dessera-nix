@@ -16,6 +16,7 @@
       viAlias = true;
       vimAlias = true;
     };
+    command-not-found.enable = false;
   };
 
   security = {

@@ -27,6 +27,11 @@ in
         };
       };
 
+      iconTheme = {
+        name = "Papirus-Dark";
+        package = pkgs.papirus-icon-theme;
+      };
+
       # gtk does not use home.pointerCursor
       # set it to the same value as the cursor theme
       cursorTheme = {
