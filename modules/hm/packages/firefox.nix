@@ -65,7 +65,7 @@ in
 
         extensions = with nurPkgs.repos.rycee.firefox-addons; [
           plasma-integration
-          ublock-origin
+          # ublock-origin
           tabliss
           darkreader
           to-deepl

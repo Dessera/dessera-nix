@@ -22,7 +22,7 @@
       "quiet"
     ];
 
-    tmp.useTmpfs = true;
+    # tmp.useTmpfs = true;
   };
 
   modules.boot = {

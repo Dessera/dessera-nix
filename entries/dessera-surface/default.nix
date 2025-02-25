@@ -16,9 +16,11 @@
     ./fstab.nix
 
     # All services
+    ../../common/nixos/services.nix
     ./services.nix
 
     # All packages
+    ../../common/nixos/packages.nix
     ./packages.nix
 
     # Locale & Fonts

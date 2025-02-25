@@ -54,10 +54,12 @@
   nixConfig = {
     extra-substituters = [
       "https://nixcode.cachix.org"
+      "https://dessera-nix.cachix.org"
     ];
 
     extra-trusted-public-keys = [
       "nixcode.cachix.org-1:6FvhF+vlN7gCzQ10JIKVldbG59VfYVzxhH/+KGHvMhw="
+      "dessera-nix.cachix.org-1:phychQjVuFCuJteogKtEql5UjhYsN+3fi9UzGMYquMU="
     ];
   };
 
