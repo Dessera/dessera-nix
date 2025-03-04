@@ -13,8 +13,8 @@ pkgs: {
   ];
 
   defaultFonts = {
-    sansSerif = "Source Han Sans SC";
-    serif = "Source Han Serif SC";
+    sansSerif = "思源黑体";
+    serif = "思源宋体";
     emoji = "Noto Color Emoji";
     monospace = "JetBrainsMono Nerd Font Mono";
   };

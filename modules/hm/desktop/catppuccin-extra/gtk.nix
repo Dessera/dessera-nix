@@ -34,9 +34,8 @@ in
 
       # gtk does not use home.pointerCursor
       # set it to the same value as the cursor theme
-      cursorTheme = {
-        inherit (homeCursorCfg) name package size;
-      };
     };
+
+    home.pointerCursor.gtk.enable = true;
   };
 }

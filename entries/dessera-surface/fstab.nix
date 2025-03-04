@@ -41,4 +41,13 @@
   swapDevices = [
     { device = "/dev/disk/by-uuid/58338bec-75af-43f6-b6ed-a8eb57e3e414"; }
   ];
+
+  fileSystems."/data" = {
+    device = "/dev/disk/by-uuid/7812d738-88e9-49cf-be42-bc59baf15a94";
+    fsType = "btrfs";
+    options = [
+      "subvol=@"
+      "compress=zstd"
+    ];
+  };
 }
