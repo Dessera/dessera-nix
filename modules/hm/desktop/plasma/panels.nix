@@ -9,6 +9,7 @@ in
     {
       location = "top";
       floating = true;
+      hiding = "dodgewindows";
       height = 38;
       screen = 0;
       widgets = [

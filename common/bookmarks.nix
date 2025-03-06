@@ -104,19 +104,30 @@
             ];
             url = "https://csdiy.wiki";
           }
+          {
+            name = "RFC Editor";
+            tags = [
+              "cs"
+              "network"
+              "rfc"
+            ];
+            url = "https://www.rfc-editor.org/";
+          }
+          {
+            name = "CS144 Labs";
+            tags = [
+              "cs"
+              "network"
+              "lab"
+            ];
+            url = "https://cs144.github.io/";
+          }
         ];
       }
 
       {
         name = "网络";
         bookmarks = [
-          {
-            name = "ORG";
-            tags = [
-              "vpn"
-            ];
-            url = "https://orgcloud.cc";
-          }
           {
             name = "万达云";
             tags = [
