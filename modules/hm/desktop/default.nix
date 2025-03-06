@@ -10,7 +10,4 @@
     ./gnome
     ./catppuccin-extra
   ];
-
-  catppuccin.cursors.enable = true;
-  home.pointerCursor.size = 25;
 }
