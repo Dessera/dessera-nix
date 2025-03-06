@@ -1,5 +1,5 @@
 {
-  background = ./assets/67993516_p0_fixed.jpg;
-  accent = "teal";
+  background = ./assets/illust_70919813_20250306_201919.png;
+  accent = "blue";
   flavor = "mocha";
 }
