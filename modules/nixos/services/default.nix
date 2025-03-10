@@ -4,5 +4,6 @@ _:
 {
   imports = mlib.importModules [
     ./v2ray.nix
+    ./clash.nix
   ];
 }

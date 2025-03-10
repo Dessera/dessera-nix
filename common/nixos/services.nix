@@ -10,7 +10,7 @@
   };
 
   modules.services = {
-    v2ray.enable = true;
+    clash.enable = true;
   };
 
   services.xserver.enable = true;
