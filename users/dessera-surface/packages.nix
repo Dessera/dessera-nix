@@ -7,6 +7,7 @@ in
   modules.packages = {
     git.enable = true;
     fish.enable = true;
+    ghostty.enable = true;
     firefox = {
       enable = true;
       bookmarks = import ../../common/bookmarks.nix;

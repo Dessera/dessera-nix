@@ -74,6 +74,7 @@ in
 
       "org/gnome/desktop/background" = {
         picture-uri = "file://${wallpaperPath}";
+        picture-uri-dark = "file://${wallpaperPath}";
       };
 
       "org/gnome/desktop/interface" = {

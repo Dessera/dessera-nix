@@ -19,7 +19,7 @@ in
 
       dockApplications = [
         "org.gnome.Nautilus.desktop"
-        "org.gnome.Console.desktop"
+        "com.mitchellh.ghostty.desktop"
         "code.desktop"
         "firefox.desktop"
       ];
