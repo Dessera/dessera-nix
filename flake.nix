@@ -13,11 +13,15 @@
       url = "github:nix-community/NUR";
     };
 
-    nixos-hardware = {
-      url = "github:NixOS/nixos-hardware/master";
+    nix-vscode-extensions = {
+      url = "github:nix-community/nix-vscode-extensions";
     };
     vscode-server = {
       url = "github:nix-community/nixos-vscode-server";
+    };
+
+    nixos-hardware = {
+      url = "github:NixOS/nixos-hardware/master";
     };
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -31,10 +35,6 @@
       url = "github:Dessera/cygnus-rs";
       inputs.flake-parts.follows = "flake-parts";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nixcode = {
-      url = "github:Dessera/nixcode";
-      inputs.flake-parts.follows = "flake-parts";
     };
     firefox-nightly = {
       url = "github:nix-community/flake-firefox-nightly";
@@ -53,12 +53,10 @@
 
   nixConfig = {
     extra-substituters = [
-      "https://nixcode.cachix.org"
       "https://dessera-nix.cachix.org"
     ];
 
     extra-trusted-public-keys = [
-      "nixcode.cachix.org-1:6FvhF+vlN7gCzQ10JIKVldbG59VfYVzxhH/+KGHvMhw="
       "dessera-nix.cachix.org-1:phychQjVuFCuJteogKtEql5UjhYsN+3fi9UzGMYquMU="
     ];
   };
@@ -69,7 +67,6 @@
       {
         self,
         flake-parts-lib,
-        withSystem,
         ...
       }:
       let
@@ -110,10 +107,7 @@
         };
 
         perSystem =
-          { pkgs, system, ... }:
-          let
-            code = withSystem system ({ inputs', ... }: inputs'.nixcode.packages.nixcode-nix);
-          in
+          { pkgs, ... }:
           {
             packages.microsoft-surface-common-cache-host =
               (pkgs.nixos [
@@ -135,12 +129,10 @@
 
             formatter = pkgs.nixfmt-rfc-style;
             devShells.default = pkgs.mkShell {
-              packages =
-                (with pkgs; [
-                  nixd
-                  nixfmt-rfc-style
-                ])
-                ++ [ code ];
+              packages = with pkgs; [
+                nixd
+                nixfmt-rfc-style
+              ];
             };
           };
       }

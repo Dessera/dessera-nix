@@ -15,8 +15,4 @@
     };
     sddm.enable = true;
   };
-
-  environment.systemPackages = with pkgs; [
-    qemu_full
-  ];
 }

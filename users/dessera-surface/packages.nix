@@ -12,10 +12,7 @@ in
       enable = true;
       bookmarks = import ../../common/bookmarks.nix;
     };
-    nixcode = {
-      enable = true;
-      modules = [ inputs.nixcode.nixcodeProfiles.nix ];
-    };
+    vscode.enable = true;
   };
 
   programs.home-manager.enable = true;

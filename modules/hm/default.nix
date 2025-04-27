@@ -4,7 +4,7 @@
 {
   imports =
     [
-      catppuccin.homeManagerModules.catppuccin
+      catppuccin.homeModules.catppuccin
     ]
     ++ (mlib.importModules [
       ../common/catppuccin.nix

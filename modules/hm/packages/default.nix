@@ -11,5 +11,7 @@ _:
     ./wezterm.nix
     ./konsole.nix
     ./firefox.nix
+
+    ./vscode
   ];
 }

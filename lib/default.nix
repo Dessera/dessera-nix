@@ -98,7 +98,6 @@
                 backupFileExtension = "bkp";
 
                 sharedModules = [
-                  inputs.nixcode.hmModule
                   (mlib.wrapModule self.hmModuleWrapper)
                 ] ++ hmModules;
 

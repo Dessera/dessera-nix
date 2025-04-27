@@ -1,0 +1,31 @@
+{
+  "clangd.arguments": [
+    "--all-scopes-completion",
+    "--background-index",
+    "--clang-tidy",
+    "--completion-style=detailed",
+    "--enable-config",
+    "--fallback-style=Mozilla",
+    "--function-arg-placeholders=1",
+    "--header-insertion-decorators",
+    "--header-insertion=iwyu",
+    "--pch-storage=memory",
+    "-j=12"
+  ],
+  "cmake.options.statusBarVisibility": "compact",
+  "cmake.configureOnOpen": true,
+  "cmake.pinnedCommands": [
+    "workbench.action.tasks.configureTaskRunner",
+    "workbench.action.tasks.runTask"
+  ],
+  "makefile.configureOnOpen": true,
+  "mesonbuild.downloadLanguageServer": false,
+  "mesonbuild.languageServerPath": "mesonlsp",
+  "[cpp]": {
+    "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
+  },
+  "files.associations": {
+    ".clangd": "yaml",
+    ".clang-format": "yaml"
+  }
+}

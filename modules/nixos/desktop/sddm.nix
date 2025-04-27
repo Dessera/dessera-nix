@@ -2,11 +2,13 @@ _:
 {
   config,
   lib,
+  pkgs,
   ...
 }:
 
 let
   cfg = config.modules.desktop.sddm;
+
   inherit (lib)
     mkEnableOption
     mkOption
@@ -30,6 +32,8 @@ in
         enable = true;
         autoNumlock = true;
         wayland.enable = cfg.useWayland;
+
+        package = lib.mkDefault pkgs.kdePackages.sddm;
 
         settings = {
           General = {

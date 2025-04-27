@@ -14,7 +14,12 @@
 
 let
   cfg = config.modules.packages.firefox;
-  inherit (lib) mkEnableOption mkIf;
+  inherit (lib)
+    mkEnableOption
+    mkOption
+    mkIf
+    types
+    ;
 
   firefoxLang = lib.replaceStrings [ "_" ] [ "-" ] (
     lib.lists.head (lib.splitString "." (meta.locale.language))
@@ -25,26 +30,32 @@ let
 in
 {
   imports = [
-    (mlib.mkAliasOptionModule
-      [
-        "modules"
-        "packages"
-        "firefox"
-        "bookmarks"
-      ]
-      [
-        "programs"
-        "firefox"
-        "profiles"
-        "default"
-        "bookmarks"
-      ]
-    )
+    # (mlib.mkAliasOptionModule
+    #   [
+    #     "modules"
+    #     "packages"
+    #     "firefox"
+    #     "bookmarks"
+    #   ]
+    #   [
+    #     "programs"
+    #     "firefox"
+    #     "profiles"
+    #     "default"
+    #     "bookmarks"
+    #     "settings"
+    #   ]
+    # )
   ];
 
   options.modules.packages.firefox = {
     enable = mkEnableOption "Enable firefox";
     useNightly = mkEnableOption "Use nightly version of firefox";
+    bookmarks = mkOption {
+      type = types.listOf types.attrs;
+      default = [ ];
+      description = "Bookmarks to add to firefox";
+    };
   };
 
   config = mkIf cfg.enable {
@@ -56,6 +67,11 @@ in
       profiles.default = {
         isDefault = true;
 
+        bookmarks = {
+          force = true;
+          settings = cfg.bookmarks;
+        };
+
         settings = {
           "widget.use-xdg-desktop-portal.file-picker" = 1;
           "sidebar.verticalTabs" = true;
@@ -63,9 +79,9 @@ in
           "sidebar.main.tools" = "aichat,syncedtabs,history,bookmarks";
         };
 
-        extensions = with nurPkgs.repos.rycee.firefox-addons; [
+        extensions.packages = with nurPkgs.repos.rycee.firefox-addons; [
           plasma-integration
-          # ublock-origin
+          ublock-origin
           tabliss
           darkreader
           to-deepl
