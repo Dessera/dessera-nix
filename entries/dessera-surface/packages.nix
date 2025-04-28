@@ -1,8 +1,11 @@
-_:
+{ pkgs, ... }:
 
 {
   modules.desktop = {
-    gnome.enable = true;
-    gdm.enable = true;
+    plasma = {
+      enable = true;
+      excludePackages = with pkgs.kdePackages; [ xwaylandvideobridge ];
+    };
+    sddm.enable = true;
   };
 }

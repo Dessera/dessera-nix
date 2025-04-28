@@ -61,7 +61,6 @@ in
   config = mkIf cfg.enable {
     programs.plasma = {
       enable = true;
-      # overrideConfig = true;
       catppuccin-extra.enable = true;
 
       workspace.wallpaper = wallpaperPath;

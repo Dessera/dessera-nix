@@ -1,31 +1,43 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 let
   fontOpt = import ../../common/font.nix pkgs;
 in
 {
   modules.desktop = {
     gtk.enable = true;
-    gnome = {
+    plasma = {
       enable = true;
+      defaultApplications = {
+        terminal = {
+          application = "konsole";
+          service = "org.kde.konsole.desktop";
+        };
+      };
+      dockApplications = [
+        "applications:org.kde.dolphin.desktop"
+        "applications:org.kde.konsole.desktop"
+        "applications:code.desktop"
+        "applications:firefox.desktop"
+        "applications:org.kde.spectacle.desktop"
+        "applications:systemsettings.desktop"
+      ];
       fonts =
         let
-          mkGnomeFont = name: size: { inherit name size; };
+          mkPlasmaFont = family: pointSize: { inherit family pointSize; };
         in
         {
-          interface = mkGnomeFont fontOpt.defaultFonts.sansSerif 12;
-          document = mkGnomeFont fontOpt.defaultFonts.sansSerif 11;
-          monospace = mkGnomeFont fontOpt.defaultFonts.monospace 10;
+          general = mkPlasmaFont fontOpt.defaultFonts.sansSerif 12;
+          fixedWidth = mkPlasmaFont fontOpt.defaultFonts.monospace 10;
+          small = mkPlasmaFont fontOpt.defaultFonts.sansSerif 8;
+          toolbar = mkPlasmaFont fontOpt.defaultFonts.sansSerif 10;
+          menu = mkPlasmaFont fontOpt.defaultFonts.sansSerif 10;
+          windowTitle = mkPlasmaFont fontOpt.defaultFonts.sansSerif 10;
         };
-
-      dockApplications = [
-        "org.gnome.Nautilus.desktop"
-        "com.mitchellh.ghostty.desktop"
-        "code.desktop"
-        "firefox.desktop"
-      ];
     };
     qt.enable = true;
   };
+
+  programs.plasma.kwin.effects.blurplus.enable = lib.mkForce false;
 
   home.pointerCursor = {
     name = "Bibata-Modern-Ice";
