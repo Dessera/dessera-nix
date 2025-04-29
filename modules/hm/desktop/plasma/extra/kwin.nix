@@ -18,6 +18,7 @@ let
     mkEnableOption
     mkIf
     mkMerge
+    types
     ;
 
   blurplus = kwin-effects-forceblur.packages.${pkgs.system}.default;
@@ -28,42 +29,42 @@ in
       blurplus = {
         enable = mkEnableOption "Enable BlurPlus";
         blurDecorations = mkOption {
-          type = lib.types.bool;
+          type = types.bool;
           default = true;
           description = "Blur decorations";
         };
         blurMatching = mkOption {
-          type = lib.types.bool;
+          type = types.bool;
           default = false;
           description = "Blur matching";
         };
         blurNonMatching = mkOption {
-          type = lib.types.bool;
+          type = types.bool;
           default = true;
           description = "Blur non-matching";
         };
         fakeBlur = mkOption {
-          type = lib.types.bool;
+          type = types.bool;
           default = true;
           description = "Fake blur";
         };
         paintAsTranslucent = mkOption {
-          type = lib.types.bool;
+          type = types.bool;
           default = true;
           description = "Paint as translucent";
         };
         transparentBlur = mkOption {
-          type = lib.types.bool;
+          type = types.bool;
           default = false;
           description = "Transparent blur";
         };
         blurStrength = mkOption {
-          type = lib.types.int;
+          type = types.int;
           default = 8;
           description = "Blur strength";
         };
         windowClasses = mkOption {
-          type = lib.types.str;
+          type = types.str;
           default = "";
           description = "Window classes";
         };

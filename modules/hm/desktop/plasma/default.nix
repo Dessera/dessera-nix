@@ -16,6 +16,7 @@ let
     mkOption
     mkEnableOption
     mkIf
+    mkMerge
     types
     ;
 
@@ -29,12 +30,17 @@ in
     ]
     ++ (mlib.importModules [
       ./panels.nix
-
       ./extra
     ]);
 
   options.modules.desktop.plasma = {
     enable = mkEnableOption "Enable plasma configuration";
+
+    inputMethod = mkOption {
+      type = types.str;
+      default = "/run/current-system/sw/share/applications/fcitx5-wayland-launcher.desktop";
+      description = "Input method used in wayland";
+    };
 
     defaultApplications = {
       terminal = {
@@ -56,6 +62,41 @@ in
       default = [ ];
       description = "Applications to display in dock";
     };
+
+    effects = {
+      blur = {
+        enable = mkEnableOption "Enable blur effect";
+        exclude = mkOption {
+          type = types.listOf types.str;
+          default = [ ];
+          description = "Exclude applications from blur effect";
+        };
+        strength = mkOption {
+          type = types.int;
+          default = 8;
+          description = "Blur strength";
+        };
+      };
+
+      transparent = {
+        enable = mkEnableOption "Enable transparent background";
+        exclude = mkOption {
+          type = types.listOf types.str;
+          default = [ ];
+          description = "Exclude applications from transparent background";
+        };
+        activeOpacity = mkOption {
+          type = types.int;
+          default = 85;
+          description = "Opacity of transparent background";
+        };
+        inactiveOpacity = mkOption {
+          type = types.int;
+          default = 85;
+          description = "Opacity of inactive transparent background";
+        };
+      };
+    };
   };
 
   config = mkIf cfg.enable {
@@ -70,17 +111,20 @@ in
         numlockOnStartup = "on";
       };
 
-      hotkeys = {
-        commands = {
-          terminal = {
-            command = cfg.defaultApplications.terminal.application;
-            comment = "Run terminal";
-            key = "Ctrl+Alt+T";
-          };
+      hotkeys.commands = {
+        terminal = {
+          command = cfg.defaultApplications.terminal.application;
+          comment = "Run terminal";
+          key = "Ctrl+Alt+T";
         };
       };
 
-      window-rules = import ./window-rules;
+      window-rules = mkMerge [
+        (mkIf cfg.effects.transparent.enable [
+          (import ./window-rules/transparent.nix cfg.effects.transparent)
+        ])
+      ];
+
       kwin.effects = {
         shakeCursor.enable = true;
         dimAdminMode.enable = true;
@@ -89,10 +133,9 @@ in
         minimization.animation = "squash";
 
         blurplus = {
-          enable = true;
-          windowClasses = ''
-            wemeetapp
-          '';
+          enable = cfg.effects.blur.enable;
+          windowClasses = lib.concatStringsSep "\n" cfg.effects.blur.exclude;
+          blurStrength = cfg.effects.blur.strength;
         };
       };
 
@@ -102,7 +145,7 @@ in
           TerminalService = cfg.defaultApplications.terminal.service;
         };
 
-        kwinrc.Wayland.InputMethod = "/run/current-system/sw/share/applications/fcitx5-wayland-launcher.desktop";
+        kwinrc.Wayland.InputMethod = cfg.inputMethod;
       };
     };
   };

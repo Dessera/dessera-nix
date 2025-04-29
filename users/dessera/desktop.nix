@@ -33,6 +33,10 @@ in
           menu = mkPlasmaFont fontOpt.defaultFonts.sansSerif 10;
           windowTitle = mkPlasmaFont fontOpt.defaultFonts.sansSerif 10;
         };
+      effects = {
+        blur.enable = true;
+        transparent.enable = true;
+      };
     };
     qt.enable = true;
   };

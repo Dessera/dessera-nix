@@ -1,4 +1,4 @@
-{ mlib, ... }:
+_:
 {
   config,
   lib,
@@ -7,8 +7,6 @@
 }:
 let
   inherit (lib) mkEnableOption mkIf;
-  inherit (config.catppuccin) flavor accent;
-  inherit (mlib) toUpperInitial;
 
   cfg = config.programs.gnome.catppuccin-extra;
   gtkCfg = config.gtk;

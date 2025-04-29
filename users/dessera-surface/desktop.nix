@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 let
   fontOpt = import ../../common/font.nix pkgs;
 in
@@ -33,11 +33,12 @@ in
           menu = mkPlasmaFont fontOpt.defaultFonts.sansSerif 10;
           windowTitle = mkPlasmaFont fontOpt.defaultFonts.sansSerif 10;
         };
+      effects = {
+        transparent.enable = true;
+      };
     };
     qt.enable = true;
   };
-
-  programs.plasma.kwin.effects.blurplus.enable = lib.mkForce false;
 
   home.pointerCursor = {
     name = "Bibata-Modern-Ice";

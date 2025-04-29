@@ -1,3 +1,0 @@
-[
-  (import ./transparent.nix)
-]

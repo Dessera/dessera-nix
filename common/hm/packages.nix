@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 
 let
   fontOpt = import ../../common/font.nix pkgs;
@@ -22,11 +22,7 @@ in
 
   home.packages = with pkgs; [
     qq
-    # wechat-uos
-    nur.repos.linyinfeng.wemeet
-
     gimp
-
     copier
     cachix
   ];

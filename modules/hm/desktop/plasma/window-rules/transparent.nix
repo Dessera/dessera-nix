@@ -1,3 +1,4 @@
+cfg:
 let
   buildWindowRegex =
     {
@@ -11,9 +12,9 @@ in
 {
   description = "Force transparent on all windows";
   apply = {
-    opacityactive.value = 85;
+    opacityactive.value = cfg.activeOpacity;
     opacityactiverule.value = 2;
-    opacityinactive.value = 85;
+    opacityinactive.value = cfg.inactiveOpacity;
     opacityinactiverule.value = 2;
   };
   match = {
@@ -22,11 +23,7 @@ in
     window-class = {
       type = "regex";
       value = buildWindowRegex {
-        exclude = [
-          "firefox"
-          "okular"
-          "wemeetapp"
-        ];
+        exclude = cfg.exclude;
       };
     };
   };
