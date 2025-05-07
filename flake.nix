@@ -82,12 +82,12 @@
 
         flake = {
           nixosConfigurations = {
-            dessera-nix = self.lib.mkNixOS {
+            dessera-asus = self.lib.mkNixOS {
               system = "x86_64-linux";
               modules = [
                 inputs.nixos-hardware.nixosModules.asus-fx506hm
                 inputs.cygnus-rs.nixosModules.default
-                ./entries/dessera-nix
+                ./entries/dessera-asus
                 ./users/dessera
               ];
             };

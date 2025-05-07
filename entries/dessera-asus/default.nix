@@ -31,5 +31,6 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  system.stateVersion = "24.05";
+  system.stateVersion = "23.11";
+
 }

@@ -2,7 +2,7 @@ _:
 
 {
 
-  networking.hostName = "dessera-nix";
+  networking.hostName = "dessera-asus";
 
   modules.services = {
     cygnus-rs = {
