@@ -38,6 +38,8 @@ let
       davidanson.vscode-markdownlint
       zhuangtongfa.material-theme
       alefragnani.project-manager
+      ms-azuretools.vscode-containers
+      ms-vscode-remote.remote-containers
     ]);
 in
 {
@@ -74,6 +76,10 @@ in
         Web = {
           extensions = commonExtensions ++ (loadExtensions ./Web/extensions.nix);
           userSettings = commonSettings // (loadUserSettings ./Web/settings.json);
+        };
+        Zig = {
+          extensions = commonExtensions ++ (loadExtensions ./Zig/extensions.nix);
+          userSettings = commonSettings;
         };
       };
     };

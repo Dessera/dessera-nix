@@ -42,5 +42,6 @@
   "[markdown]": {
     "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
   },
-  "vsicons.dontShowNewVersionMessage": true
+  "vsicons.dontShowNewVersionMessage": true,
+  "containers.containerClient": "com.microsoft.visualstudio.containers.podman"
 }

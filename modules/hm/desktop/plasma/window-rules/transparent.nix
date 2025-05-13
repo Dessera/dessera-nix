@@ -5,7 +5,8 @@ let
       exclude ? [ ],
     }:
     let
-      excludeRegex = "^(?!.*(${toString (builtins.concatStringsSep "|" exclude)})).*";
+      excludeRegex =
+        if exclude == [ ] then "" else "^(?!.*(${toString (builtins.concatStringsSep "|" exclude)})).*";
     in
     excludeRegex;
 in

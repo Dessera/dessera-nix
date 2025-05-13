@@ -10,7 +10,6 @@ let
   inherit (config.catppuccin) flavor accent;
 
   cfg = config.gtk.catppuccin-extra;
-  homeCursorCfg = config.home.pointerCursor;
 in
 {
   options.gtk.catppuccin-extra = {
@@ -31,9 +30,6 @@ in
         name = "Papirus-Dark";
         package = pkgs.papirus-icon-theme;
       };
-
-      # gtk does not use home.pointerCursor
-      # set it to the same value as the cursor theme
     };
 
     home.pointerCursor.gtk.enable = true;
