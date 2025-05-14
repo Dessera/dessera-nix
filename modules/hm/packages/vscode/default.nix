@@ -79,7 +79,7 @@ in
         };
         Zig = {
           extensions = commonExtensions ++ (loadExtensions ./Zig/extensions.nix);
-          userSettings = commonSettings;
+          userSettings = commonSettings // (loadUserSettings ./Zig/settings.json);
         };
       };
     };
