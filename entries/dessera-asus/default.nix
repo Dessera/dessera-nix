@@ -10,6 +10,7 @@
     ./hardware.nix
 
     # Bootloader
+    ../../common/nixos/boot.nix
     ./boot.nix
 
     # Fstab
@@ -20,11 +21,12 @@
     ./services.nix
 
     # All packages
+    ../../common/shared/catppuccin.nix
     ../../common/nixos/packages.nix
     ./packages.nix
 
     # Locale & Fonts
-    ./locale.nix
+    ../../common/nixos/locale.nix
     ../../common/nixos/fonts.nix
 
     # Other
@@ -32,5 +34,4 @@
   ];
 
   system.stateVersion = "23.11";
-
 }

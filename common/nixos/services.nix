@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ pkgs, lib, ... }:
 
 {
   networking = {
@@ -9,8 +9,10 @@
     };
   };
 
-  modules.services = {
-    clash.enable = true;
+  programs.clash-verge = {
+    enable = true;
+    package = pkgs.clash-verge-rev;
+    autoStart = true;
   };
 
   services.xserver.enable = true;

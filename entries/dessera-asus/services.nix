@@ -1,7 +1,4 @@
-_:
-
 {
-
   networking.hostName = "dessera-asus";
 
   modules.services = {

@@ -1,49 +1,117 @@
-{ pkgs, ... }:
-let
-  fontOpt = import ../../common/font.nix pkgs;
-in
 {
-  modules.desktop = {
-    gtk.enable = true;
-    plasma = {
-      enable = true;
-      defaultApplications = {
-        terminal = {
-          application = "konsole";
-          service = "org.kde.konsole.desktop";
-        };
-      };
-      dockApplications = [
-        "applications:org.kde.dolphin.desktop"
-        "applications:org.kde.konsole.desktop"
-        "applications:code.desktop"
-        "applications:firefox.desktop"
-        "applications:org.kde.spectacle.desktop"
-        "applications:systemsettings.desktop"
-      ];
-      fonts =
-        let
-          mkPlasmaFont = family: pointSize: { inherit family pointSize; };
-        in
-        {
-          general = mkPlasmaFont fontOpt.defaultFonts.sansSerif 12;
-          fixedWidth = mkPlasmaFont fontOpt.defaultFonts.monospace 10;
-          small = mkPlasmaFont fontOpt.defaultFonts.sansSerif 8;
-          toolbar = mkPlasmaFont fontOpt.defaultFonts.sansSerif 10;
-          menu = mkPlasmaFont fontOpt.defaultFonts.sansSerif 10;
-          windowTitle = mkPlasmaFont fontOpt.defaultFonts.sansSerif 10;
-        };
-      effects = {
-        blur.enable = true;
-        transparent.enable = true;
+  programs.plasma = {
+    input.keyboard.numlockOnStartup = "on";
+
+    window-rules = [
+      (import ./window-rules/transparent.nix {
+        exclude = [ ];
+        activeOpacity = 80;
+        inactiveOpacity = 80;
+      })
+    ];
+
+    kwin.effects = {
+      shakeCursor.enable = true;
+      dimAdminMode.enable = true;
+
+      windowOpenClose.animation = "fade";
+      minimization.animation = "squash";
+
+      blurplus = {
+        enable = true;
+        windowClasses = '''';
+        blurStrength = 7;
       };
     };
-    qt.enable = true;
-  };
 
-  home.pointerCursor = {
-    name = "Bibata-Modern-Ice";
-    package = pkgs.bibata-cursors;
-    size = 24;
+    panels = [
+      {
+        location = "top";
+        floating = true;
+        hiding = "dodgewindows";
+        height = 40;
+        screen = 0;
+        widgets = [
+          {
+            kickoff = {
+              icon = "nix-snowflake";
+            };
+          }
+          {
+            applicationTitleBar = {
+              behavior = {
+                activeTaskSource = "activeTask";
+              };
+              layout = {
+                elements = [ "windowTitle" ];
+                horizontalAlignment = "left";
+                showDisabledElements = "deactivated";
+                verticalAlignment = "center";
+              };
+              windowTitle = {
+                font.bold = true;
+                hideEmptyTitle = true;
+                undefinedWindowTitle = "无标题";
+                margins = {
+                  bottom = 0;
+                  left = 10;
+                  right = 5;
+                  top = 0;
+                };
+                source = "appName";
+              };
+            };
+          }
+          "org.kde.plasma.panelspacer"
+          {
+            systemTray = {
+              items = {
+                shown = [
+                  "org.kde.plasma.battery"
+                  "org.kde.plasma.bluetooth"
+                  "org.kde.plasma.volume"
+                ];
+                hidden = [
+                  "org.kde.plasma.networkmanagement"
+                  "org.kde.plasma.brightness"
+                  "org.kde.plasma.clipboard"
+                ];
+              };
+            };
+          }
+          {
+            digitalClock = {
+              date = {
+                position = "besideTime";
+              };
+            };
+          }
+        ];
+      }
+      {
+        location = "bottom";
+        alignment = "center";
+        lengthMode = "fit";
+        hiding = "dodgewindows";
+        floating = true;
+        height = 58;
+        screen = 0;
+        widgets = [
+          "org.kde.plasma.pager"
+          {
+            iconTasks.launchers = [
+              "applications:org.kde.dolphin.desktop"
+              "applications:org.kde.konsole.desktop"
+              "applications:code.desktop"
+              "applications:firefox.desktop"
+            ];
+          }
+          "org.kde.plasma.colorpicker"
+          "org.kde.plasma.notes"
+          "org.kde.plasma.calculator"
+        ];
+      }
+    ];
+
   };
 }

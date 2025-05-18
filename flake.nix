@@ -2,42 +2,24 @@
   description = "A highly integrated NixOS system module and a system configuration based on it. ";
 
   inputs = {
-    flake-parts = {
-      url = "github:hercules-ci/flake-parts";
-    };
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nur.url = "github:nix-community/NUR";
 
-    nixpkgs = {
-      url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    };
-    nur = {
-      url = "github:nix-community/NUR";
-    };
+    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+    vscode-server.url = "github:nix-community/nixos-vscode-server";
 
-    nix-vscode-extensions = {
-      url = "github:nix-community/nix-vscode-extensions";
-    };
-    vscode-server = {
-      url = "github:nix-community/nixos-vscode-server";
-    };
-
-    nixos-hardware = {
-      url = "github:NixOS/nixos-hardware/master";
-    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    catppuccin = {
-      url = "github:catppuccin/nix";
-    };
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    catppuccin.url = "github:catppuccin/nix";
 
     cygnus-rs = {
       url = "github:Dessera/cygnus-rs";
       inputs.flake-parts.follows = "flake-parts";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-    firefox-nightly = {
-      url = "github:nix-community/flake-firefox-nightly";
     };
 
     plasma-manager = {
@@ -64,20 +46,12 @@
   outputs =
     { flake-parts, ... }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } (
-      {
-        self,
-        flake-parts-lib,
-        ...
-      }:
-      let
-        inherit (flake-parts-lib) importApply;
-        meta = import ./meta;
-      in
+      { self, ... }:
       {
         systems = [ "x86_64-linux" ];
 
         imports = [
-          (importApply ./lib (inputs // { inherit meta; }))
+          (import ./lib.nix inputs)
         ];
 
         flake = {
@@ -97,13 +71,16 @@
               modules = [
                 inputs.nixos-hardware.nixosModules.microsoft-surface-pro-intel
                 ./entries/dessera-surface
-                ./users/dessera-surface
+                ./users/dessera
               ];
             };
           };
 
-          hmModuleWrapper = import ./modules/hm;
-          nixosModuleWrapper = import ./modules/nixos;
+          overlays = import ./overlays.nix inputs;
+          modules = {
+            plasmaManagerExtension = import ./modules/hm/plasma;
+            catppuccinExtension = import ./modules/hm/catppuccin;
+          };
         };
 
         perSystem =

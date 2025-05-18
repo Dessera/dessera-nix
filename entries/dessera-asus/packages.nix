@@ -1,18 +1,25 @@
 { pkgs, ... }:
 
 {
-  modules.packages = {
+  virtualisation = {
+    containers.enable = true;
     podman = {
       enable = true;
-      enableNvidiaSupport = true;
+      dockerCompat = true;
+
+      defaultNetwork = {
+        settings = {
+          dns_enabled = true;
+        };
+      };
     };
   };
 
-  modules.desktop = {
-    plasma = {
-      enable = true;
-      excludePackages = with pkgs.kdePackages; [ xwaylandvideobridge ];
-    };
-    sddm.enable = true;
-  };
+  hardware.nvidia-container-toolkit.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    podman-compose
+    dive
+    shadow
+  ];
 }

@@ -2,8 +2,12 @@
 
 {
   imports = [
-    ../../common/hm/packages.nix
+    ../../common/shared/catppuccin.nix
+
+    ../../common/hm/desktop.nix
     ./desktop.nix
+
+    ../../common/hm/packages.nix
   ];
 
   home = {

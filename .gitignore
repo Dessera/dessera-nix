@@ -1,2 +1,4 @@
 .direnv
-.vscode/.user-data
+.envrc
+result
+result-*

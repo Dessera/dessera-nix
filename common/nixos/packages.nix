@@ -1,11 +1,6 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
-  modules.packages = {
-    git.enable = true;
-    fish.enable = true;
-  };
-
   programs = {
     direnv = {
       enable = true;
@@ -16,6 +11,11 @@
       viAlias = true;
       vimAlias = true;
     };
+    git = {
+      enable = true;
+      lfs.enable = true;
+    };
+    fish.enable = true;
     command-not-found.enable = false;
   };
 
@@ -27,10 +27,32 @@
     sudo.enable = false;
   };
 
-  environment.systemPackages = with pkgs; [
-    wget
-    fastfetch
+  services = {
+    desktopManager.plasma6.enable = true;
+    displayManager.sddm = {
+      enable = true;
+      autoNumlock = true;
+      wayland.enable = true;
 
-    nur.repos.novel2430.wpsoffice-365
-  ];
+      package = lib.mkForce pkgs.kdePackages.sddm;
+
+      settings = {
+        General = {
+          InputMethod = null;
+        };
+      };
+    };
+  };
+
+  catppuccin.sddm.enable = true;
+
+  environment = {
+    plasma6.excludePackages = with pkgs.kdePackages; [ xwaylandvideobridge ];
+    systemPackages = with pkgs; [
+      wget
+      fastfetch
+
+      nur.repos.novel2430.wpsoffice-365
+    ];
+  };
 }

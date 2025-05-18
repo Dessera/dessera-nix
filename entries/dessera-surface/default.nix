@@ -9,9 +9,6 @@
     # Hardware
     ./hardware.nix
 
-    # Bootloader
-    ./boot.nix
-
     # Fstab
     ./fstab.nix
 
@@ -20,11 +17,11 @@
     ./services.nix
 
     # All packages
+    ../../common/shared/catppuccin.nix
     ../../common/nixos/packages.nix
-    ./packages.nix
 
     # Locale & Fonts
-    ./locale.nix
+    ../../common/nixos/locale.nix
     ../../common/nixos/fonts.nix
 
     # Other

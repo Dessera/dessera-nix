@@ -1,0 +1,47 @@
+{
+  "editor.cursorBlinking": "smooth",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.cursorStyle": "block",
+  "editor.detectIndentation": true,
+  "editor.fontFamily": "JetBrainsMono Nerd Font Mono, MonaspiceNe Nerd Font Mono, '思源等宽', Source Han Mono, '思源黑体', '思源黑体 CN', monospace",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 20,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.guides.bracketPairs": "active",
+  "editor.lineNumbers": "relative",
+  "editor.renderLineHighlight": "all",
+  "editor.renderWhitespace": "boundary",
+  "editor.rulers": [
+    80
+  ],
+  "editor.smoothScrolling": true,
+  "editor.tabCompletion": "on",
+  "editor.tabSize": 2,
+  "editor.wordWrap": "off",
+  "files.autoSave": "onFocusChange",
+  "nix.enableLanguageServer": true,
+  "nix.serverPath": "nixd",
+  "nix.serverSettings": {
+    "nixd": {
+      "formatting": {
+        "command": [
+          "nixfmt"
+        ]
+      }
+    }
+  },
+  "security.workspace.trust.untrustedFiles": "open",
+  "window.menuBarVisibility": "toggle",
+  "workbench.colorTheme": "One Dark Pro Night Flat",
+  "workbench.commandPalette.experimental.suggestCommands": true,
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.productIconTheme": "fluent-icons",
+  "Codegeex.Privacy": false,
+  "Codegeex.License": "",
+  "[markdown]": {
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+  },
+  "vsicons.dontShowNewVersionMessage": true,
+  "containers.containerClient": "com.microsoft.visualstudio.containers.podman"
+}
