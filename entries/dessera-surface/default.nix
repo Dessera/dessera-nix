@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ../../common/nixos/boot.nix
 
     # Nix settings
     ../../common/nixos/settings.nix

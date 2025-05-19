@@ -51,8 +51,6 @@
     systemPackages = with pkgs; [
       wget
       fastfetch
-
-      nur.repos.novel2430.wpsoffice-365
     ];
   };
 }

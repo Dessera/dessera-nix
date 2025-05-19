@@ -71,7 +71,7 @@
               modules = [
                 inputs.nixos-hardware.nixosModules.microsoft-surface-pro-intel
                 ./entries/dessera-surface
-                ./users/dessera
+                ./users/dessera-surface
               ];
             };
           };
