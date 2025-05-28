@@ -1,5 +1,10 @@
 {
-  networking.hostName = "dessera-asus";
+  networking = {
+    hostName = "dessera-asus";
+
+    interfaces = {
+    };
+  };
 
   modules.services = {
     cygnus-rs = {

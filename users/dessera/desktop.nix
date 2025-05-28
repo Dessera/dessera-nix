@@ -98,17 +98,20 @@
         screen = 0;
         widgets = [
           "org.kde.plasma.pager"
-          {
-            iconTasks.launchers = [
-              "applications:org.kde.dolphin.desktop"
-              "applications:org.kde.konsole.desktop"
-              "applications:code.desktop"
-              "applications:firefox.desktop"
-            ];
-          }
-          "org.kde.plasma.colorpicker"
           "org.kde.plasma.notes"
           "org.kde.plasma.calculator"
+          {
+            iconTasks = {
+              launchers = [
+                "applications:org.kde.dolphin.desktop"
+                "applications:org.kde.konsole.desktop"
+                "applications:code.desktop"
+                "applications:firefox.desktop"
+              ];
+              appearance.iconSpacing = "small";
+            };
+          }
+          "org.kde.plasma.colorpicker"
         ];
       }
     ];
