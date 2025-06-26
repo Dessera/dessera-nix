@@ -17,6 +17,7 @@
       windowOpenClose.animation = "fade";
       minimization.animation = "squash";
 
+      blur.enable = false;
       blurplus = {
         enable = true;
         windowClasses = '''';

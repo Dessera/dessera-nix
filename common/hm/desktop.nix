@@ -44,15 +44,30 @@ in
     workspace.wallpaper = wpImage;
     kscreenlocker.appearance.wallpaper = wpImage;
 
-    kwin.virtualDesktops = {
-      names = [
-        "VD1"
-        "VD2"
-        "VD3"
-        "VD4"
-      ];
-      number = 4;
-      rows = 2;
+    kwin = {
+      virtualDesktops = {
+        names = [
+          "VD1"
+          "VD2"
+          "VD3"
+          "VD4"
+        ];
+        number = 4;
+        rows = 2;
+      };
+      nightLight = {
+        enable = true;
+        mode = "times";
+        temperature = {
+          day = 6500;
+          night = 4500;
+        };
+        time = {
+          morning = "06:30";
+          evening = "19:30";
+        };
+        transitionTime = 30;
+      };
     };
 
     fonts =
@@ -67,6 +82,10 @@ in
         menu = mkPlasmaFont fontOpt.defaultFonts.sansSerif 10;
         windowTitle = mkPlasmaFont fontOpt.defaultFonts.sansSerif 10;
       };
+
+    session = {
+      sessionRestore.restoreOpenApplicationsOnLogin = "startWithEmptySession";
+    };
 
     configFile = {
       kdeglobals.KDE.widgetStyle.value = "kvantum-dark";
