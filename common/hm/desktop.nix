@@ -99,9 +99,13 @@ in
       kwinrc."Round-Corners" = {
         ActiveOutlineUseCustom = false;
         ActiveOutlineUsePalette = true;
+        ActiveSecondOutlineUseCustom = false;
+        ActiveSecondOutlineUsePalette = true;
         InactiveOutlineThickness = 3;
         InactiveOutlineUseCustom = false;
         InactiveOutlineUsePalette = true;
+        InactiveSecondOutlineUseCustom = false;
+        InactiveSecondOutlineUsePalette = true;
         OutlineThickness = 3;
       };
     };

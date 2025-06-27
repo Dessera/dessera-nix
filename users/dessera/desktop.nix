@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   programs.plasma = {
     input.keyboard.numlockOnStartup = "on";
@@ -44,7 +45,12 @@
                 activeTaskSource = "activeTask";
               };
               layout = {
-                elements = [ "windowTitle" ];
+                elements = [
+                  "windowCloseButton"
+                  "windowMaximizeButton"
+                  "windowMinimizeButton"
+                  "windowTitle"
+                ];
                 horizontalAlignment = "left";
                 showDisabledElements = "deactivated";
                 verticalAlignment = "center";
@@ -63,6 +69,7 @@
               };
             };
           }
+          "org.kde.plasma.appmenu"
           "org.kde.plasma.panelspacer"
           {
             systemTray = {
@@ -83,7 +90,16 @@
           {
             digitalClock = {
               date = {
-                position = "besideTime";
+                enable = false;
+              };
+            };
+          }
+          {
+            plasmaPanelColorizer = {
+              settings = {
+                General = {
+                  presetAutoloading = "{\\\"enabled\\\":true,\\\"normal\\\":\\\"${pkgs.dessera-dock-preset}\\\"}";
+                };
               };
             };
           }
@@ -113,6 +129,15 @@
             };
           }
           "org.kde.plasma.colorpicker"
+          {
+            plasmaPanelColorizer = {
+              settings = {
+                General = {
+                  presetAutoloading = "{\\\"enabled\\\":true,\\\"normal\\\":\\\"${pkgs.dessera-dock-preset}\\\"}";
+                };
+              };
+            };
+          }
         ];
       }
     ];

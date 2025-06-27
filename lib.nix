@@ -23,7 +23,10 @@
                 inputs.catppuccin.nixosModules.catppuccin
               ] ++ modules;
 
-              nixpkgs.overlays = [ self.overlays.default ];
+              nixpkgs.overlays = [
+                self.overlays.default
+                self.overlays.plasma-extensions
+              ];
 
               home-manager = {
                 useGlobalPkgs = true;
