@@ -106,6 +106,7 @@ in
         InactiveOutlineUsePalette = true;
         InactiveSecondOutlineUseCustom = false;
         InactiveSecondOutlineUsePalette = true;
+        Inclusions = "org.kde.plasmashell";
         OutlineThickness = 3;
       };
     };
