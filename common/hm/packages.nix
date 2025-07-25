@@ -69,7 +69,6 @@ in
 
   home.packages = with pkgs; [
     qq
-    gimp
     copier
     cachix
 
@@ -77,5 +76,8 @@ in
     fzf
     fd
     bat
+
+    inetutils
+    openssl
   ];
 }

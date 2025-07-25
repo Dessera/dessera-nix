@@ -21,7 +21,6 @@ let
       igorsbitnev.error-gutters
       eamodio.gitlens
       yzhang.markdown-all-in-one
-      aminer.codegeex
       aaron-bond.better-comments
       usernamehw.errorlens
       oderwat.indent-rainbow

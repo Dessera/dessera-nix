@@ -40,7 +40,7 @@
   plasma-extensions = final: prev: {
     plasma-panel-colorizer = prev.plasma-panel-colorizer.overrideAttrs (oldAttrs: {
       postInstall = ''
-        chmod +x $out/share/plasma/plasmoids/luisbocanegra.panel.colorizer/contents/ui/tools/list_presets.sh
+        chmod +x -R $out/share/plasma/plasmoids/luisbocanegra.panel.colorizer/contents/ui/tools/
       '';
     });
     dessera-dock-preset = prev.callPackage ./packages/dessera-dock-preset { };

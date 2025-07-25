@@ -124,6 +124,7 @@
                 "applications:org.kde.konsole.desktop"
                 "applications:code.desktop"
                 "applications:firefox.desktop"
+                "applications:qq.desktop"
               ];
               appearance.iconSpacing = "small";
             };
