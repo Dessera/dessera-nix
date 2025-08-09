@@ -33,6 +33,7 @@ let
       zhuangtongfa.material-theme
       alefragnani.project-manager
       ms-azuretools.vscode-containers
+      ms-vscode-remote.remote-wsl
     ]);
 in
 {
