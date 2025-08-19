@@ -9,3 +9,4 @@ If you want to use them (e.g. for a commercial project), you need to contact the
 | File | Author |
 | --- | --- |
 | `127200026_p0.jpg`| [zzz](https://www.pixiv.net/artworks/127200026) |
+| `starship.toml` | [ghost0seeker](https://github.com/starship/starship/discussions/1107#discussioncomment-13565123) |

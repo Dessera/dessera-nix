@@ -34,6 +34,7 @@ let
       alefragnani.project-manager
       ms-azuretools.vscode-containers
       ms-vscode-remote.remote-wsl
+      skellock.just
     ]);
 in
 {

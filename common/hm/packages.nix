@@ -42,6 +42,7 @@ in
     starship = {
       enable = true;
       enableFishIntegration = true;
+      settings = builtins.fromTOML (builtins.readFile ../../assets/startship.toml);
     };
 
     konsole = {
@@ -69,6 +70,7 @@ in
 
   home.packages = with pkgs; [
     qq
+    wechat-uos
     copier
     cachix
 
