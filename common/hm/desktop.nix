@@ -96,7 +96,7 @@ in
 
     panels = [
       {
-        location = "top";
+        location = "bottom";
         floating = true;
         hiding = "dodgewindows";
         height = 42;
