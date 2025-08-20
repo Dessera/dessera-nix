@@ -68,6 +68,13 @@ in
         };
         transitionTime = 30;
       };
+      effects = {
+        shakeCursor.enable = true;
+        dimAdminMode.enable = true;
+
+        windowOpenClose.animation = "fade";
+        minimization.animation = "squash";
+      };
     };
 
     fonts =
@@ -87,6 +94,99 @@ in
       sessionRestore.restoreOpenApplicationsOnLogin = "startWithEmptySession";
     };
 
+    panels = [
+      {
+        location = "top";
+        floating = true;
+        hiding = "dodgewindows";
+        height = 42;
+        screen = 0;
+        widgets = [
+          {
+            kickoff = {
+              icon = "nix-snowflake";
+            };
+          }
+          {
+            applicationTitleBar = {
+              behavior = {
+                activeTaskSource = "activeTask";
+              };
+              layout = {
+                elements = [
+                  "windowCloseButton"
+                  "windowMaximizeButton"
+                  "windowMinimizeButton"
+                  "windowTitle"
+                ];
+                horizontalAlignment = "left";
+                showDisabledElements = "deactivated";
+                verticalAlignment = "center";
+              };
+              windowTitle = {
+                font.bold = true;
+                hideEmptyTitle = true;
+                undefinedWindowTitle = "无标题";
+                margins = {
+                  bottom = 0;
+                  left = 10;
+                  right = 5;
+                  top = 0;
+                };
+                source = "appName";
+              };
+            };
+          }
+          "org.kde.plasma.appmenu"
+          {
+            iconTasks = {
+              launchers = [
+                "applications:org.kde.dolphin.desktop"
+                "applications:org.kde.konsole.desktop"
+                "applications:code.desktop"
+                "applications:firefox.desktop"
+                "applications:qq.desktop"
+              ];
+              appearance.iconSpacing = "small";
+            };
+          }
+          "org.kde.plasma.panelspacer"
+          {
+            systemTray = {
+              items = {
+                shown = [
+                  "org.kde.plasma.battery"
+                  "org.kde.plasma.bluetooth"
+                  "org.kde.plasma.volume"
+                ];
+                hidden = [
+                  "org.kde.plasma.networkmanagement"
+                  "org.kde.plasma.brightness"
+                  "org.kde.plasma.clipboard"
+                ];
+              };
+            };
+          }
+          {
+            digitalClock = {
+              date = {
+                enable = false;
+              };
+            };
+          }
+          {
+            plasmaPanelColorizer = {
+              settings = {
+                General = {
+                  presetAutoloading = "{\\\"enabled\\\":true,\\\"normal\\\":\\\"${pkgs.dessera-dock-preset}\\\"}";
+                };
+              };
+            };
+          }
+        ];
+      }
+    ];
+
     configFile = {
       kdeglobals.KDE.widgetStyle.value = "kvantum-dark";
       kwinrc.Wayland.InputMethod = "/run/current-system/sw/share/applications/fcitx5-wayland-launcher.desktop";
@@ -101,13 +201,17 @@ in
         ActiveOutlineUsePalette = true;
         ActiveSecondOutlineUseCustom = false;
         ActiveSecondOutlineUsePalette = true;
-        InactiveOutlineThickness = 3;
+        InactiveCornerRadius = 15;
+        InactiveOutlineThickness = 0;
         InactiveOutlineUseCustom = false;
         InactiveOutlineUsePalette = true;
+        InactiveSecondOutlineThickness = 0;
         InactiveSecondOutlineUseCustom = false;
         InactiveSecondOutlineUsePalette = true;
         Inclusions = "org.kde.plasmashell";
-        OutlineThickness = 3;
+        OutlineThickness = 0;
+        SecondOutlineThickness = 0;
+        Size = 15;
       };
     };
   };

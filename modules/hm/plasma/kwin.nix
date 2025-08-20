@@ -87,10 +87,5 @@ in
 
       kwinrc.Plugins.forceblurEnabled = mkIf kwinEffectsCfg.blurplus.enable true;
     };
-
-    # programs.plasma.kwin.effects = {
-    #   translucency.enable = mkIf kwinEffectsCfg.blurplus.enable true;
-    #   blur.enable = mkIf kwinEffectsCfg.blurplus.enable false;
-    # };
   };
 }

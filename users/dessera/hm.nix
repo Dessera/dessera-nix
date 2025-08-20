@@ -3,10 +3,7 @@
 {
   imports = [
     ../../common/shared/catppuccin.nix
-
     ../../common/hm/desktop.nix
-    ./desktop.nix
-
     ../../common/hm/packages.nix
   ];
 
