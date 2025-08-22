@@ -1,0 +1,126 @@
+{
+  "widget/default-greeting": null,
+  "locale": "zh-CN",
+  "data/dwXYgecFwf2K": {
+    "searchEngine": "bing",
+    "suggestionsQuantity": 4
+  },
+  "widget/dwXYgecFwf2K": {
+    "id": "dwXYgecFwf2K",
+    "key": "widget/search",
+    "order": 1,
+    "display": {
+      "position": "middleCentre"
+    }
+  },
+  "data/default-time": {
+    "mode": "digital",
+    "hour12": false,
+    "showDate": true,
+    "showMinutes": true,
+    "showSeconds": true,
+    "showDayPeriod": true,
+    "timeZone": null,
+    "name": ""
+  },
+  "focus": false,
+  "widget/Kgl-me6kh-aj": {
+    "id": "Kgl-me6kh-aj",
+    "key": "widget/links",
+    "order": 2,
+    "display": {
+      "position": "middleCentre"
+    }
+  },
+  "background": {
+    "id": "65XbBjsSsF0i",
+    "key": "background/unsplash",
+    "display": {
+      "blur": 0,
+      "luminosity": -0.2
+    }
+  },
+  "data/Kgl-me6kh-aj": {
+    "columns": 4,
+    "links": [
+      {
+        "url": "https://www.bilibili.com/",
+        "name": "Bilibili",
+        "icon": "_favicon"
+      },
+      {
+        "url": "https://github.com/",
+        "name": "Github",
+        "icon": "_favicon"
+      },
+      {
+        "url": "https://www.z1z1.top/",
+        "name": "万达云",
+        "icon": "_favicon"
+      },
+      {
+        "url": "https://www.rfc-editor.org/",
+        "name": "RFC Editor",
+        "icon": "_favicon"
+      },
+      {
+        "url": "https://csdiy.wiki/",
+        "name": "CSDIY",
+        "icon": "_favicon"
+      },
+      {
+        "url": "https://nixos.wiki/",
+        "name": "NixOS Wiki",
+        "icon": "_favicon"
+      },
+      {
+        "url": "https://home-manager-options.extranix.com/",
+        "name": "HM Options",
+        "icon": "_favicon"
+      },
+      {
+        "url": "https://nix-community.github.io/plasma-manager/options.xhtml",
+        "icon": "_favicon",
+        "name": "PM Options"
+      }
+    ],
+    "visible": true,
+    "linkOpenStyle": false
+  },
+  "data/65XbBjsSsF0i": {
+    "by": "official",
+    "collections": "",
+    "featured": false,
+    "paused": false,
+    "search": "",
+    "topics": "M8jVbLbTRws",
+    "timeout": 900
+  },
+  "widget/default-time": {
+    "id": "default-time",
+    "key": "widget/time",
+    "order": 0,
+    "display": {
+      "position": "topRight"
+    }
+  },
+  "widget/3LjSjug5bLpE": null,
+  "widget/3z8NdQ10oqWJ": null,
+  "widget/eXQCEUwz1O9L": null,
+  "widget/uUfwz0dNEHWe": null,
+  "widget/lsaOQ2nES7i6": null,
+  "widget/GLuu-0869cv8": null,
+  "widget/cUDNZYDT0oV1": {
+    "id": "cUDNZYDT0oV1",
+    "key": "widget/quote",
+    "order": 3,
+    "display": {
+      "position": "bottomRight"
+    }
+  },
+  "data/cUDNZYDT0oV1": {
+    "category": "developerexcuses"
+  },
+  "timeZone": null,
+  "version": 3
+}

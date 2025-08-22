@@ -7,12 +7,12 @@
 let
   inherit (lib) mkEnableOption mkIf;
 
-  cfg = config.programs.gnome.catppuccin;
+  cfg = config.programs.gnome.catppuccin-ext;
   gtkCfg = config.gtk;
   catppuccinCfg = config.catppuccin;
 in
 {
-  options.programs.gnome.catppuccin = {
+  options.programs.gnome.catppuccin-ext = {
     enable = mkEnableOption "Enable Catppuccin extra configuration for GNOME";
   };
 

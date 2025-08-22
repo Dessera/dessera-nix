@@ -43,5 +43,8 @@
     "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
   },
   "vsicons.dontShowNewVersionMessage": true,
-  "containers.containerClient": "com.microsoft.visualstudio.containers.podman"
+  "containers.containerClient": "com.microsoft.visualstudio.containers.podman",
+  "leetcode.endpoint": "leetcode-cn",
+  "leetcode.workspaceFolder": "/home/dessera/.leetcode",
+  "leetcode.defaultLanguage": "cpp"
 }

@@ -15,7 +15,9 @@ let
       jnoortheen.nix-ide
       smcpeak.default-keys-windows
       mkhl.direnv
+      skellock.just
       ms-vscode-remote.remote-containers
+      ms-vscode-remote.remote-wsl
     ])
     ++ (with ext.vscode-marketplace; [
       igorsbitnev.error-gutters
@@ -33,8 +35,7 @@ let
       zhuangtongfa.material-theme
       alefragnani.project-manager
       ms-azuretools.vscode-containers
-      ms-vscode-remote.remote-wsl
-      skellock.just
+      leetcode.vscode-leetcode
     ]);
 in
 {
@@ -74,4 +75,8 @@ in
       };
     };
   };
+
+  home.packages = with pkgs; [
+    nodejs
+  ];
 }

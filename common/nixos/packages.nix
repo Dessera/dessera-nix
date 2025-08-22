@@ -16,7 +16,6 @@
       lfs.enable = true;
     };
     fish.enable = true;
-    command-not-found.enable = false;
   };
 
   security = {

@@ -37,7 +37,7 @@ in
 
   programs.plasma = {
     enable = true;
-    catppuccin.enable = true;
+    catppuccin-ext.enable = true;
 
     input.keyboard.numlockOnStartup = "on";
 

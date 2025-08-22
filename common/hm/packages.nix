@@ -5,8 +5,8 @@ let
 in
 {
   imports = [
-    ./vscode
-    ./firefox
+    ./packages/vscode
+    ./packages/firefox.nix
   ];
 
   programs = {
@@ -36,6 +36,14 @@ in
         shellInit = ''
           set -x fish_greeting
           set -x LANG zh_CN.UTF-8
+        '';
+
+        interactiveShellInit = ''
+          if command -v eza >/dev/null 2>&1
+            alias ls="eza --icons --group-directories-first"
+            alias ll="eza -l --icons --group-directories-first"
+            alias la="eza -a --icons --group-directories-first"
+          end
         '';
       };
 
@@ -71,6 +79,13 @@ in
   home.packages = with pkgs; [
     qq
     wechat-uos
+
+    libreoffice-fresh
+    wemeet
+    feishu
+    steam
+    hmcl
+
     copier
     cachix
 
@@ -78,8 +93,11 @@ in
     fzf
     fd
     bat
+    eza
 
     inetutils
     openssl
+
+    zulu # for minecraft
   ];
 }
