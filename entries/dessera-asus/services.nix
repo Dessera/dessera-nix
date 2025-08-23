@@ -1,9 +1,6 @@
 {
   networking = {
     hostName = "dessera-asus";
-
-    interfaces = {
-    };
   };
 
   modules.services = {
