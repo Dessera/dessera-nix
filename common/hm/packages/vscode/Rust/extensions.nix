@@ -1,5 +1,5 @@
-{ ext, pkgs }:
-(with ext.vscode-marketplace; [
+pkgs:
+(with pkgs.vscode-marketplace; [
   rust-lang.rust-analyzer
   dustypomerleau.rust-syntax
   fill-labs.dependi

@@ -2,7 +2,6 @@
 
 {
   imports = [
-
     # Nix settings
     ../../common/nixos/settings.nix
 

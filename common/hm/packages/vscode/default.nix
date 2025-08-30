@@ -3,10 +3,8 @@
   ...
 }:
 let
-  ext = pkgs.externPkgs.nix-community.nix-vscode-extensions;
-
   loadUserSettings = p: builtins.fromJSON (builtins.readFile p);
-  loadExtensions = p: (import p { inherit pkgs ext; });
+  loadExtensions = p: (import p pkgs);
 
   commonSettings = loadUserSettings ./common-settings.json;
   commonExtensions =
@@ -19,7 +17,7 @@ let
       ms-vscode-remote.remote-containers
       ms-vscode-remote.remote-wsl
     ])
-    ++ (with ext.vscode-marketplace; [
+    ++ (with pkgs.vscode-marketplace; [
       igorsbitnev.error-gutters
       eamodio.gitlens
       yzhang.markdown-all-in-one

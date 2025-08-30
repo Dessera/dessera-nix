@@ -1,6 +1,7 @@
 { pkgs, ... }:
 
 let
+  conf = import ../config.nix;
   fontOpt = import ../../common/font.nix pkgs;
 in
 {
@@ -50,7 +51,7 @@ in
     starship = {
       enable = true;
       enableFishIntegration = true;
-      settings = builtins.fromTOML (builtins.readFile ../../assets/startship.toml);
+      settings = builtins.fromTOML (builtins.readFile conf.starship);
     };
 
     konsole = {

@@ -22,8 +22,8 @@ in
       colorScheme = "catppuccin-${flavor}";
     };
 
-    home.packages = [
-      (pkgs.callPackage ./package.nix { inherit flavor; })
+    home.packages = with pkgs; [
+      (externPkgs.catppuccin-konsole.override { inherit flavor; })
     ];
   };
 }

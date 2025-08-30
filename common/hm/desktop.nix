@@ -37,7 +37,7 @@ in
 
   programs.plasma = {
     enable = true;
-    catppuccin-ext.enable = true;
+    catppuccin.enable = true;
 
     input.keyboard.numlockOnStartup = "on";
 
@@ -171,15 +171,6 @@ in
             digitalClock = {
               date = {
                 enable = false;
-              };
-            };
-          }
-          {
-            plasmaPanelColorizer = {
-              settings = {
-                General = {
-                  presetAutoloading = "{\\\"enabled\\\":true,\\\"normal\\\":\\\"${pkgs.dessera-dock-preset}\\\"}";
-                };
               };
             };
           }

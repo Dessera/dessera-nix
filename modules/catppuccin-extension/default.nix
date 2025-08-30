@@ -1,3 +1,4 @@
+inputs: self:
 { config, lib, ... }:
 
 {
@@ -12,7 +13,6 @@
     ./gtk.nix
     ./plasma.nix
     ./gnome.nix
-
-    ./konsole
+    ./konsole.nix
   ];
 }

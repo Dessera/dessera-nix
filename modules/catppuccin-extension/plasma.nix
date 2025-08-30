@@ -8,13 +8,13 @@ let
   inherit (config.catppuccin) flavor accent;
   inherit (pkgs.externLibs) toUpperInitial;
 
-  cfg = config.programs.plasma.catppuccin-ext;
+  cfg = config.programs.plasma.catppuccin;
 
   colorScheme = "Catppuccin${toUpperInitial flavor}${toUpperInitial accent}";
   lookAndFeel = "Catppuccin-${toUpperInitial flavor}-${toUpperInitial accent}";
 in
 {
-  options.programs.plasma.catppuccin-ext = {
+  options.programs.plasma.catppuccin = {
     enable = lib.mkEnableOption "Enable Catppuccin configuration for Plasma";
   };
 

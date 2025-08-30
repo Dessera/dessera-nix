@@ -1,5 +1,5 @@
-{ pkgs, ext }:
-(with ext.vscode-marketplace; [
+pkgs:
+(with pkgs.vscode-marketplace; [
   jeff-hykin.better-cpp-syntax
   llvm-vs-code-extensions.vscode-clangd
   twxs.cmake

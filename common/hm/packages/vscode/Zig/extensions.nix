@@ -1,4 +1,4 @@
-{ ext, ... }:
-(with ext.vscode-marketplace; [
+pkgs:
+(with pkgs.vscode-marketplace; [
   ziglang.vscode-zig
 ])

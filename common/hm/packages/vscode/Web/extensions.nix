@@ -1,9 +1,11 @@
-{ ext, ... }:
-(with ext.vscode-marketplace; [
+pkgs:
+(with pkgs.vscode-marketplace; [
   vue.volar
-  dbaeumer.vscode-eslint
   esbenp.prettier-vscode
   biomejs.biome
   denoland.vscode-deno
   bradlc.vscode-tailwindcss
+])
+++ (with pkgs.vscode-extensions; [
+  dbaeumer.vscode-eslint
 ])

@@ -62,7 +62,6 @@
           tabliss
           darkreader
           to-deepl
-          ublock-origin
         ];
       };
 
