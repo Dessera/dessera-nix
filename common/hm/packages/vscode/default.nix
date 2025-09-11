@@ -71,6 +71,10 @@ in
         extensions = commonExtensions ++ (loadExtensions ./Zig/extensions.nix);
         userSettings = commonSettings // (loadUserSettings ./Zig/settings.json);
       };
+      Csharp = {
+        extensions = commonExtensions ++ (loadExtensions ./Csharp/extensions.nix);
+        userSettings = commonSettings // (loadUserSettings ./Csharp/settings.json);
+      };
     };
   };
 

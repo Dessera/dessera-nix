@@ -33,7 +33,7 @@ inputs: self: {
               sharedModules = [
                 self.modules.catppuccinExtension
                 inputs.catppuccin.homeModules.catppuccin
-                inputs.plasma-manager.homeManagerModules.plasma-manager
+                inputs.plasma-manager.homeModules.plasma-manager
               ]
               ++ hmModules;
 
