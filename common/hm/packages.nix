@@ -79,7 +79,7 @@ in
 
   home.packages = with pkgs; [
     qq
-    wechat-uos
+    # wechat-uos
 
     libreoffice-fresh
     wemeet

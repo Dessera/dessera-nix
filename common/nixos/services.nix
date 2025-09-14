@@ -13,6 +13,7 @@
     enable = true;
     tunMode = true;
     autoStart = true;
+    serviceMode = true;
   };
 
   services.xserver.enable = true;
