@@ -78,6 +78,8 @@ in
     };
   };
 
+  services.vscode-server.enable = true;
+
   home.packages = with pkgs; [
     nodejs
   ];

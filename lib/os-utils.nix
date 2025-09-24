@@ -34,6 +34,7 @@ inputs: self: {
                 self.modules.catppuccinExtension
                 inputs.catppuccin.homeModules.catppuccin
                 inputs.plasma-manager.homeModules.plasma-manager
+                inputs.vscode-server.homeModules.default
               ]
               ++ hmModules;
 

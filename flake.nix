@@ -5,11 +5,9 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
 
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-
     nur.url = "github:nix-community/NUR";
 
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
-
     vscode-server.url = "github:nix-community/nixos-vscode-server";
 
     home-manager = {
