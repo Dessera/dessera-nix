@@ -29,6 +29,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -40,7 +45,7 @@
 
         flake = {
           nixosConfigurations = {
-            dessera-asus = self.lib.osUtils.mkNixOS {
+            dessera-asus = self.lib.osUtils.mkNixProfile {
               system = "x86_64-linux";
               modules = [
                 inputs.nixos-hardware.nixosModules.asus-fx506hm
@@ -51,14 +56,8 @@
             };
           };
 
-          # Util libs.
-          lib = import ./lib inputs self;
-
-          # Extra overlays.
-          overlays = import ./overlays inputs self;
-
-          # Extra modules.
-          modules = import ./modules inputs self;
+          # Utils lib.
+          lib = import ./lib inputs;
         };
 
         perSystem =

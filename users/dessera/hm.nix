@@ -1,10 +1,9 @@
-{ ... }:
-
 {
   imports = [
-    ../../common/shared/catppuccin.nix
-    ../../common/hm/desktop.nix
-    ../../common/hm/packages.nix
+    ../../components/hm/stylix.nix
+    ../../components/shared/catppuccin.nix
+
+    ./packages.nix
   ];
 
   home = {

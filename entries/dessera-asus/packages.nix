@@ -1,6 +1,17 @@
 { pkgs, ... }:
 
 {
+  imports = [
+    ../../components/nixos/desktops/plasma6.nix
+
+    ../../components/nixos/packages/clash-verge-rev.nix
+    ../../components/nixos/packages/direnv.nix
+    ../../components/nixos/packages/fish.nix
+    ../../components/nixos/packages/git.nix
+    ../../components/nixos/packages/neovim.nix
+    ../../components/nixos/packages/sudo-rs.nix
+  ];
+
   virtualisation = {
     containers.enable = true;
     podman = {
@@ -21,5 +32,8 @@
     podman-compose
     dive
     shadow
+
+    wget
+    fastfetch
   ];
 }

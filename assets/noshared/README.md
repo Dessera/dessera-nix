@@ -9,4 +9,4 @@ If you want to use them (e.g. for a commercial project), you need to contact the
 | File | Author | Status |
 | --- | --- | --- |
 | `127200026_p0.jpg`| [zzz](https://www.pixiv.net/artworks/127200026) | N/A |
-| `starship.toml` | [starship](https://github.com/starship/starship/blob/master/docs/public/presets/toml/catppuccin-powerline.toml) | Modified |
+| `83050349_p0.png`| [fjsmu（ふじしむ）](https://www.pixiv.net/artworks/83050349) | N/A |

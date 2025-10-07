@@ -1,3 +1,3 @@
-inputs: self: {
-  osUtils = import ./os-utils.nix inputs self;
+inputs: {
+  osUtils = import ./os-utils.nix inputs;
 }

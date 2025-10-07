@@ -1,7 +1,7 @@
 {
-  networking = {
-    hostName = "dessera-asus";
-  };
+  imports = [
+    ../../components/nixos/services/xserver.nix
+  ];
 
   modules.services = {
     cygnus-rs = {
