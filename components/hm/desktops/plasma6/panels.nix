@@ -1,9 +1,30 @@
+{ pkgs, ... }:
+
+let
+  mkPreset =
+    src:
+    pkgs.callPackage (
+      { stdenv }:
+      let
+        name = builtins.baseNameOf src;
+      in
+      stdenv.mkDerivation {
+        inherit name src;
+
+        installPhase = ''
+          mkdir -p $out
+          cp -r $src/* $out
+        '';
+      }
+    ) { };
+in
 {
   programs.plasma.panels = [
     {
       location = "top";
-      floating = false;
+      floating = true;
       hiding = "dodgewindows";
+      lengthMode = "fit";
       height = 36;
       screen = 0;
       widgets = [
@@ -42,8 +63,29 @@
             };
           };
         }
-        "org.kde.plasma.appmenu"
-        "org.kde.plasma.panelspacer"
+        {
+          plasmusicToolbar = {
+            settings = {
+              General = {
+                showWhenNoMedia = true;
+                noMediaText = "";
+              };
+            };
+          };
+        }
+        {
+          digitalClock = {
+            date = {
+              enable = true;
+              position = "besideTime";
+              format = "isoDate";
+            };
+            calendar = {
+              showWeekNumbers = true;
+              plugins = [ "holidaysevents" ];
+            };
+          };
+        }
         {
           systemTray = {
             items = {
@@ -61,9 +103,11 @@
           };
         }
         {
-          digitalClock = {
-            date = {
-              enable = false;
+          plasmaPanelColorizer = {
+            settings = {
+              General = {
+                presetAutoloading = "{\\\"enabled\\\":true,\\\"normal\\\":\\\"${mkPreset ./panel-presets/dessera-top-tray}\\\"}";
+              };
             };
           };
         }
@@ -87,6 +131,15 @@
               "applications:qq.desktop"
             ];
             appearance.iconSpacing = "small";
+          };
+        }
+        {
+          plasmaPanelColorizer = {
+            settings = {
+              General = {
+                presetAutoloading = "{\\\"enabled\\\":true,\\\"normal\\\":\\\"${mkPreset ./panel-presets/dessera-bottom-tasks}\\\"}";
+              };
+            };
           };
         }
       ];

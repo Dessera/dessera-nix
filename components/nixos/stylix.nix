@@ -3,7 +3,7 @@
   stylix = {
     enable = true;
 
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine-moon.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
     image = ../../assets/noshared/83050349_p0.png;
     icons = {
       enable = true;
