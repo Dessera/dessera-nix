@@ -55,8 +55,7 @@
         InactiveSecondOutlineThickness = 0;
         InactiveSecondOutlineUseCustom = false;
         InactiveSecondOutlineUsePalette = true;
-        Inclusions = "org.kde.plasmashell";
-        Exclusions = "fuzzel";
+        Exclusions = "fuzzel,plasmashell";
         OutlineThickness = 0;
         SecondOutlineThickness = 0;
         Size = 15;

@@ -29,7 +29,7 @@ in
       screen = 0;
       widgets = [
         {
-          kickoff = {
+          kickerdash = {
             icon = "nix-snowflake";
           };
         }
