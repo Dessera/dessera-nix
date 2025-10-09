@@ -28,12 +28,16 @@
 
   hardware.nvidia-container-toolkit.enable = true;
 
-  environment.systemPackages = with pkgs; [
-    podman-compose
-    dive
-    shadow
+  environment = {
+    systemPackages = with pkgs; [
+      podman-compose
+      dive
+      shadow
 
-    wget
-    fastfetch
-  ];
+      wget
+      fastfetch
+    ];
+
+    sessionVariables.NIXOS_OZONE_WL = "1";
+  };
 }

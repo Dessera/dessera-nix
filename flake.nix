@@ -18,11 +18,11 @@
 
     catppuccin.url = "github:catppuccin/nix";
 
-    cygnus-rs = {
-      url = "github:Dessera/cygnus-rs";
-      inputs.flake-parts.follows = "flake-parts";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # cygnus-rs = {
+    #   url = "github:Dessera/cygnus-rs";
+    #   inputs.flake-parts.follows = "flake-parts";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     plasma-manager = {
       url = "github:nix-community/plasma-manager";
@@ -49,7 +49,7 @@
               system = "x86_64-linux";
               modules = [
                 inputs.nixos-hardware.nixosModules.asus-fx506hm
-                inputs.cygnus-rs.nixosModules.default
+                # inputs.cygnus-rs.nixosModules.default
                 ./entries/dessera-asus
                 ./users/dessera
               ];

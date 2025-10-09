@@ -85,68 +85,6 @@
         "type": "github"
       }
     },
-    "crane": {
-      "locked": {
-        "lastModified": 1733688869,
-        "narHash": "sha256-KrhxxFj1CjESDrL5+u/zsVH0K+Ik9tvoac/oFPoxSB8=",
-        "owner": "ipetkov",
-        "repo": "crane",
-        "rev": "604637106e420ad99907cae401e13ab6b452e7d9",
-        "type": "github"
-      },
-      "original": {
-        "owner": "ipetkov",
-        "repo": "crane",
-        "type": "github"
-      }
-    },
-    "cygnus-rs": {
-      "inputs": {
-        "crane": "crane",
-        "fenix": "fenix",
-        "flake-parts": [
-          "flake-parts"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1734192834,
-        "narHash": "sha256-m42Yp2cR40BTc1+q0BDN463JUqnoY3fWn+nxTtuAtXQ=",
-        "owner": "Dessera",
-        "repo": "cygnus-rs",
-        "rev": "d3dba35973c4999b7b2d9a69ce4ea82a990403db",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Dessera",
-        "repo": "cygnus-rs",
-        "type": "github"
-      }
-    },
-    "fenix": {
-      "inputs": {
-        "nixpkgs": [
-          "cygnus-rs",
-          "nixpkgs"
-        ],
-        "rust-analyzer-src": "rust-analyzer-src"
-      },
-      "locked": {
-        "lastModified": 1734157906,
-        "narHash": "sha256-4zYEtbxdhYkmmFC5vgv9pmIVHylEuKs+iJb1XsKDN7o=",
-        "owner": "nix-community",
-        "repo": "fenix",
-        "rev": "06de03ede52ce64db6eb65be878a39b5ec944f50",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "fenix",
-        "type": "github"
-      }
-    },
     "firefox-gnome-theme": {
       "flake": false,
       "locked": {
@@ -510,7 +448,6 @@
     "root": {
       "inputs": {
         "catppuccin": "catppuccin",
-        "cygnus-rs": "cygnus-rs",
         "flake-parts": "flake-parts",
         "home-manager": "home-manager",
         "nix-vscode-extensions": "nix-vscode-extensions",
@@ -520,23 +457,6 @@
         "plasma-manager": "plasma-manager",
         "stylix": "stylix",
         "vscode-server": "vscode-server"
-      }
-    },
-    "rust-analyzer-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1734121833,
-        "narHash": "sha256-EZtwXmh9P9FnoXKfbjGxyWksjrjPB4HES2HVIV+STNg=",
-        "owner": "rust-lang",
-        "repo": "rust-analyzer",
-        "rev": "fc18d263aa95f7d6de8174bd4c6663dfe865e6d5",
-        "type": "github"
-      },
-      "original": {
-        "owner": "rust-lang",
-        "ref": "nightly",
-        "repo": "rust-analyzer",
-        "type": "github"
       }
     },
     "stylix": {
