@@ -34,8 +34,6 @@
   "workbench.commandPalette.experimental.suggestCommands": true,
   "workbench.iconTheme": "vscode-icons",
   "workbench.productIconTheme": "fluent-icons",
-  "Codegeex.Privacy": false,
-  "Codegeex.License": "",
   "[markdown]": {
     "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
   },
@@ -45,5 +43,23 @@
   "leetcode.workspaceFolder": "/home/dessera/.leetcode",
   "leetcode.defaultLanguage": "cpp",
   "doxdocgen.generic.useGitUserName": true,
-  "doxdocgen.generic.useGitUserEmail": true
+  "doxdocgen.generic.useGitUserEmail": true,
+  "settingsSync.ignoredSettings": [
+    "workbench.colorTheme",
+    "terminal.integrated.fontSize",
+    "screencastMode.fontSize",
+    "scm.inputFontFamily",
+    "scm.inputFontSize",
+    "markdown.preview.fontFamily",
+    "markdown.preview.fontSize",
+    "editor.minimap.sectionHeaderFontSize",
+    "editor.inlayHints.fontFamily",
+    "editor.inlineSuggest.fontFamily",
+    "editor.fontSize",
+    "editor.fontFamily",
+    "debug.console.fontSize",
+    "debug.console.fontFamily",
+    "chat.editor.fontFamily",
+    "chat.editor.fontSize"
+  ]
 }
