@@ -1,9 +1,10 @@
 { config, pkgs, ... }:
+
 {
   stylix = {
     enable = true;
 
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/ayu-dark.yaml";
     image = ../../assets/noshared/83050349_p0.png;
     icons = {
       enable = true;
@@ -21,7 +22,7 @@
 
       sansSerif = {
         package = pkgs.sourceHanSansPackages.simplified-chinese;
-        name = "思源黑体";
+        name = "Source Han Sans SC";
       };
 
       monospace = {

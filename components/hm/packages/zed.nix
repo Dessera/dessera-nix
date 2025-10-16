@@ -4,6 +4,8 @@
     extensions = [
       "nix"
       "meson"
+      "markdownlint"
+      "git-firefly"
     ];
     userSettings = {
       disable_ai = true;
@@ -22,6 +24,16 @@
       };
       wrap_guides = [ 80 ];
       format_on_save = "on";
+      show_whitespaces = "boundary";
+      middle_click_paste = false;
+      languages = {
+        Nix = {
+          language_servers = [
+            "nixd"
+            "!nil"
+          ];
+        };
+      };
     };
   };
 }
