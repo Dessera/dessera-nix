@@ -55,7 +55,7 @@
         InactiveSecondOutlineThickness = 0;
         InactiveSecondOutlineUseCustom = false;
         InactiveSecondOutlineUsePalette = true;
-        Exclusions = "fuzzel,plasmashell";
+        Exclusions = "fuzzel,plasmashell,zed";
         OutlineThickness = 0;
         SecondOutlineThickness = 0;
         Size = 15;

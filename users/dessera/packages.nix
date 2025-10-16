@@ -6,6 +6,7 @@
 
     ../../components/hm/packages/vscode
     ../../components/hm/packages/firefox
+    ../../components/hm/packages/zed.nix
     ../../components/hm/packages/fish.nix
   ];
 
@@ -25,14 +26,11 @@
 
     libreoffice-fresh
     steam
-    hmcl
 
     copier
     cachix
 
     inetutils
     openssl
-
-    zulu # for minecraft
   ];
 }

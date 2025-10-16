@@ -126,7 +126,7 @@ in
             launchers = [
               "applications:org.kde.dolphin.desktop"
               "applications:org.wezfurlong.wezterm.desktop"
-              "applications:code.desktop"
+              "applications:dev.zed.Zed.desktop"
               "applications:firefox.desktop"
               "applications:qq.desktop"
             ];
