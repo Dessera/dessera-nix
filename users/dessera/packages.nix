@@ -15,8 +15,12 @@
 
     git = {
       enable = true;
-      userName = "Dessera";
-      userEmail = "dessera@qq.com";
+      settings = {
+        user = {
+          name = "Dessera";
+          email = "dessera@qq.com";
+        };
+      };
     };
   };
 

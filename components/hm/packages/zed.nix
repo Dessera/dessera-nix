@@ -6,6 +6,7 @@
       "meson"
       "markdownlint"
       "git-firefly"
+      "toml"
     ];
     userSettings = {
       disable_ai = true;
