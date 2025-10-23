@@ -137,6 +137,13 @@
               ];
               url = "https://www.z1z1.top";
             }
+            {
+              name = "V2RayA";
+              tags = [
+                "vpn"
+              ];
+              url = "http://localhost:2017";
+            }
           ];
         }
       ];
