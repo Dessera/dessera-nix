@@ -127,6 +127,7 @@ in
               "applications:org.kde.dolphin.desktop"
               "applications:org.wezfurlong.wezterm.desktop"
               "applications:dev.zed.Zed.desktop"
+              "applications:code.desktop"
               "applications:firefox.desktop"
               "applications:qq.desktop"
             ];

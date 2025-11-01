@@ -11,6 +11,7 @@
     ];
     userSettings = {
       disable_ai = true;
+      buffer_font_fallbacks = [ "Source Han Sans SC" ];
       cursor_shape = "block";
       minimap = {
         show = "always";
@@ -33,7 +34,35 @@
           language_servers = [
             "nixd"
             "!nil"
+            "..."
           ];
+        };
+        Python = {
+          language_servers = [
+            "pylsp"
+            "!basedpyright"
+            "..."
+          ];
+        };
+      };
+      lsp = {
+        pylsp = {
+          settings = {
+            plugins = {
+              mypy.enabled = true;
+              rope_autoimport = {
+                enabled = true;
+                comletions.enabled = true;
+                code_actions.enabled = true;
+              };
+              rope_completion = {
+                enabled = true;
+                eager = true;
+              };
+              pyflakes.enabled = false;
+              pycodestyle.enabled = false;
+            };
+          };
         };
       };
     };

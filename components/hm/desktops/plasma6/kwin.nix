@@ -1,5 +1,3 @@
-{ pkgs, ... }:
-
 {
   programs.plasma = {
     kwin = {
@@ -43,27 +41,23 @@
         ButtonsOnLeft = "";
         ButtonsOnRight = "IAX";
       };
-      kwinrc."Round-Corners" = {
-        ActiveOutlineUseCustom = false;
-        ActiveOutlineUsePalette = true;
-        ActiveSecondOutlineUseCustom = false;
-        ActiveSecondOutlineUsePalette = true;
-        InactiveCornerRadius = 15;
-        InactiveOutlineThickness = 0;
-        InactiveOutlineUseCustom = false;
-        InactiveOutlineUsePalette = true;
-        InactiveSecondOutlineThickness = 0;
-        InactiveSecondOutlineUseCustom = false;
-        InactiveSecondOutlineUsePalette = true;
-        Exclusions = "fuzzel,plasmashell,zed";
-        OutlineThickness = 0;
-        SecondOutlineThickness = 0;
-        Size = 15;
-      };
+      # kwinrc."Round-Corners" = {
+      #   ActiveOutlineUseCustom = false;
+      #   ActiveOutlineUsePalette = true;
+      #   ActiveSecondOutlineUseCustom = false;
+      #   ActiveSecondOutlineUsePalette = true;
+      #   InactiveCornerRadius = 15;
+      #   InactiveOutlineThickness = 0;
+      #   InactiveOutlineUseCustom = false;
+      #   InactiveOutlineUsePalette = true;
+      #   InactiveSecondOutlineThickness = 0;
+      #   InactiveSecondOutlineUseCustom = false;
+      #   InactiveSecondOutlineUsePalette = true;
+      #   Exclusions = "fuzzel,plasmashell,zed";
+      #   OutlineThickness = 0;
+      #   SecondOutlineThickness = 0;
+      #   Size = 15;
+      # };
     };
   };
-
-  home.packages = with pkgs; [
-    kde-rounded-corners
-  ];
 }
