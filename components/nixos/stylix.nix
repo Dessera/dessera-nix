@@ -21,7 +21,7 @@
       serif = config.stylix.fonts.sansSerif;
 
       sansSerif = {
-        package = pkgs.sourceHanSansPackages.simplified-chinese;
+        package = pkgs.source-han-sans;
         name = "Source Han Sans SC";
       };
 
@@ -31,7 +31,7 @@
       };
 
       emoji = {
-        package = pkgs.noto-fonts-emoji;
+        package = pkgs.noto-fonts-color-emoji;
         name = "Noto Color Emoji";
       };
     };

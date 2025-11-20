@@ -131,11 +131,11 @@
           name = "网络";
           bookmarks = [
             {
-              name = "万达云";
+              name = "XSUS";
               tags = [
                 "vpn"
               ];
-              url = "https://www.z1z1.top";
+              url = "https://xs-us.xyz/dashboard";
             }
             {
               name = "V2RayA";

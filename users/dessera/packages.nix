@@ -36,5 +36,10 @@
 
     inetutils
     openssl
+
+    hmcl
+    zulu21
+
+    gimp
   ];
 }

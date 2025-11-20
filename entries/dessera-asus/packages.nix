@@ -10,6 +10,7 @@
     ../../components/nixos/packages/git.nix
     ../../components/nixos/packages/neovim.nix
     ../../components/nixos/packages/sudo-rs.nix
+    ../../components/nixos/packages/nix-ld.nix
   ];
 
   virtualisation = {

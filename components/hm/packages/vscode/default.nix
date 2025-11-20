@@ -34,6 +34,7 @@ let
       alefragnani.project-manager
       ms-azuretools.vscode-containers
       leetcode.vscode-leetcode
+      tamasfe.even-better-toml
     ]);
 in
 {
@@ -71,16 +72,12 @@ in
         extensions = commonExtensions ++ (loadExtensions ./Zig/extensions.nix);
         userSettings = commonSettings // (loadUserSettings ./Zig/settings.json);
       };
-      Csharp = {
-        extensions = commonExtensions ++ (loadExtensions ./Csharp/extensions.nix);
-        userSettings = commonSettings // (loadUserSettings ./Csharp/settings.json);
+      Java = {
+        extensions = commonExtensions ++ (loadExtensions ./Java/extensions.nix);
+        userSettings = commonSettings;
       };
     };
   };
 
   services.vscode-server.enable = true;
-
-  home.packages = with pkgs; [
-    nodejs
-  ];
 }

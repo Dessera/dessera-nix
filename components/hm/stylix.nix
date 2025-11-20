@@ -13,7 +13,7 @@
       firefox.profileNames = [ "default" ];
       vscode.profileNames = [
         "Cpp"
-        "Csharp"
+        "Java"
         "Python"
         "Rust"
         "Web"
