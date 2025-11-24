@@ -106,7 +106,7 @@ in
           plasmaPanelColorizer = {
             settings = {
               General = {
-                presetAutoloading = "{\\\"enabled\\\":true,\\\"normal\\\":\\\"${mkPreset ./panel-presets/dessera-top-tray}\\\"}";
+                presetAutoloading = "{\"enabled\":true,\"normal\":\"${mkPreset ./panel-presets/dessera-top-tray}\"}";
               };
             };
           };
@@ -138,7 +138,7 @@ in
           plasmaPanelColorizer = {
             settings = {
               General = {
-                presetAutoloading = "{\\\"enabled\\\":true,\\\"normal\\\":\\\"${mkPreset ./panel-presets/dessera-bottom-tasks}\\\"}";
+                presetAutoloading = "{\"enabled\":true,\"normal\":\"${mkPreset ./panel-presets/dessera-bottom-tasks}\"}";
               };
             };
           };

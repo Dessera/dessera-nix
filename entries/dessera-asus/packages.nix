@@ -4,7 +4,7 @@
   imports = [
     ../../components/nixos/desktops/plasma6.nix
 
-    ../../components/nixos/packages/v2raya.nix
+    ../../components/nixos/packages/clash-verge-rev.nix
     ../../components/nixos/packages/direnv.nix
     ../../components/nixos/packages/fish.nix
     ../../components/nixos/packages/git.nix
