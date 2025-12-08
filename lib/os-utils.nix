@@ -1,5 +1,6 @@
 {
   nixpkgs,
+  nix-darwin,
   home-manager,
   nur,
   stylix,
