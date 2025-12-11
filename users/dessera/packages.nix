@@ -8,6 +8,7 @@
     ../../components/hm/packages/firefox
     ../../components/hm/packages/zed.nix
     ../../components/hm/packages/fish.nix
+    ../../components/hm/packages/wine.nix
   ];
 
   programs = {
@@ -41,5 +42,6 @@
     zulu21
 
     gimp
+    blockbench
   ];
 }

@@ -10,6 +10,7 @@
     "--header-insertion-decorators",
     "--header-insertion=iwyu",
     "--pch-storage=memory",
+    "--experimental-modules-support",
     "-j=12"
   ],
   "cmake.options.statusBarVisibility": "compact",

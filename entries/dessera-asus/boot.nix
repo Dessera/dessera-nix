@@ -19,6 +19,6 @@
       "nowatchdog"
       "quiet"
     ];
-    kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = pkgs.linuxPackages_6_17;
   };
 }

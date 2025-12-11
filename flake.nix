@@ -5,10 +5,6 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
 
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    nix-darwin = {
-      url = "github:nix-darwin/nix-darwin/master";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nur.url = "github:nix-community/NUR";
 
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
@@ -54,15 +50,12 @@
             };
           };
 
-          darwinConfigurations = { };
-
           lib = import ./lib inputs;
         };
 
         perSystem =
           { pkgs, ... }:
           {
-            formatter = pkgs.nixfmt-rfc-style;
             devShells.default = pkgs.mkShell {
               packages = with pkgs; [
                 nixd
