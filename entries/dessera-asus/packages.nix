@@ -11,6 +11,7 @@
     ../../components/nixos/packages/neovim.nix
     ../../components/nixos/packages/sudo-rs.nix
     ../../components/nixos/packages/nix-ld.nix
+    ../../components/nixos/packages/steam.nix
   ];
 
   virtualisation = {

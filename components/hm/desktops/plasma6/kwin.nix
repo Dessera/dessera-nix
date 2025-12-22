@@ -35,29 +35,22 @@
 
     configFile = {
       kwinrc.Wayland.InputMethod = "/run/current-system/sw/share/applications/fcitx5-wayland-launcher.desktop";
+      kwinrc.Plugins = {
+        kzonesEnabled = true;
+      };
       kwinrc."org.kde.kdecoration2" = {
         BorderSize = "None";
         BorderSizeAuto = false;
         ButtonsOnLeft = "";
         ButtonsOnRight = "IAX";
       };
-      # kwinrc."Round-Corners" = {
-      #   ActiveOutlineUseCustom = false;
-      #   ActiveOutlineUsePalette = true;
-      #   ActiveSecondOutlineUseCustom = false;
-      #   ActiveSecondOutlineUsePalette = true;
-      #   InactiveCornerRadius = 15;
-      #   InactiveOutlineThickness = 0;
-      #   InactiveOutlineUseCustom = false;
-      #   InactiveOutlineUsePalette = true;
-      #   InactiveSecondOutlineThickness = 0;
-      #   InactiveSecondOutlineUseCustom = false;
-      #   InactiveSecondOutlineUsePalette = true;
-      #   Exclusions = "fuzzel,plasmashell,zed";
-      #   OutlineThickness = 0;
-      #   SecondOutlineThickness = 0;
-      #   Size = 15;
-      # };
+      kwinrc."Script-kzones" = {
+        layoutJson = ''
+          [{"name":"PriorityGrid","padding":0,"zones":[{"x":0,"y":0,"height":100,"width":25},{"x":25,"y":0,"height":100,"width":50,"applications":["firefox"]},{"x":75,"y":0,"height":100,"width":25}]},{"name":"QuadrantGrid","padding":0,"zones":[{"x":0,"y":0,"height":50,"width":50},{"x":0,"y":50,"height":50,"width":50},{"x":50,"y":50,"height":50,"width":50},{"x":50,"y":0,"height":50,"width":50}]},{"name":"Columns","padding":0,"zones":[{"x":0,"y":0,"height":100,"width":50},{"x":50,"y":0,"height":100,"width":50}]},{"name":"Rows","padding":0,"zones":[{"x":0,"y":0,"height":50,"width":100},{"x":0,"y":50,"height":50,"width":100}]}]
+        '';
+        trackLayoutPerScreen = true;
+        zoneOverlayIndicatorDisplay = 1;
+      };
     };
   };
 }

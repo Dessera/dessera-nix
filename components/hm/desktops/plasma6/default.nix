@@ -44,6 +44,7 @@ in
         flavour = [ flavor ];
         accents = [ accent ];
       })
+      kdePackages.kzones
     ];
 
     # Because script from `stylixLookAndFeel` will remove all theme

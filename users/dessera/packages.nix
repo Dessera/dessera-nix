@@ -28,21 +28,20 @@
     qq
     wechat-uos
 
-    libreoffice-fresh
-    steam
-
     copier
     cachix
 
     inetutils
     openssl
+    zulu21
 
     hmcl
-    zulu21
 
     gimp
     blockbench
 
     vnote
+    vlc
+    libreoffice-fresh
   ];
 }

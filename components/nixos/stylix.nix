@@ -4,7 +4,7 @@
   stylix = {
     enable = true;
 
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/ayu-dark.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
     image = ../../assets/noshared/83050349_p0.png;
     icons = {
       enable = true;

@@ -1,35 +1,15 @@
-{ pkgs, ... }:
-
-let
-  mkPreset =
-    src:
-    pkgs.callPackage (
-      { stdenv }:
-      let
-        name = builtins.baseNameOf src;
-      in
-      stdenv.mkDerivation {
-        inherit name src;
-
-        installPhase = ''
-          mkdir -p $out
-          cp -r $src/* $out
-        '';
-      }
-    ) { };
-in
 {
   programs.plasma.panels = [
     {
       location = "top";
       floating = true;
       hiding = "dodgewindows";
-      lengthMode = "fit";
-      height = 36;
+      lengthMode = "fill";
+      height = 40;
       screen = 0;
       widgets = [
         {
-          kickerdash = {
+          kicker = {
             icon = "nix-snowflake";
           };
         }
@@ -74,6 +54,9 @@ in
           };
         }
         {
+          panelSpacer = { };
+        }
+        {
           digitalClock = {
             date = {
               enable = true;
@@ -85,6 +68,9 @@ in
               plugins = [ "holidaysevents" ];
             };
           };
+        }
+        {
+          panelSpacer = { };
         }
         {
           systemTray = {
@@ -102,15 +88,6 @@ in
             };
           };
         }
-        # {
-        #   plasmaPanelColorizer = {
-        #     settings = {
-        #       General = {
-        #         presetAutoloading = "{\"enabled\":true,\"normal\":\"${mkPreset ./panel-presets/dessera-top-tray}\"}";
-        #       };
-        #     };
-        #   };
-        # }
       ];
     }
     {
@@ -118,7 +95,7 @@ in
       floating = true;
       hiding = "dodgewindows";
       lengthMode = "fit";
-      height = 44;
+      height = 64;
       screen = 0;
       widgets = [
         {
@@ -129,21 +106,16 @@ in
               "applications:vnote.desktop"
               "applications:code.desktop"
               "applications:firefox.desktop"
+              "applications:clash-verge.desktop"
               "applications:steam.desktop"
+              "applications:org.kde.spectacle.desktop"
               "applications:qq.desktop"
+              "applications:com.tencent.wechat.desktop"
+              "applications:vlc.desktop"
             ];
             appearance.iconSpacing = "small";
           };
         }
-        # {
-        #   plasmaPanelColorizer = {
-        #     settings = {
-        #       General = {
-        #         presetAutoloading = "{\"enabled\":true,\"normal\":\"${mkPreset ./panel-presets/dessera-bottom-tasks}\"}";
-        #       };
-        #     };
-        #   };
-        # }
       ];
     }
   ];
