@@ -33,7 +33,7 @@
   "security.workspace.trust.untrustedFiles": "open",
   "window.menuBarVisibility": "toggle",
   "workbench.commandPalette.experimental.suggestCommands": true,
-  "workbench.iconTheme": "vscode-icons",
+  "workbench.iconTheme": "material-icon-theme",
   "workbench.productIconTheme": "fluent-icons",
   "[markdown]": {
     "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"

@@ -102,15 +102,15 @@ in
             };
           };
         }
-        {
-          plasmaPanelColorizer = {
-            settings = {
-              General = {
-                presetAutoloading = "{\"enabled\":true,\"normal\":\"${mkPreset ./panel-presets/dessera-top-tray}\"}";
-              };
-            };
-          };
-        }
+        # {
+        #   plasmaPanelColorizer = {
+        #     settings = {
+        #       General = {
+        #         presetAutoloading = "{\"enabled\":true,\"normal\":\"${mkPreset ./panel-presets/dessera-top-tray}\"}";
+        #       };
+        #     };
+        #   };
+        # }
       ];
     }
     {
@@ -126,23 +126,24 @@ in
             launchers = [
               "applications:org.kde.dolphin.desktop"
               "applications:org.wezfurlong.wezterm.desktop"
-              "applications:dev.zed.Zed.desktop"
+              "applications:vnote.desktop"
               "applications:code.desktop"
               "applications:firefox.desktop"
+              "applications:steam.desktop"
               "applications:qq.desktop"
             ];
             appearance.iconSpacing = "small";
           };
         }
-        {
-          plasmaPanelColorizer = {
-            settings = {
-              General = {
-                presetAutoloading = "{\"enabled\":true,\"normal\":\"${mkPreset ./panel-presets/dessera-bottom-tasks}\"}";
-              };
-            };
-          };
-        }
+        # {
+        #   plasmaPanelColorizer = {
+        #     settings = {
+        #       General = {
+        #         presetAutoloading = "{\"enabled\":true,\"normal\":\"${mkPreset ./panel-presets/dessera-bottom-tasks}\"}";
+        #       };
+        #     };
+        #   };
+        # }
       ];
     }
   ];

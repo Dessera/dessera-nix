@@ -1,41 +1,54 @@
-{
-  pkgs,
-  ...
-}:
+{ pkgs, lib, ... }:
+
 let
   loadUserSettings = p: builtins.fromJSON (builtins.readFile p);
   loadExtensions = p: (import p pkgs);
 
-  commonSettings = loadUserSettings ./common-settings.json;
-  commonExtensions =
-    (with pkgs.vscode-extensions; [
-      jeff-hykin.better-nix-syntax
-      jnoortheen.nix-ide
-      smcpeak.default-keys-windows
-      mkhl.direnv
-      skellock.just
-      ms-vscode-remote.remote-containers
-      ms-vscode-remote.remote-wsl
-      eamodio.gitlens
-      vscode-icons-team.vscode-icons
-    ])
-    ++ (with pkgs.vscode-marketplace; [
-      igorsbitnev.error-gutters
-      yzhang.markdown-all-in-one
-      aaron-bond.better-comments
-      usernamehw.errorlens
-      oderwat.indent-rainbow
-      christian-kohler.path-intellisense
-      gruntfuggly.todo-tree
-      ms-ceintl.vscode-language-pack-zh-hans
-      miguelsolorio.fluent-icons
-      davidanson.vscode-markdownlint
-      zhuangtongfa.material-theme
-      alefragnani.project-manager
-      ms-azuretools.vscode-containers
-      leetcode.vscode-leetcode
-      tamasfe.even-better-toml
-    ]);
+  commonSettings = (loadUserSettings ./common-settings.json) // {
+    "workbench.colorTheme" = lib.mkForce "Bearded Theme feat. Will";
+  };
+
+  commonExtensions = with pkgs.vscode-marketplace; [
+    # Appearance
+    igorsbitnev.error-gutters
+    aaron-bond.better-comments
+    usernamehw.errorlens
+    oderwat.indent-rainbow
+    miguelsolorio.fluent-icons
+    beardedbear.beardedtheme
+    pkief.material-icon-theme
+
+    # Syntax Highlighter
+    jeff-hykin.better-nix-syntax
+    jeff-hykin.better-dockerfile-syntax
+    jeff-hykin.better-csv-syntax
+    jeff-hykin.better-shellscript-syntax
+    sidneys1.gitconfig
+    ldez.ignore-files
+
+    # Git
+    codezombiech.gitignore
+    eamodio.gitlens
+
+    # Languages
+    tamasfe.even-better-toml
+    davidanson.vscode-markdownlint
+    yzhang.markdown-all-in-one
+    jnoortheen.nix-ide
+
+    # Container
+    ms-azuretools.vscode-containers
+    ms-vscode-remote.remote-containers
+    ms-vscode-remote.remote-wsl
+
+    # VSC Functions
+    ms-ceintl.vscode-language-pack-zh-hans
+    alefragnani.project-manager
+    christian-kohler.path-intellisense
+    gruntfuggly.todo-tree
+    mkhl.direnv
+    smcpeak.default-keys-windows
+  ];
 in
 {
   programs.vscode = {
