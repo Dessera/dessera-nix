@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
   programs.plasma = {
     kwin = {
@@ -41,7 +43,7 @@
       kwinrc."org.kde.kdecoration2" = {
         BorderSize = "None";
         BorderSizeAuto = false;
-        ButtonsOnLeft = "";
+        ButtonsOnLeft = "M";
         ButtonsOnRight = "IAX";
       };
       kwinrc."Script-kzones" = {
@@ -53,4 +55,8 @@
       };
     };
   };
+
+  home.packages = with pkgs; [
+    kdePackages.kzones
+  ];
 }

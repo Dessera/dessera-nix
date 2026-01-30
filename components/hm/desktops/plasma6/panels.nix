@@ -1,9 +1,24 @@
+{ config, lib, ... }:
+
+let
+  inherit (lib) types;
+  inherit (config.home) dockApps;
+in
 {
-  programs.plasma.panels = [
+  options.home.dockApps = lib.mkOption {
+    type = types.listOf types.str;
+    default = [
+      "applications:systemsettings.desktop"
+      "applications:org.kde.dolphin.desktop"
+      "applications:org.kde.plasma-systemmonitor.desktop"
+    ];
+  };
+
+  config.programs.plasma.panels = [
     {
       location = "top";
-      floating = true;
-      hiding = "dodgewindows";
+      floating = false;
+      hiding = "none";
       lengthMode = "fill";
       height = 40;
       screen = 0;
@@ -32,7 +47,7 @@
             windowTitle = {
               font.bold = true;
               hideEmptyTitle = true;
-              undefinedWindowTitle = "无标题";
+              undefinedWindowTitle = "Blank";
               margins = {
                 bottom = 0;
                 left = 10;
@@ -100,19 +115,7 @@
       widgets = [
         {
           iconTasks = {
-            launchers = [
-              "applications:org.kde.dolphin.desktop"
-              "applications:org.wezfurlong.wezterm.desktop"
-              "applications:vnote.desktop"
-              "applications:code.desktop"
-              "applications:firefox.desktop"
-              "applications:clash-verge.desktop"
-              "applications:steam.desktop"
-              "applications:org.kde.spectacle.desktop"
-              "applications:qq.desktop"
-              "applications:com.tencent.wechat.desktop"
-              "applications:vlc.desktop"
-            ];
+            launchers = dockApps;
             appearance.iconSpacing = "small";
           };
         }

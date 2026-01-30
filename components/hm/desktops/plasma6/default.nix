@@ -6,7 +6,7 @@
 }:
 
 let
-  inherit (config.catppuccin) flavor accent;
+  catppuccinCfg = config.catppuccin;
   xdgCfg = config.xdg;
 
   toUpperInitial =
@@ -20,7 +20,7 @@ let
       rest
     ];
 
-  splashScreenTheme = "Catppuccin-${toUpperInitial flavor}-${toUpperInitial accent}";
+  splashScreenTheme = "Catppuccin-${toUpperInitial catppuccinCfg.flavor}-${toUpperInitial catppuccinCfg.accent}";
 in
 {
   imports = [
@@ -41,14 +41,13 @@ in
   home = {
     packages = with pkgs; [
       (catppuccin-kde.override {
-        flavour = [ flavor ];
-        accents = [ accent ];
+        flavour = [ catppuccinCfg.flavor ];
+        accents = [ catppuccinCfg.accent ];
       })
-      kdePackages.kzones
     ];
 
-    # Because script from `stylixLookAndFeel` will remove all theme
-    # configuration, So I've managed to use this activation to override splash.
+    # Script from `stylixLookAndFeel` will remove all theme configuration,
+    # So I've managed to use this activation to override splash.
     activation.desseraSetKSplash = lib.hm.dag.entryAfter [ "writeBoundary" "stylixLookAndFeel" ] ''
       run printf "[KSplash]\nTheme=${splashScreenTheme}\n" \
         > ${xdgCfg.configHome}/ksplashrc \

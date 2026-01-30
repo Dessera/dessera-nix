@@ -17,5 +17,5 @@
     ];
   };
 
-  home-manager.users.dessera = import ./hm.nix;
+  home-manager.users.dessera = import ./hm-default.nix;
 }
