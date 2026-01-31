@@ -1,10 +1,10 @@
 { pkgs, ... }:
 
 {
-  imports = [
-    ../../components/nixos/boot/grub.nix
-    ../../components/nixos/boot/plymouth.nix
-  ];
+  dnix.boot = {
+    grub.enable = true;
+    plymouth.enable = true;
+  };
 
   boot = {
     initrd.availableKernelModules = [

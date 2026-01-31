@@ -43,6 +43,8 @@
     vnote
     vlc
     libreoffice-fresh
+
+    dix
   ];
 
   home.dockApps = [

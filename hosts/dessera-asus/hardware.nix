@@ -1,9 +1,6 @@
 {
   hardware = {
-    asus.battery = {
-      chargeUpto = 80;
-      enableChargeUptoScript = true;
-    };
+    facter.reportPath = ./facter.json;
 
     bluetooth = {
       enable = true;

@@ -18,5 +18,11 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
+  dnix = {
+    desktops.plasma6.enable = true;
+    desktops.sddm.enable = true;
+    programs.nh.enable = true;
+  };
+
   system.stateVersion = "23.11";
 }

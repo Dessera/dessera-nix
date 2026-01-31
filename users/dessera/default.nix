@@ -1,21 +1,16 @@
-{ pkgs, ... }:
-{
-  users.users.dessera = {
-    name = "dessera";
-    description = "Dessera";
-    home = "/home/dessera";
-    isNormalUser = true;
+{ pkgs, lib, ... }:
 
-    shell = pkgs.fish;
-    extraGroups = [
-      "wheel"
-      "networkmanager"
-      "video"
-      "audio"
-      "dialout"
-      "uucp"
-    ];
-  };
-
-  home-manager.users.dessera = import ./hm-default.nix;
+lib.dnix.mkUser {
+  username = "dessera";
+  name = "Dessera";
+  shell = pkgs.fish;
+  groups = [
+    "wheel"
+    "networkmanager"
+    "video"
+    "audio"
+    "dialout"
+    "uucp"
+  ];
+  modules = [ ./hm-default.nix ];
 }
