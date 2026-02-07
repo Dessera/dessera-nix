@@ -2,9 +2,6 @@
 
 {
   imports = [
-    ../../components/nixos/locale.nix
-    ../../components/nixos/fonts.nix
-
     ./boot.nix
     ./desktops.nix
     ./fstab.nix
@@ -19,6 +16,9 @@
 
   dnix = {
     style.enable = true;
+    fonts.enable = true;
+    locale.enable = true;
+    network.enable = true;
 
     system.optimize.enable = true;
   };

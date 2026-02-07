@@ -1,19 +1,18 @@
 { pkgs, ... }:
 
 {
-  imports = [
-    ../../components/nixos/packages/v2raya.nix
-    ../../components/nixos/packages/direnv.nix
-    ../../components/nixos/packages/fish.nix
-    ../../components/nixos/packages/git.nix
-    ../../components/nixos/packages/neovim.nix
-    ../../components/nixos/packages/sudo-rs.nix
-    ../../components/nixos/packages/nix-ld.nix
-    ../../components/nixos/packages/steam.nix
-  ];
-
   dnix.programs = {
+    direnv.enable = true;
+    git.enable = true;
+    neovim.enable = true;
     nh.enable = true;
+    steam.enable = true;
+    sudo-rs.enable = true;
+  };
+
+  programs = {
+    fish.enable = true;
+    nix-ld.enable = true;
   };
 
   virtualisation = {

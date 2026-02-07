@@ -6,6 +6,9 @@
     ./services
     ./system
 
+    ./fonts.nix
+    ./locale.nix
+    ./network.nix
     ./style.nix
   ];
 }
