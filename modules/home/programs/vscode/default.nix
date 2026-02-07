@@ -15,47 +15,54 @@ let
   loadUserSettings = p: builtins.fromJSON (builtins.readFile p);
   loadExtensions = p: (import p extensionPkgs);
 
-  commonExtensions = with pkgs.vscode-marketplace; [
-    # Appearance
-    igorsbitnev.error-gutters
-    aaron-bond.better-comments
-    usernamehw.errorlens
-    oderwat.indent-rainbow
-    miguelsolorio.fluent-icons
-    beardedbear.beardedtheme
-    pkief.material-icon-theme
+  commonExtensions =
+    with pkgs.vscode-marketplace;
+    [
+      # Appearance
+      igorsbitnev.error-gutters
+      aaron-bond.better-comments
+      usernamehw.errorlens
+      oderwat.indent-rainbow
+      miguelsolorio.fluent-icons
+      beardedbear.beardedtheme
+      pkief.material-icon-theme
 
-    # Syntax Highlighter
-    jeff-hykin.better-nix-syntax
-    jeff-hykin.better-dockerfile-syntax
-    jeff-hykin.better-csv-syntax
-    jeff-hykin.better-shellscript-syntax
-    sidneys1.gitconfig
-    ldez.ignore-files
+      # Syntax Highlighter
+      jeff-hykin.better-nix-syntax
+      jeff-hykin.better-dockerfile-syntax
+      jeff-hykin.better-csv-syntax
+      jeff-hykin.better-shellscript-syntax
+      sidneys1.gitconfig
+      ldez.ignore-files
 
-    # Git
-    codezombiech.gitignore
-    eamodio.gitlens
+      # Git
+      codezombiech.gitignore
 
-    # Languages
-    tamasfe.even-better-toml
-    davidanson.vscode-markdownlint
-    yzhang.markdown-all-in-one
-    jnoortheen.nix-ide
+      # Languages
+      tamasfe.even-better-toml
+      davidanson.vscode-markdownlint
+      yzhang.markdown-all-in-one
+      jnoortheen.nix-ide
 
-    # Container
-    ms-azuretools.vscode-containers
-    ms-vscode-remote.remote-containers
-    ms-vscode-remote.remote-wsl
+      # Container
+      ms-azuretools.vscode-containers
+      ms-vscode-remote.remote-containers
+      ms-vscode-remote.remote-wsl
 
-    # VSC Functions
-    ms-ceintl.vscode-language-pack-zh-hans
-    alefragnani.project-manager
-    christian-kohler.path-intellisense
-    gruntfuggly.todo-tree
-    mkhl.direnv
-    smcpeak.default-keys-windows
-  ];
+      # VSC Functions
+      ms-ceintl.vscode-language-pack-zh-hans
+      alefragnani.project-manager
+      christian-kohler.path-intellisense
+      gruntfuggly.todo-tree
+      mkhl.direnv
+      smcpeak.default-keys-windows
+
+    ]
+    ++ (with pkgs.vscode-extensions; [
+      # AI Agent
+      github.copilot
+      github.copilot-chat
+    ]);
 
   commonSettings = (loadUserSettings ./settings.json) // {
     "workbench.colorTheme" = lib.mkForce "Bearded Theme feat. Will";
