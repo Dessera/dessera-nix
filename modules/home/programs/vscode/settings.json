@@ -59,5 +59,6 @@
     "debug.console.fontFamily",
     "chat.editor.fontFamily",
     "chat.editor.fontSize"
-  ]
+  ],
+  "chat.useAgentSkills": true
 }
