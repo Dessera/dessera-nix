@@ -1,30 +1,16 @@
 { pkgs, ... }:
 
 {
-  imports = [
-    ../../components/hm/desktops/plasma6
-
-    ../../components/hm/packages/firefox
-    ../../components/hm/packages/fish.nix
-    ../../components/hm/packages/wine.nix
-  ];
-
   dnix.programs = {
+    firefox.enable = true;
     vscode.enable = true;
+    fish.enable = true;
+    git.enable = true;
   };
 
   programs = {
     home-manager.enable = true;
-
-    git = {
-      enable = true;
-      settings = {
-        user = {
-          name = "Dessera";
-          email = "dessera@qq.com";
-        };
-      };
-    };
+    starship.enable = true;
   };
 
   home.packages = with pkgs; [
@@ -37,6 +23,8 @@
     inetutils
     openssl
     zulu21
+    winetricks
+    wineWowPackages.waylandFull
 
     hmcl
 
@@ -50,18 +38,4 @@
     dix
   ];
 
-  home.dockApps = [
-    "applications:systemsettings.desktop"
-    "applications:org.kde.dolphin.desktop"
-    "applications:org.kde.plasma-systemmonitor.desktop"
-    "applications:org.wezfurlong.wezterm.desktop"
-    "applications:vnote.desktop"
-    "applications:code.desktop"
-    "applications:firefox.desktop"
-    "applications:steam.desktop"
-    "applications:org.kde.spectacle.desktop"
-    "applications:qq.desktop"
-    "applications:wechat.desktop"
-    "applications:vlc.desktop"
-  ];
 }

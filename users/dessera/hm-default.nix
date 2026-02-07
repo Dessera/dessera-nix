@@ -1,9 +1,10 @@
 {
   imports = [
+    ./desktops.nix
     ./programs.nix
   ];
 
-  dnix = {
+  dnix.system = {
     style.enable = true;
   };
 

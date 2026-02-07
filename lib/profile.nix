@@ -51,12 +51,13 @@
     {
       username,
       name,
+      email,
       shell,
       groups ? [ ],
       modules ? [ ],
       home ? "/home/${username}",
       isNormalUser ? true,
-    }:
+    }@user:
     {
       users.users.${username} = {
         inherit shell home isNormalUser;
@@ -72,6 +73,10 @@
             home = {
               inherit username;
               homeDirectory = home;
+            };
+
+            _module.args = {
+              inherit user;
             };
           }
         ]

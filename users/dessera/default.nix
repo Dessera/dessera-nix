@@ -3,6 +3,7 @@
 lib.dnix.mkUser {
   username = "dessera";
   name = "Dessera";
+  email = "dessera@qq.com";
   shell = pkgs.fish;
   groups = [
     "wheel"

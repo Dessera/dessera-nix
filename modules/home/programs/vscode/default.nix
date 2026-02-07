@@ -109,5 +109,16 @@ in
     };
 
     services.vscode-server.enable = true;
+
+    stylix.targets.vscode.profileNames = [
+      "Cpp"
+      "Java"
+      "Python"
+      "Rust"
+      "Web"
+      "Zig"
+      "Nix"
+      "default"
+    ];
   };
 }

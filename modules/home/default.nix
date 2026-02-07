@@ -2,8 +2,8 @@
   imports = [
     ../shared
 
+    ./desktops
     ./programs
-
-    ./style.nix
+    ./system
   ];
 }
