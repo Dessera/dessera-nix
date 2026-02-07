@@ -3,10 +3,10 @@
 let
   inherit (lib) mkEnableOption mkIf;
 
-  cfg = config.dnix.network;
+  cfg = config.dnix.system.network;
 in
 {
-  options.dnix.network = {
+  options.dnix.system.network = {
     enable = mkEnableOption "network";
   };
 

@@ -1,14 +1,12 @@
 {
   imports = [
+    ../shared
+
     ./boot
     ./desktops
+    ./hardware
     ./programs
     ./services
     ./system
-
-    ./fonts.nix
-    ./locale.nix
-    ./network.nix
-    ./style.nix
   ];
 }

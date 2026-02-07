@@ -3,10 +3,10 @@
 let
   inherit (lib) mkEnableOption mkIf;
 
-  cfg = config.dnix.fonts;
+  cfg = config.dnix.system.fonts;
 in
 {
-  options.dnix.fonts = {
+  options.dnix.system.fonts = {
     enable = mkEnableOption "fonts";
   };
 

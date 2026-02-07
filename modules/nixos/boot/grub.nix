@@ -25,5 +25,6 @@ in
     };
 
     catppuccin.grub.enable = true;
+    stylix.targets.grub.enable = false;
   };
 }

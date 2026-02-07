@@ -75,6 +75,7 @@
 
         nixosConfigurations = {
           dessera-asus = lib.dnix.profile.mkProfile {
+            name = "dessera-asus";
             system = "x86_64-linux";
             modules = [
               inputs.nixos-hardware.nixosModules.asus-fx506hm

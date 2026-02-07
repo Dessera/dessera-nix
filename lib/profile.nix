@@ -3,6 +3,7 @@
 {
   mkProfile =
     {
+      name,
       system,
       modules ? [ ],
       homeModules ? [ ],
@@ -28,6 +29,8 @@
       inherit system specialArgs;
       modules = [
         {
+          networking.hostName = name;
+
           nixpkgs.overlays = with inputs; [
             nix-vscode-extensions.overlays.default
           ];

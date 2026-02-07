@@ -8,10 +8,10 @@
 let
   inherit (lib) mkEnableOption mkIf;
 
-  cfg = config.dnix.style;
+  cfg = config.dnix.system.style;
 in
 {
-  options.dnix.style = {
+  options.dnix.system.style = {
     enable = mkEnableOption "style";
   };
 
@@ -19,7 +19,7 @@ in
     stylix = {
       enable = true;
       base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
-      image = ../../assets/noshared/83050349_p0.png;
+      image = ../../../assets/noshared/83050349_p0.png;
       icons = {
         enable = true;
         package = pkgs.papirus-icon-theme;
@@ -49,15 +49,8 @@ in
           name = "Noto Color Emoji";
         };
       };
-
-      targets = {
-        grub.enable = false;
-      };
     };
 
-    catppuccin = {
-      accent = "mauve";
-      flavor = "mocha";
-    };
+    dnix.catppuccin.enable = true;
   };
 }
