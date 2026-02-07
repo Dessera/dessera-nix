@@ -12,6 +12,10 @@
     ../../components/nixos/packages/steam.nix
   ];
 
+  dnix.programs = {
+    nh.enable = true;
+  };
+
   virtualisation = {
     containers.enable = true;
     podman = {

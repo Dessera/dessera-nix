@@ -1,14 +1,11 @@
 {
   imports = [
-    ../../components/hm/stylix.nix
-    ../../components/shared/catppuccin.nix
-
-    ./packages.nix
+    ./programs.nix
   ];
 
-  home = {
-    username = "dessera";
-    homeDirectory = "/home/dessera";
-    stateVersion = "24.05";
+  dnix = {
+    style.enable = true;
   };
+
+  home.stateVersion = "24.05";
 }

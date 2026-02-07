@@ -11,6 +11,12 @@ in
   };
 
   config = mkIf cfg.enable {
-    boot.plymouth.enable = true;
+    boot = {
+      plymouth.enable = true;
+      kernelParams = [
+        "quiet"
+        "splash"
+      ];
+    };
   };
 }

@@ -1,5 +1,10 @@
-pkgs:
-(with pkgs.vscode-marketplace; [
+{
+  vscode-marketplace,
+  vscode-extensions,
+  ...
+}:
+
+(with vscode-marketplace; [
   redhat.java
   vscjava.vscode-java-pack
   vscjava.vscode-java-test
@@ -10,6 +15,6 @@ pkgs:
   mathiasfrohlich.kotlin
   daplf.vscode-java-kotlin
 ])
-++ (with pkgs.vscode-extensions; [
+++ (with vscode-extensions; [
   vscjava.vscode-java-debug
 ])

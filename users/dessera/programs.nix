@@ -4,11 +4,14 @@
   imports = [
     ../../components/hm/desktops/plasma6
 
-    ../../components/hm/packages/vscode
     ../../components/hm/packages/firefox
     ../../components/hm/packages/fish.nix
     ../../components/hm/packages/wine.nix
   ];
+
+  dnix.programs = {
+    vscode.enable = true;
+  };
 
   programs = {
     home-manager.enable = true;

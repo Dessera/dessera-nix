@@ -2,26 +2,25 @@
 
 {
   imports = [
-    ../../components/nixos/settings.nix
-    ../../components/nixos/stylix.nix
-    ../../components/shared/catppuccin.nix
     ../../components/nixos/locale.nix
     ../../components/nixos/fonts.nix
 
-    ./hardware.nix
     ./boot.nix
+    ./desktops.nix
     ./fstab.nix
+    ./hardware.nix
     ./network.nix
+    ./programs.nix
     ./services.nix
-    ./packages.nix
+    ./settings.nix
 
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
   dnix = {
-    desktops.plasma6.enable = true;
-    desktops.sddm.enable = true;
-    programs.nh.enable = true;
+    style.enable = true;
+
+    system.optimize.enable = true;
   };
 
   system.stateVersion = "23.11";

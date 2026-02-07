@@ -1,5 +1,9 @@
-pkgs:
-(with pkgs.vscode-marketplace; [
+{
+  vscode-marketplace,
+  ...
+}:
+
+(with vscode-marketplace; [
   charliermarsh.ruff
   njpwerner.autodocstring
   kevinrose.vsc-python-indent

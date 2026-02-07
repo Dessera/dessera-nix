@@ -15,10 +15,6 @@
       "usb_storage"
       "sd_mod"
     ];
-    kernelParams = [
-      "nowatchdog"
-      "quiet"
-    ];
     kernelPackages = pkgs.linuxPackages_latest;
   };
 }

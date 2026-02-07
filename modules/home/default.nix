@@ -1,1 +1,7 @@
-{ }
+{
+  imports = [
+    ./programs
+
+    ./style.nix
+  ];
+}

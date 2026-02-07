@@ -64,7 +64,15 @@
       };
 
       home-manager.users.${username} = {
-        imports = modules;
+        imports = [
+          {
+            home = {
+              inherit username;
+              homeDirectory = home;
+            };
+          }
+        ]
+        ++ modules;
       };
     };
 }

@@ -5,5 +5,7 @@
     ./programs
     ./services
     ./system
+
+    ./style.nix
   ];
 }
