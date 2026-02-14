@@ -60,5 +60,6 @@
     "chat.editor.fontFamily",
     "chat.editor.fontSize"
   ],
-  "chat.useAgentSkills": true
+  "chat.useAgentSkills": true,
+  "github.copilot.nextEditSuggestions.enabled": true
 }

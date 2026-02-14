@@ -4,7 +4,7 @@
   };
 
   services = {
-    v2raya.enable = true;
+    # v2raya.enable = true;
   };
 
   services.dbus.implementation = "broker";

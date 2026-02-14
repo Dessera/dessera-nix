@@ -10,7 +10,13 @@
       backupFileExtension ? "bkp",
     }:
     let
-      specialArgs = { inherit inputs lib; };
+      specialArgs = {
+        inherit inputs lib;
+        pkgs-master = import inputs.nixpkgs-master {
+          inherit system;
+          config.allowUnfree = true;
+        };
+      };
 
       osEssentials = with inputs; [
         home-manager.nixosModules.home-manager
@@ -40,6 +46,10 @@
             useGlobalPkgs = true;
             useUserPackages = true;
             sharedModules = homeEssentials ++ homeModules;
+
+            extraSpecialArgs = {
+              inherit (specialArgs) pkgs-master;
+            };
           };
         }
       ]

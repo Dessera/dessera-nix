@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  pkgs-master,
   lib,
   ...
 }:
@@ -56,11 +57,9 @@ let
       gruntfuggly.todo-tree
       mkhl.direnv
       smcpeak.default-keys-windows
-
     ]
-    ++ (with pkgs.vscode-extensions; [
+    ++ (with pkgs.vscode-marketplace-release; [
       # AI Agent
-      github.copilot
       github.copilot-chat
     ]);
 
@@ -76,6 +75,7 @@ in
   config = mkIf cfg.enable {
     programs.vscode = {
       enable = true;
+      package = pkgs-master.vscode;
 
       profiles = {
         default = {

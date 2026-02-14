@@ -22,11 +22,6 @@
 
     inetutils
     openssl
-    zulu21
-    winetricks
-    wineWowPackages.waylandFull
-
-    hmcl
 
     gimp
     blockbench
@@ -36,6 +31,10 @@
     libreoffice-fresh
 
     dix
+
+    # Global Utils for Convinience
+    python3
+    nodejs
   ];
 
 }

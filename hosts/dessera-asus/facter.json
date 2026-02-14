@@ -27,7 +27,7 @@
     },
     "bluetooth": [
       {
-        "index": 56,
+        "index": 57,
         "attached_to": 55,
         "class_list": [
           "usb",
@@ -106,7 +106,7 @@
         "module_alias": "usb:v8087p0032d0000dcE0dsc01dp01icE0isc01ip01in00"
       },
       {
-        "index": 60,
+        "index": 61,
         "attached_to": 55,
         "class_list": [
           "usb",
@@ -842,7 +842,7 @@
         "module_alias": "usb:v322Ep202Cd0103dcEFdsc02dp01ic0Eisc01ip00in00"
       },
       {
-        "index": 57,
+        "index": 58,
         "attached_to": 55,
         "class_list": [
           "camera",
@@ -1136,87 +1136,6 @@
     "disk": [
       {
         "index": 52,
-        "attached_to": 44,
-        "class_list": [
-          "disk",
-          "block_device",
-          "nvme"
-        ],
-        "bus_type": {
-          "hex": "0096",
-          "name": "NVME",
-          "value": 150
-        },
-        "slot": {
-          "bus": 0,
-          "number": 0
-        },
-        "base_class": {
-          "hex": "0106",
-          "name": "Mass Storage Device",
-          "value": 262
-        },
-        "sub_class": {
-          "hex": "0000",
-          "name": "Disk",
-          "value": 0
-        },
-        "vendor": {
-          "hex": "2646",
-          "value": 9798
-        },
-        "sub_vendor": {
-          "hex": "2646",
-          "value": 9798
-        },
-        "device": {
-          "hex": "5025",
-          "name": "KINGSTON SNV3S1000G",
-          "value": 20517
-        },
-        "sub_device": {
-          "hex": "5025",
-          "value": 20517
-        },
-        "serial": "50026B7383937F16",
-        "model": "KINGSTON SNV3S1000G",
-        "sysfs_id": "/class/block/nvme0n1",
-        "sysfs_bus_id": "nvme0",
-        "sysfs_device_link": "/devices/pci0000:00/0000:00:0e.0/pci10000:e0/10000:e0:06.0/10000:e1:00.0/nvme/nvme0",
-        "unix_device_names": [
-          "/dev/disk/by-id/nvme-KINGSTON_SNV3S1000G_50026B7383937F16",
-          "/dev/disk/by-id/nvme-KINGSTON_SNV3S1000G_50026B7383937F16_1",
-          "/dev/disk/by-id/nvme-eui.00000000000000000026b7383937f165",
-          "/dev/disk/by-path/pci-0000:00:0e.0-pci-10000:e1:00.0-nvme-1",
-          "/dev/nvme0n1"
-        ],
-        "resources": [
-          {
-            "type": "disk_geo",
-            "cylinders": 953869,
-            "heads": 64,
-            "sectors": 32,
-            "size": "0x0",
-            "geo_type": "logical"
-          },
-          {
-            "type": "size",
-            "unit": "sectors",
-            "value_1": 1953525168,
-            "value_2": 512
-          }
-        ],
-        "driver": "nvme",
-        "driver_module": "nvme",
-        "drivers": [
-          "nvme"
-        ],
-        "driver_modules": [
-          "nvme"
-        ]
-      },
-      {
-        "index": 53,
         "attached_to": 39,
         "class_list": [
           "disk",
@@ -1230,7 +1149,7 @@
         },
         "slot": {
           "bus": 0,
-          "number": 1
+          "number": 0
         },
         "base_class": {
           "hex": "0106",
@@ -1261,15 +1180,15 @@
         },
         "serial": "S64DNL0T895392N",
         "model": "Samsung SSD 980 500GB",
-        "sysfs_id": "/class/block/nvme1n1",
-        "sysfs_bus_id": "nvme1",
-        "sysfs_device_link": "/devices/pci0000:00/0000:00:0e.0/pci10000:e0/10000:e0:1b.0/10000:e2:00.0/nvme/nvme1",
+        "sysfs_id": "/class/block/nvme0n1",
+        "sysfs_bus_id": "nvme0",
+        "sysfs_device_link": "/devices/pci0000:00/0000:00:0e.0/pci10000:e0/10000:e0:1b.0/10000:e2:00.0/nvme/nvme0",
         "unix_device_names": [
           "/dev/disk/by-id/nvme-Samsung_SSD_980_500GB_S64DNL0T895392N",
           "/dev/disk/by-id/nvme-Samsung_SSD_980_500GB_S64DNL0T895392N_1",
           "/dev/disk/by-id/nvme-eui.002538d821a7ae88",
           "/dev/disk/by-path/pci-0000:00:0e.0-pci-10000:e2:00.0-nvme-1",
-          "/dev/nvme1n1"
+          "/dev/nvme0n1"
         ],
         "resources": [
           {
@@ -1284,6 +1203,87 @@
             "type": "size",
             "unit": "sectors",
             "value_1": 976773168,
+            "value_2": 512
+          }
+        ],
+        "driver": "nvme",
+        "driver_module": "nvme",
+        "drivers": [
+          "nvme"
+        ],
+        "driver_modules": [
+          "nvme"
+        ]
+      },
+      {
+        "index": 53,
+        "attached_to": 44,
+        "class_list": [
+          "disk",
+          "block_device",
+          "nvme"
+        ],
+        "bus_type": {
+          "hex": "0096",
+          "name": "NVME",
+          "value": 150
+        },
+        "slot": {
+          "bus": 0,
+          "number": 1
+        },
+        "base_class": {
+          "hex": "0106",
+          "name": "Mass Storage Device",
+          "value": 262
+        },
+        "sub_class": {
+          "hex": "0000",
+          "name": "Disk",
+          "value": 0
+        },
+        "vendor": {
+          "hex": "2646",
+          "value": 9798
+        },
+        "sub_vendor": {
+          "hex": "2646",
+          "value": 9798
+        },
+        "device": {
+          "hex": "5025",
+          "name": "KINGSTON SNV3S1000G",
+          "value": 20517
+        },
+        "sub_device": {
+          "hex": "5025",
+          "value": 20517
+        },
+        "serial": "50026B7383937F16",
+        "model": "KINGSTON SNV3S1000G",
+        "sysfs_id": "/class/block/nvme1n1",
+        "sysfs_bus_id": "nvme1",
+        "sysfs_device_link": "/devices/pci0000:00/0000:00:0e.0/pci10000:e0/10000:e0:06.0/10000:e1:00.0/nvme/nvme1",
+        "unix_device_names": [
+          "/dev/disk/by-id/nvme-KINGSTON_SNV3S1000G_50026B7383937F16",
+          "/dev/disk/by-id/nvme-KINGSTON_SNV3S1000G_50026B7383937F16_1",
+          "/dev/disk/by-id/nvme-eui.00000000000000000026b7383937f165",
+          "/dev/disk/by-path/pci-0000:00:0e.0-pci-10000:e1:00.0-nvme-1",
+          "/dev/nvme1n1"
+        ],
+        "resources": [
+          {
+            "type": "disk_geo",
+            "cylinders": 953869,
+            "heads": 64,
+            "sectors": 32,
+            "size": "0x0",
+            "geo_type": "logical"
+          },
+          {
+            "type": "size",
+            "unit": "sectors",
+            "value_1": 1953525168,
             "value_2": 512
           }
         ],
@@ -1488,7 +1488,7 @@
         },
         "vendor": {
           "hex": "1d6b",
-          "name": "Linux 6.18.7 xhci-hcd",
+          "name": "Linux 6.18.8 xhci-hcd",
           "value": 7531
         },
         "device": {
@@ -1502,7 +1502,7 @@
           "value": 0
         },
         "serial": "0000:00:14.0",
-        "model": "Linux 6.18.7 xhci-hcd xHCI Host Controller",
+        "model": "Linux 6.18.8 xhci-hcd xHCI Host Controller",
         "sysfs_id": "/devices/pci0000:00/0000:00:14.0/usb3/3-0:1.0",
         "sysfs_bus_id": "3-0:1.0",
         "resources": [
@@ -1553,7 +1553,7 @@
         "module_alias": "usb:v1D6Bp0002d0618dc09dsc00dp01ic09isc00ip00in00"
       },
       {
-        "index": 58,
+        "index": 59,
         "attached_to": 46,
         "class_list": [
           "usb",
@@ -1575,7 +1575,7 @@
         },
         "vendor": {
           "hex": "1d6b",
-          "name": "Linux 6.18.7 xhci-hcd",
+          "name": "Linux 6.18.8 xhci-hcd",
           "value": 7531
         },
         "device": {
@@ -1589,7 +1589,7 @@
           "value": 0
         },
         "serial": "0000:00:14.0",
-        "model": "Linux 6.18.7 xhci-hcd xHCI Host Controller",
+        "model": "Linux 6.18.8 xhci-hcd xHCI Host Controller",
         "sysfs_id": "/devices/pci0000:00/0000:00:14.0/usb4/4-0:1.0",
         "sysfs_bus_id": "4-0:1.0",
         "detail": {
@@ -1630,7 +1630,7 @@
         "module_alias": "usb:v1D6Bp0003d0618dc09dsc00dp03ic09isc00ip00in00"
       },
       {
-        "index": 59,
+        "index": 60,
         "attached_to": 22,
         "class_list": [
           "usb",
@@ -1652,7 +1652,7 @@
         },
         "vendor": {
           "hex": "1d6b",
-          "name": "Linux 6.18.7 xhci-hcd",
+          "name": "Linux 6.18.8 xhci-hcd",
           "value": 7531
         },
         "device": {
@@ -1666,7 +1666,7 @@
           "value": 0
         },
         "serial": "0000:00:0d.0",
-        "model": "Linux 6.18.7 xhci-hcd xHCI Host Controller",
+        "model": "Linux 6.18.8 xhci-hcd xHCI Host Controller",
         "sysfs_id": "/devices/pci0000:00/0000:00:0d.0/usb1/1-0:1.0",
         "sysfs_bus_id": "1-0:1.0",
         "resources": [
@@ -1717,7 +1717,7 @@
         "module_alias": "usb:v1D6Bp0002d0618dc09dsc00dp01ic09isc00ip00in00"
       },
       {
-        "index": 61,
+        "index": 62,
         "attached_to": 22,
         "class_list": [
           "usb",
@@ -1739,7 +1739,7 @@
         },
         "vendor": {
           "hex": "1d6b",
-          "name": "Linux 6.18.7 xhci-hcd",
+          "name": "Linux 6.18.8 xhci-hcd",
           "value": 7531
         },
         "device": {
@@ -1753,7 +1753,7 @@
           "value": 0
         },
         "serial": "0000:00:0d.0",
-        "model": "Linux 6.18.7 xhci-hcd xHCI Host Controller",
+        "model": "Linux 6.18.8 xhci-hcd xHCI Host Controller",
         "sysfs_id": "/devices/pci0000:00/0000:00:0d.0/usb2/2-0:1.0",
         "sysfs_bus_id": "2-0:1.0",
         "detail": {
@@ -1823,7 +1823,7 @@
     "monitor": [
       {
         "index": 50,
-        "attached_to": 43,
+        "attached_to": 29,
         "class_list": [
           "monitor"
         ],
@@ -1838,15 +1838,16 @@
           "value": 2
         },
         "vendor": {
-          "hex": "4a8b",
-          "value": 19083
+          "hex": "2163",
+          "value": 8547
         },
         "device": {
-          "hex": "0000",
-          "value": 0
+          "hex": "2723",
+          "name": "G27H7Pro",
+          "value": 10019
         },
-        "serial": "16843009",
-        "model": "LCD Monitor",
+        "serial": "0000000000001",
+        "model": "G27H7Pro",
         "resources": [
           {
             "type": "monitor",
@@ -1857,16 +1858,30 @@
           },
           {
             "type": "monitor",
-            "width": 1600,
-            "height": 900,
+            "width": 1024,
+            "height": 768,
+            "vertical_frequency": 75,
+            "interlaced": false
+          },
+          {
+            "type": "monitor",
+            "width": 1280,
+            "height": 1024,
             "vertical_frequency": 60,
             "interlaced": false
           },
           {
             "type": "monitor",
-            "width": 1920,
-            "height": 1080,
+            "width": 1280,
+            "height": 1024,
             "vertical_frequency": 75,
+            "interlaced": false
+          },
+          {
+            "type": "monitor",
+            "width": 3840,
+            "height": 2160,
+            "vertical_frequency": 60,
             "interlaced": false
           },
           {
@@ -1874,6 +1889,13 @@
             "width": 640,
             "height": 480,
             "vertical_frequency": 60,
+            "interlaced": false
+          },
+          {
+            "type": "monitor",
+            "width": 640,
+            "height": 480,
+            "vertical_frequency": 75,
             "interlaced": false
           },
           {
@@ -1891,72 +1913,79 @@
             "interlaced": false
           },
           {
+            "type": "monitor",
+            "width": 800,
+            "height": 600,
+            "vertical_frequency": 75,
+            "interlaced": false
+          },
+          {
             "type": "size",
             "unit": "mm",
-            "value_1": 350,
-            "value_2": 190
+            "value_1": 600,
+            "value_2": 330
           }
         ],
         "detail": {
-          "manufacture_year": 2022,
-          "manufacture_week": 0,
+          "manufacture_year": 2024,
+          "manufacture_week": 30,
           "vertical_sync": {
             "min": 48,
-            "max": 145
+            "max": 160
           },
           "horizontal_sync": {
-            "min": 15,
-            "max": 170
+            "min": 255,
+            "max": 255
           },
           "horizontal_sync_timings": {
-            "disp": 0,
-            "sync_start": 0,
-            "sync_end": 0,
-            "total": 0
+            "disp": 3840,
+            "sync_start": 4016,
+            "sync_end": 4104,
+            "total": 4400
           },
           "vertical_sync_timings": {
-            "disp": 0,
-            "sync_start": 0,
-            "sync_end": 0,
-            "total": 0
+            "disp": 2160,
+            "sync_start": 2168,
+            "sync_end": 2178,
+            "total": 2250
           },
-          "clock": 285000,
-          "width": 1920,
-          "height": 1080,
-          "width_millimetres": 350,
-          "height_millimetres": 190,
-          "horizontal_flag": 0,
-          "vertical_flag": 0,
+          "clock": 594000,
+          "width": 3840,
+          "height": 2160,
+          "width_millimetres": 600,
+          "height_millimetres": 330,
+          "horizontal_flag": 43,
+          "vertical_flag": 43,
           "vendor": "",
-          "name": ""
+          "name": "G27H7Pro"
         },
         "driver_info": {
           "type": "display",
-          "width": 1920,
-          "height": 1080,
+          "width": 3840,
+          "height": 2160,
           "vertical_sync": {
             "min": 48,
-            "max": 145
+            "max": 160
           },
           "horizontal_sync": {
-            "min": 15,
-            "max": 170
+            "min": 255,
+            "max": 255
           },
           "bandwidth": 0,
           "horizontal_sync_timings": {
-            "disp": 0,
-            "sync_start": 0,
-            "sync_end": 0,
-            "total": 0
+            "disp": 3840,
+            "sync_start": 4016,
+            "sync_end": 4104,
+            "total": 4400
           },
           "vertical_sync_timings": {
-            "disp": 0,
-            "sync_start": 0,
-            "sync_end": 0,
-            "total": 0
+            "disp": 2160,
+            "sync_start": 2168,
+            "sync_end": 2178,
+            "total": 2250
           },
-          "horizontal_flag": 0,
-          "vertical_flag": 0
+          "horizontal_flag": 43,
+          "vertical_flag": 43
         }
       },
       {
@@ -2066,7 +2095,7 @@
     ],
     "mouse": [
       {
-        "index": 65,
+        "index": 66,
         "attached_to": 0,
         "bus_type": {
           "hex": "0081",
@@ -2091,9 +2120,9 @@
           "hex": "307a",
           "value": 12410
         },
-        "sysfs_id": "/devices/pci0000:00/0000:00:15.0/i2c_designware.0/i2c-12/i2c-ELAN1203:00/0018:04F3:307A.0001/input/input13",
+        "sysfs_id": "/devices/pci0000:00/0000:00:15.0/i2c_designware.0/i2c-12/i2c-ELAN1203:00/0018:04F3:307A.0001/input/input17",
         "unix_device_names": [
-          "/dev/input/event11",
+          "/dev/input/event15",
           "/dev/input/ + handler"
         ]
       }
@@ -2355,47 +2384,6 @@
     ],
     "network_interface": [
       {
-        "index": 62,
-        "attached_to": 27,
-        "class_list": [
-          "network_interface"
-        ],
-        "base_class": {
-          "hex": "0107",
-          "name": "Network Interface",
-          "value": 263
-        },
-        "sub_class": {
-          "hex": "0001",
-          "name": "Ethernet",
-          "value": 1
-        },
-        "model": "Ethernet network interface",
-        "sysfs_id": "/class/net/enp46s0",
-        "sysfs_device_link": "/devices/pci0000:00/0000:00:1d.0/0000:2e:00.0",
-        "unix_device_names": [
-          "enp46s0"
-        ],
-        "resources": [
-          {
-            "type": "hwaddr",
-            "address": 102
-          },
-          {
-            "type": "phwaddr",
-            "address": 102
-          }
-        ],
-        "driver": "r8169",
-        "driver_module": "r8169",
-        "drivers": [
-          "r8169"
-        ],
-        "driver_modules": [
-          "r8169"
-        ]
-      },
-      {
         "index": 63,
         "attached_to": 0,
         "class_list": [
@@ -2456,6 +2444,47 @@
         ],
         "driver_modules": [
           "iwlwifi"
+        ]
+      },
+      {
+        "index": 65,
+        "attached_to": 27,
+        "class_list": [
+          "network_interface"
+        ],
+        "base_class": {
+          "hex": "0107",
+          "name": "Network Interface",
+          "value": 263
+        },
+        "sub_class": {
+          "hex": "0001",
+          "name": "Ethernet",
+          "value": 1
+        },
+        "model": "Ethernet network interface",
+        "sysfs_id": "/class/net/enp46s0",
+        "sysfs_device_link": "/devices/pci0000:00/0000:00:1d.0/0000:2e:00.0",
+        "unix_device_names": [
+          "enp46s0"
+        ],
+        "resources": [
+          {
+            "type": "hwaddr",
+            "address": 102
+          },
+          {
+            "type": "phwaddr",
+            "address": 102
+          }
+        ],
+        "driver": "r8169",
+        "driver_module": "r8169",
+        "drivers": [
+          "r8169"
+        ],
+        "driver_modules": [
+          "r8169"
         ]
       }
     ],
@@ -3446,6 +3475,92 @@
     "system": {
       "form_factor": "laptop"
     },
+    "usb": [
+      {
+        "index": 56,
+        "attached_to": 55,
+        "class_list": [
+          "usb",
+          "unknown"
+        ],
+        "bus_type": {
+          "hex": "0086",
+          "name": "USB",
+          "value": 134
+        },
+        "slot": {
+          "bus": 0,
+          "number": 0
+        },
+        "base_class": {
+          "hex": "0000",
+          "name": "Unclassified device",
+          "value": 0
+        },
+        "sub_class": {
+          "hex": "0000",
+          "name": "Unclassified device",
+          "value": 0
+        },
+        "vendor": {
+          "hex": "05e3",
+          "name": "Generic",
+          "value": 1507
+        },
+        "device": {
+          "hex": "0f01",
+          "name": "Billboard Device",
+          "value": 3841
+        },
+        "revision": {
+          "hex": "0000",
+          "name": "1.00",
+          "value": 0
+        },
+        "serial": "0001",
+        "model": "Generic Billboard Device",
+        "sysfs_id": "/devices/pci0000:00/0000:00:14.0/usb3/3-4/3-4:1.0",
+        "sysfs_bus_id": "3-4:1.0",
+        "resources": [
+          {
+            "type": "baud",
+            "speed": 12000000,
+            "bits": 0,
+            "stop_bits": 0,
+            "parity": 0,
+            "handshake": 0
+          }
+        ],
+        "detail": {
+          "device_class": {
+            "hex": "0011",
+            "name": "billboard",
+            "value": 17
+          },
+          "device_subclass": {
+            "hex": "0000",
+            "name": "per_interface",
+            "value": 0
+          },
+          "device_protocol": 0,
+          "interface_class": {
+            "hex": "0011",
+            "name": "billboard",
+            "value": 17
+          },
+          "interface_subclass": {
+            "hex": "0000",
+            "name": "per_interface",
+            "value": 0
+          },
+          "interface_protocol": 0,
+          "interface_number": 0,
+          "interface_alternate_setting": 0
+        },
+        "hotplug": "usb",
+        "module_alias": "usb:v05E3p0F01d0100dc11dsc00dp00ic11isc00ip00in00"
+      }
+    ],
     "usb_controller": [
       {
         "index": 22,

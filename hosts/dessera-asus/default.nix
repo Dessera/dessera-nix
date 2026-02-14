@@ -23,7 +23,12 @@
   time.timeZone = "Asia/Shanghai";
   i18n.defaultLocale = "zh_CN.UTF-8";
 
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+
+    # prevent external display screen issue
+    KWIN_DRM_DEVICES = "/dev/dri/card0:/dev/dri/card1";
+  };
 
   system.stateVersion = "23.11";
 }
